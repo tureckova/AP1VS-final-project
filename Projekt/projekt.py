@@ -1,7 +1,10 @@
 """Basic converter from decimal numeral system."""
 
+# Ask the user from which numeral system to which
+# numeral system they want the number to be converted.
 dest_base = int(input("Zadej číslem číselnou soustavu, "
                       "do které chceš číslo převést: "))
+# Ask user what the number they want to convert is.
 num = int(input(f"Zadej číslo v desítkové soustavě,"
                 f"které chceš převést do {dest_base} soustavy: "))
 num_copy = num
