@@ -43,26 +43,27 @@ def to_destination_base(destination_base, dec_num):
     """Convert number from decimal numeral system to number in dest_base."""
     mod_list = []
 
-    # Convert decimal number to the number with destination base
-    # with the usage of modulo function.
-    while dec_num > 0:
-        mod_list.append(dec_num % destination_base)
-        dec_num //= destination_base
+    # Unary numeral system is kinda unique so that´s why
+    # it has different approach
+    if destination_base == 1:
+        mod_list = [1] * dec_num
+        
+    else:
+        # Convert decimal number to the number in destination base
+        # with the usage of modulo function.
+        while dec_num > 0:
+            mod_list.append(dec_num % destination_base)
+            dec_num //= destination_base
 
-    # If the numeral system is bigger than unary system and lower
-    # than decimal numeral system no letters are needed to be used.
-    if 0 < destination_base <= 10:
-        mod_list = [str(i) for i in mod_list]
+        # If the numeral system is bigger than decimal system and lower
+        # than heptatridecimal numeral system, than we might need to use
+        # letters from the latin alphabet.
+        if 10 < dest_base < 37:
+            for i in range(0, len(mod_list)):
+                if mod_list[i] > 9:
+                    mod_list[i] = letters_dict[mod_list[i]]
 
-    # If the numeral system is bigger than decimal system and lower
-    # than heptatridecimal numeral system, than we need to use
-    # letters from the latin alphabet.
-    elif 10 < dest_base < 37:
-        for i in range(0, len(mod_list)):
-            if mod_list[i] > 9:
-                mod_list[i] = letters_dict[mod_list[i]]
-        mod_list = [str(i) for i in mod_list]
-
+    mod_list = [str(i) for i in mod_list]
     mod_list.reverse()
     return mod_list
 
@@ -79,12 +80,14 @@ def convert(source_base, destination_base, number):
 
         else:
             # Convert number with letters in it to list of digits
-            dig_with_lett = [i for i in number]
-            for i in range(len(dig_with_lett)):
-                if not dig_with_lett[i].isdecimal():
-                    dig_with_lett[i] = keys[values.index(dig_with_lett[i])]
+            num_with_lett = [i for i in number]
+            for i in range(len(num_with_lett)):
+                # If the item on current index is not a digit from 0 - 10, 
+                # use the appropriate number from letters_dict
+                if not num_with_lett[i].isdecimal():
+                    num_with_lett[i] = keys[values.index(num_with_lett[i])]
 
-            digits = [int(i) for i in dig_with_lett]
+            digits = [int(i) for i in num_with_lett]
             digits.reverse()
             dec_num = to_decimal(source_base, 0, digits)
     else:
@@ -109,11 +112,11 @@ if 0 < dest_base < 37 and 0 < src_base < 37:
     # what the number they want to convert is.
     num = input(f"Zadej číslo které chceš převést z {src_base} soustavy "
                 f"do {dest_base} soustavy: ")
-    num_copy = num
+    original_number = num
 
     result = convert(src_base, dest_base, num)
     print()
-    print(f"Vámi zadané číslo {num_copy} z {src_base} "
+    print(f"Vámi zadané číslo {original_number} z {src_base} "
           f"soustavy se v {dest_base} soustavě zapisuje jako {result}.")
 else:
     print()
