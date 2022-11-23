@@ -1,5 +1,3 @@
-from typing import List
-
 """Basic Converter that can convert between different numeral systems.
 
 This converter can convert numbers from unary numeral system
@@ -9,6 +7,7 @@ Other numeral systems are basically useless because there is no
 usage for them and there is not enough letters in
 the latin alphabet for them to use.
 """
+from typing import List
 
 # Create a dictionary of the latin alphabet for numeral systems
 # that have the base bigger than 10 -> 10: 'A', 11: 'B', .....,  35: 'Z'
@@ -19,7 +18,7 @@ letters_dict = dict(zip(keys, values))
 
 def to_digits(number: int):
     """Convert number to a list of digits of the number."""
-    digits = []
+    digits: List[int] = []
 
     while number > 0:
         digits.append(number % 10)
@@ -31,7 +30,7 @@ def to_digits(number: int):
 
 def to_decimal(source_base: int, number: int, digits: List[int]):
     """Covert number from source_base to the number in decimal system."""
-    decimal_number = 0
+    decimal_number: int = 0
 
     if not digits:
         digits = to_digits(number)
@@ -51,7 +50,7 @@ def to_destination_base(destination_base: int, dec_num: int):
     # it has different approach
     if destination_base == 1:
         mod_list = [1] * dec_num
-        
+
     else:
         # Convert decimal number to the number in destination base
         # with the usage of modulo function.
@@ -86,7 +85,7 @@ def convert(source_base: int, destination_base: int, number: str) -> List[str]:
             # Convert number with letters in it to list of digits
             num_with_lett = [i for i in number]
             for i in range(len(num_with_lett)):
-                # If the item on current index is not a digit from 0 - 10, 
+                # If the item on current index is not a digit from 0 - 10,
                 # use the appropriate number from letters_dict
                 if not num_with_lett[i].isdecimal():
                     num_with_lett[i] = keys[values.index(num_with_lett[i])]
@@ -100,13 +99,16 @@ def convert(source_base: int, destination_base: int, number: str) -> List[str]:
     res = "".join(res)
     return res
 
+
 def main():
+    """Put the whole thing into main function so pytest works as intended."""
     # Ask the user from which numeral system to which
     # numeral system they want the number to be converted.
     src_base = int(input("Zadej číslem číselnou soustavu, "
-                        "ze které chceš číslo převést: "))
+                         "ze které chceš číslo převést: "))
+
     dest_base = int(input("Zadej číslem číselnou soustavu, "
-                        "do které chceš číslo převést: "))
+                          "do které chceš číslo převést: "))
 
     # This Converter can only covert numbers if the destination base and
     # source base is higher than 0 or lower than 37.
@@ -116,16 +118,18 @@ def main():
         num = input(f"Zadej číslo které chceš převést z {src_base} soustavy "
                     f"do {dest_base} soustavy: ")
         original_number = num
-
-        result = convert(src_base, dest_base, num)
+        if num == "0":
+            result = 0
+        else:
+            result = convert(src_base, dest_base, num)
         print()
         print(f"Vámi zadané číslo {original_number} z {src_base} "
-            f"soustavy se v {dest_base} soustavě zapisuje jako {result}.")
+              f"soustavy se v {dest_base} soustavě zapisuje jako {result}.")
     else:
         print()
         print("Převodce soustav nedokáže číslo převést mezi "
-            "Vámi zadanými soustavami, prosím zkuste to "
-            "znovu s jinými soustavami.")
+              "Vámi zadanými soustavami, prosím zkuste to "
+              "znovu s jinými soustavami.")
 
 
 if __name__ == "__main__":
