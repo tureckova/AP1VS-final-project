@@ -1,6 +1,5 @@
-# from sys import path
-# path.append("C:/Users/marti/Plocha/FAI UTB/První ročník/Zimní Semestr/Nástroje pro vývoj softwarových projektů/Projekt/AP1VS-final-project/Projekt/")
 from ciselne_soustavy import *
+import pytest
 
 def test_to_digits():
     assert to_digits(5) == [5]
@@ -21,6 +20,7 @@ def test_to_decimal():
     assert to_decimal(20, 134, []) == 464
     assert to_decimal(17, 1198, []) == 5363
 
+
 def test_to_dest_base():
     assert to_destination_base(2, 12) == ["1", "1", "0", "0"]
     assert to_destination_base(16, 58) == ["3", "A"]
@@ -28,7 +28,6 @@ def test_to_dest_base():
     assert to_destination_base(2, 78) == ["1", "0", "0", "1", "1", "1", "0"]
     assert to_destination_base(8, 78) == ["1", "1", "6"]
     assert to_destination_base(16, 78) == ["4", "E"]
-
 
 
 def test_convert():

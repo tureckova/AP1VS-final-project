@@ -100,29 +100,33 @@ def convert(source_base: int, destination_base: int, number: str) -> List[str]:
     res = "".join(res)
     return res
 
+def main():
+    # Ask the user from which numeral system to which
+    # numeral system they want the number to be converted.
+    src_base = int(input("Zadej číslem číselnou soustavu, "
+                        "ze které chceš číslo převést: "))
+    dest_base = int(input("Zadej číslem číselnou soustavu, "
+                        "do které chceš číslo převést: "))
 
-# Ask the user from which numeral system to which
-# numeral system they want the number to be converted.
-src_base = int(input("Zadej číslem číselnou soustavu, "
-                     "ze které chceš číslo převést: "))
-dest_base = int(input("Zadej číslem číselnou soustavu, "
-                      "do které chceš číslo převést: "))
+    # This Converter can only covert numbers if the destination base and
+    # source base is higher than 0 or lower than 37.
+    if 0 < dest_base < 37 and 0 < src_base < 37:
+        # If the condition of the source and destination base is met, ask user
+        # what the number they want to convert is.
+        num = input(f"Zadej číslo které chceš převést z {src_base} soustavy "
+                    f"do {dest_base} soustavy: ")
+        original_number = num
 
-# This Converter can only covert numbers if the destination base and
-# source base is higher than 0 or lower than 37.
-if 0 < dest_base < 37 and 0 < src_base < 37:
-    # If the condition of the source and destination base is met, ask user
-    # what the number they want to convert is.
-    num = input(f"Zadej číslo které chceš převést z {src_base} soustavy "
-                f"do {dest_base} soustavy: ")
-    original_number = num
+        result = convert(src_base, dest_base, num)
+        print()
+        print(f"Vámi zadané číslo {original_number} z {src_base} "
+            f"soustavy se v {dest_base} soustavě zapisuje jako {result}.")
+    else:
+        print()
+        print("Převodce soustav nedokáže číslo převést mezi "
+            "Vámi zadanými soustavami, prosím zkuste to "
+            "znovu s jinými soustavami.")
 
-    result = convert(src_base, dest_base, num)
-    print()
-    print(f"Vámi zadané číslo {original_number} z {src_base} "
-          f"soustavy se v {dest_base} soustavě zapisuje jako {result}.")
-else:
-    print()
-    print("Převodce soustav nedokáže číslo převést mezi "
-          "Vámi zadanými soustavami, prosím zkuste to "
-          "znovu s jinými soustavami.")
+
+if __name__ == "__main__":
+    main()
