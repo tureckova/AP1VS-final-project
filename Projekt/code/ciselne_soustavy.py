@@ -1,6 +1,6 @@
 """Basic Converter that can convert between different numeral systems.
 
-This converter can convert numbers from unary numeral system
+This converter can convert numbers starting from unary numeral system
 and ending at the hexatridecimal numeral system.
 
 Other numeral systems are basically useless because there is no
@@ -17,7 +17,11 @@ letters_dict: Dict[int, str] = dict(zip(keys, values))
 
 
 def to_digits(number: int) -> List[int]:
-    """Convert decimal number to a list of digits of the number."""
+    """Convert decimal number to a list of digits of the number.
+
+    :param number: Number we want to convert into digits.
+    :return: List of digits of the number.
+    """
     digits: List[int] = []
 
     while number > 0:
@@ -29,7 +33,14 @@ def to_digits(number: int) -> List[int]:
 
 
 def to_decimal(source_base: int, number: int, digits: List[int]) -> int:
-    """Convert number from source_base to the number in decimal system."""
+    """Convert number from source_base to the number in decimal system.
+
+    :param source_base: The source base we want the number to be
+                        converted from.
+    :param number: Number we want to convert to decimal number.
+    :param digits: List of digits.
+    :return: Decimal number.
+    """
     decimal_number: int = 0
 
     if not digits:
@@ -43,7 +54,13 @@ def to_decimal(source_base: int, number: int, digits: List[int]) -> int:
 
 
 def to_destination_base(destination_base: int, dec_num: int) -> List[str]:
-    """Convert number from decimal numeral system to number in dest_base."""
+    """Convert number from decimal numeral system to number in dest_base.
+
+    :param destination_base: Base where we want the number to be converted to.
+    :param dec_num: Number we want to convert to the destination_base.
+    :return: List of strings (The number in higher bases
+             can containt letters).
+    """
     mod_list = []
 
     # Unary numeral system is kinda unique so that´s why
@@ -72,7 +89,15 @@ def to_destination_base(destination_base: int, dec_num: int) -> List[str]:
 
 
 def convert(source_base: int, destination_base: int, number: str) -> str:
-    """Convert number from src_base to dest_base by using other functions."""
+    """Convert number from src_base to dest_base by using other functions.
+
+    :param source_base: The base we want the number to be converted from.
+    :param destination_base: The base we want the number to be converted to.
+    :param number: Number in the source base we want to convert
+                   to the destination_base.
+    :return: String type number because some numbers in higher bases
+             can contain letters.
+    """
     # If the source base is not equal to the decimal numeral system,
     # we have to convert the number from source base
     # to the decimal numeral system first.
