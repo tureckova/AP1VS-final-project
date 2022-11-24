@@ -21,6 +21,9 @@ def to_digits(number: int) -> List[int]:
 
     :param number: Number we want to convert into digits.
     :return: List of digits of the number.
+
+     >>> to_digits(1234)
+     [1, 2, 3, 4]
     """
     digits: List[int] = []
 
@@ -40,6 +43,9 @@ def to_decimal(source_base: int, number: int, digits: List[int]) -> int:
     :param number: Number we want to convert to decimal number.
     :param digits: List of digits.
     :return: Decimal number.
+
+     >>> to_decimal(2, 101, [])
+     5
     """
     decimal_number: int = 0
 
@@ -60,6 +66,9 @@ def to_destination_base(destination_base: int, dec_num: int) -> List[str]:
     :param dec_num: Number we want to convert to the destination_base.
     :return: List of strings (The number in higher bases
              can containt letters).
+
+    >>> to_destination_base(16, 4156)
+    ["1", "0", "3", "C"]
     """
     mod_list = []
 
@@ -97,6 +106,9 @@ def convert(source_base: int, destination_base: int, number: str) -> str:
                    to the destination_base.
     :return: String type number because some numbers in higher bases
              can contain letters.
+
+     >>> convert(10, 16, 1000)
+     "RS"
     """
     # If the source base is not equal to the decimal numeral system,
     # we have to convert the number from source base
