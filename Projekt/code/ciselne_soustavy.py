@@ -22,8 +22,8 @@ def to_digits(number: int) -> List[int]:
     :param number: Number we want to convert into digits.
     :return: List of digits of the number.
 
-     >>> to_digits(1234)
-     [1, 2, 3, 4]
+    >>> to_digits(1234)
+    [1, 2, 3, 4]
     """
     digits: List[int] = []
 
@@ -44,8 +44,8 @@ def to_decimal(source_base: int, number: int, digits: List[int]) -> int:
     :param digits: List of digits.
     :return: Decimal number.
 
-     >>> to_decimal(2, 101, [])
-     5
+    >>> to_decimal(2, 101, [])
+    5
     """
     decimal_number: int = 0
 
@@ -107,8 +107,8 @@ def convert(source_base: int, destination_base: int, number: str) -> str:
     :return: String type number because some numbers in higher bases
              can contain letters.
 
-     >>> convert(10, 36, 1000)
-     'RS'
+    >>> convert(10, 36, 1000)
+    'RS'
     """
     # If the source base is not equal to the decimal numeral system,
     # we have to convert the number from source base
@@ -117,20 +117,26 @@ def convert(source_base: int, destination_base: int, number: str) -> str:
         # Check if the number user inputted cointains only numbers
         if number.isdecimal():
             dec_num: int = to_decimal(source_base, int(number), [])
+            if dec_num < 0:
+                return
 
         else:
             # Convert number with letters in it to list of digits
             num_with_lett: List[str] = [i for i in number]
             for i in range(len(num_with_lett)):
-                # If the item on current index is not a digit from 0 - 10,
+                # If the item on current index is not a digit from 0 - 9,
                 # use the appropriate number from letters_dict
                 if not num_with_lett[i].isdecimal():
                     num_with_lett[i] = keys[values.index(num_with_lett[i])]
 
             digits: List[int] = [int(i) for i in num_with_lett]
             dec_num = to_decimal(source_base, 0, digits)
+            if dec_num < 0:
+                return
     else:
         dec_num: int = int(number)
+        if dec_num < 0:
+            return
 
     res: List[str] = to_destination_base(destination_base, dec_num)
     res = "".join(res)
@@ -153,13 +159,20 @@ def main():
         # If the condition of the source and destination base is met, ask user
         # what the number they want to convert is.
         num: str = input(f"Zadej číslo které chceš převést z {src_base}"
-                         f"soustavy do {dest_base} soustavy: ")
+                         f" soustavy do {dest_base} soustavy: ")
         original_number: str = num
 
         if num == "0":
             result = 0
         else:
             result: str = convert(src_base, dest_base, num)
+
+        # When the number user inputted is negative, the result is None 
+        # and the converter will not convert the number
+        if result is None:
+            print()
+            print("Převodce dokáže převést pouze kladné číslo!!")
+            return
 
         print()
         print(f"Vámi zadané číslo {original_number} z {src_base} "
