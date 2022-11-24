@@ -107,7 +107,7 @@ def convert(source_base: int, destination_base: int, number: str) -> str:
     :return: String type number because some numbers in higher bases
              can contain letters.
 
-     >>> convert(10, 16, 1000)
+     >>> convert(10, 36, 1000)
      "RS"
     """
     # If the source base is not equal to the decimal numeral system,
