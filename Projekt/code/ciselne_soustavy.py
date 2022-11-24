@@ -167,7 +167,7 @@ def main():
         else:
             result: str = convert(src_base, dest_base, num)
 
-        # When the number user inputted is negative, the result is None 
+        # When the number user inputted is negative, the result is None
         # and the converter will not convert the number
         if result is None:
             print()
