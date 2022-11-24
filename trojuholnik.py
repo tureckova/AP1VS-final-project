@@ -1,7 +1,7 @@
 import tkinter
 import math
-kanvas = tkinter.Canvas(height=700, width=700)
-kanvas.pack()
+canvas = tkinter.Canvas(height=700, width=700)
+canvas.pack()
 
 def trojuhelnik():
     """
@@ -58,31 +58,36 @@ def vypocty():
     global obvod
     obvod = strana_A+strana_B+strana_C
     obvod = round(obvod,2)
+    print("Obvod Trojúhelníka je:",obvod,"cm")
 
     s = (obvod)/2
 
     global obsah
     obsah = ((s*(s-strana_A)*(s-strana_B)*(s-strana_C))**0.5)
-    obsah = round(obsah,2) 
+    obsah = round(obsah,2)
+    print("Obsah Trojúhelníka je:",obsah,"cm²")
 
     if strana_A+strana_B>strana_C and strana_B+strana_C>strana_A and strana_A+strana_C>strana_B:
-        print("Trojúhelník lze narýsovat")
+        print("Trojúhelník lze narýsovat.")
         print("Délka strany A:",strana_A,"\nDélka strany B:",strana_B,"\nDélka strany C:",strana_C)
     else:
-        print("Trojúhelník nelze narýsovat")
+        print("Trojúhelník nelze narýsovat.")
 
-    strana_A_pravouhly= math.acos(((strana_A**2)+(strana_B**2)-(strana_C**2)))
+    #strana_A_pravouhly= math.acos(((strana_A**2)+(strana_B**2)-(strana_C**2)))
 
     
         
 def kresba():
-    kanvas.create_line(a_x,a_y,b_x,b_y,c_x,c_y,a_x,a_y,fill="blue",width=5)
-    kanvas.create_text(50,650,fill="darkblue",font="Times 10",text=("Délka strany A:",strana_A),anchor="w")
-    kanvas.create_text(50,665,fill="darkblue",font="Times 10",text=("Délka strany B:",strana_B),anchor="w")
-    kanvas.create_text(50,680,fill="darkblue",font="Times 10",text=("Délka strany C:",strana_C),anchor="w")
+    
+    canvas.create_line(a_x,a_y,b_x,b_y,c_x,c_y,a_x,a_y,fill="blue",width=5)
+    canvas.create_text(50,620,fill="darkblue",font="Times 10",text=("Obvod Trojúhelníka je:",obvod,"cm"),anchor="w")
+    canvas.create_text(50,635,fill="darkblue",font="Times 10",text=("Obsah Trojúhelníka je:",obsah,"cm²"),anchor="w")
+    canvas.create_text(50,650,fill="darkblue",font="Times 10",text=("Délka strany A:",strana_A),anchor="w")
+    canvas.create_text(50,665,fill="darkblue",font="Times 10",text=("Délka strany B:",strana_B),anchor="w")
+    canvas.create_text(50,680,fill="darkblue",font="Times 10",text=("Délka strany C:",strana_C),anchor="w")
 
 trojuhelnik()
 vypocty()
 kresba()
 
-kanvas.mainloop()
+canvas.mainloop()
