@@ -68,7 +68,7 @@ def to_destination_base(destination_base: int, dec_num: int) -> List[str]:
              can containt letters).
 
     >>> to_destination_base(16, 4156)
-    ["1", "0", "3", "C"]
+    ['1', '0', '3', 'C']
     """
     mod_list = []
 
@@ -108,7 +108,7 @@ def convert(source_base: int, destination_base: int, number: str) -> str:
              can contain letters.
 
      >>> convert(10, 36, 1000)
-     "RS"
+     'RS'
     """
     # If the source base is not equal to the decimal numeral system,
     # we have to convert the number from source base
