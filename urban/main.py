@@ -3,6 +3,7 @@ import hashlib
 """
 A command-line utility for viewing cryptographic translations of user defined passwords.
 """
+
 def EncryptPassword(passwd, type):
     match type:
         case "md5":
@@ -47,7 +48,8 @@ def ChooseAlgorithm():
             typeos = ''
 
     return typeos
-
+def get_input(text):
+    return input(text)
 
 def Intro():
     """Prints the welcome string."""
