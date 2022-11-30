@@ -12,6 +12,6 @@ def test_primeNumber():
         primeNumber("5")
     with pytest.raises(ValueError):
         primeNumber(2.0)
-        primeNumber(2.55.55)        
+        primeNumber(2.55,5)        
         primeNumber(-2.1)
         primeNumber(2,5)

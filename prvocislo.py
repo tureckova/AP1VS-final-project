@@ -14,12 +14,12 @@ def primeNumber(x):
     >>> primeNuber(True)
     Traceback (most recent call last):
     ...
-    TypeError: Must be number
+    TypeError: Must be natural number
     
     >>> primeNuber("5")
     Traceback (most recent call last):
     ...
-    TypeError: Must be number
+    TypeError: Must be natural number
     
     >>> primeNumber(2.0)
     Traceback (most recent call last):
@@ -31,7 +31,7 @@ def primeNumber(x):
     ...
     ValueError: Must be natural number
 
-    >>> primeNumber(2.55.55) 
+    >>> primeNumber(2.55,5) 
     Traceback (most recent call last):
     ...
     ValueError: Must be natural number
