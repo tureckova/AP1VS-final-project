@@ -16,7 +16,7 @@ Tento repozitář slouží jako podklad a vzor pro závěrečný projekt z před
 
 
 ## Postup
-test - jej
+test - jéj
 
 1. Vytvořte si účet na github.com pokud nemáte (všichni členové týmu).
 2. Nastavte si přístup na GitHub z vašeho počítače, použijte a credential helper jako je [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) nebo si vygenerujte osobní přístupový token: [a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). Případně můžete commity provádět přes web GitHubu (což je ale hodně neprogramátorská varianta :wink:).
