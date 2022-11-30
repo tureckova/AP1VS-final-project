@@ -21,9 +21,9 @@ Tento repozitář slouží jako podklad a vzor pro závěrečný projekt z před
 2. Jeden z řešitelů udělá Fork projektu a upraví nastavení (Settings nahoře v liště ) projektu, ostatní členové projektu se budou účastnit jako přispěvatelé (Contributors) do projektu hlavního řešitele.
     1. Fork projektu:
         * Použijte tlačítko Fork na https://github.com/tureckova/AP1VS-final-project
-    2. Nastavení repozitáře v Settings:
-        * V sekci Actions -> General je nutné vybrat permissions Allow all actions and reusable workflows
-        * V sekci Pages je nutné nastavit Build and Deployment Source na Github Actions.
+    2. Nastavení repozitáře v Settings: HOTOVO
+        * V sekci Actions -> General je nutné vybrat permissions Allow all actions and reusable workflows HOTOVO
+        * V sekci Pages je nutné nastavit Build and Deployment Source na Github Actions. HOTOVO
         
 3. Naklonujte si svůj repozitář a nastavte si upstream (toto provedou všichni uživatelé, neboť každý uživatel musí provést alespoň jeden commit):
 
