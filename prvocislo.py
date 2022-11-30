@@ -14,10 +14,16 @@ def test_number(x):
         print(x, "Not a prime number")
     else:   
         print(x, "Prime number")
-            
-
+def odpoved():   
+    while True:
+        answer=input("One time next time?: y/n ")
+        if answer=="y":
+            test_number(x = int(input("Enter a number: ")))
+        else:
+            print("End of aplication") 
+            break
 
 test_number(number())
-
+odpoved()
 
 
