@@ -43,7 +43,7 @@ def convert_num_to_rn(number_input):
         elif number_input >= rn_maps_to[i] - decreaser:
 
             number_input -= rn_maps_to[i] - decreaser
-            rn_result += RNChars[decreaser_index] + rn_chars[i]
+            rn_result += rn_chars[decreaser_index] + rn_chars[i]
 
         else:
             i = i + 1
