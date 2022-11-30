@@ -10,6 +10,7 @@ rn_chars = ["M", "D", "C", "L", "X", "V", "I"]
 rn_maps_to = [1000, 500, 100, 50, 10, 5, 1]
 
 rxRN = re.compile("^[IVXLCDM]+$")
+rxNO = re.compile("^[1234567890]+$")
 
 
 def compute(x):
@@ -99,7 +100,10 @@ def convert_rn_to_num(rn_input):
 
 if __name__ == '__main__':
     input = input("hodnota: ")
-    print(rxRN.match(input)!=None)
     if rxRN.match(input)!=None:
         print(convert_rn_to_num(input))
+
+    if rxNO.match(input)!=None:
+        print(convert_num_to_rn(int(input)))
+
 
