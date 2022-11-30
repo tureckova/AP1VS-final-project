@@ -10,5 +10,4 @@ Tento repozitár slúži pre záverečný projekt z predmetu AP1VS na tému Čí
 * Martin Koňařík m1_konarik@utb.cz
 * Erik Horváth e_horvath@utb.cz
 
-##
 Vytvorené v roku 2022 pre účely predmetu AP1VS
