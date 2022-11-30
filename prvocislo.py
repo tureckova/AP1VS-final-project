@@ -1,11 +1,8 @@
-def number():
-    x = int(input("Enter a number: "))
-    while x <= 0:
-        x = int(input("Enter a number: "))
-    return x
-
-def test_number(x):
+def primeNumber(x):
     y = 0
+    if x <=0:
+        print("Not valid input, please enter natural number")
+        return
     for i in range(2,x):
         if (x%i)==0:
             y = 1
@@ -16,14 +13,14 @@ def test_number(x):
         print(x, "Prime number")
 def odpoved():   
     while True:
-        answer=input("One time next time?: y/n ")
+        answer=input("Enter another number?: y/n ")
         if answer=="y":
-            test_number(x = int(input("Enter a number: ")))
+            primeNumber(x = int(input("Enter a number: ")))
         else:
             print("End of aplication") 
             break
 
-test_number(number())
+primeNumber(x = int(input("Enter a number: ")))
 odpoved()
 
 
