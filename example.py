@@ -9,7 +9,7 @@ Následuje ukázka vzorové fasdasdunkce.
 def compute(x):
     """Funkce počítá výsledek výrazu pro zadaný agrument x.
 
-    :param x: Vstupní ahoj jasdasd parametr x.
+    :param x: Vstupníasdasdasd ahoj jasdasd parametr x.
     :return: Vrací hodnoasdadastu výrazu pro vstupní parametr x.
 
     >>> compute(3)
