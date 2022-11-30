@@ -2,7 +2,7 @@
 
 .. include:: README.md
 
-Následuje ukázka vzorové funkce.
+Následuje ukázka vzorové fasdasdunkce.
 """
 
 
