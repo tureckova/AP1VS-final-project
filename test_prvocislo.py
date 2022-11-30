@@ -15,6 +15,7 @@ def test_primeNumber():
         primeNumber(2.0)       
         primeNumber(-2.1)
         primeNumber(2,5)
+        primeNumber(5-2)
 
 def test_odpoved():
     """test answer values values"""
@@ -22,9 +23,3 @@ def test_odpoved():
     assert primeNumber("n" or "N") == "End of application"
     assert primeNumber("X") == "Choose y or n"
     
-    with pytest.raises(TypeError):
-        primeNumber(True)
-    with pytest.raises(ValueError):
-        primeNumber(2)       
-        primeNumber(-2.1)
-        primeNumber(5j+2)

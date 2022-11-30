@@ -35,6 +35,11 @@ def primeNumber(x):
     Traceback (most recent call last):
     ...
     ValueError: Must be natural number
+
+    >>> primeNumber(5-2) 
+    Traceback (most recent call last):
+    ...
+    ValueError: Must be natural number
     """
     y = 0
     if x <=0 or x==1:
