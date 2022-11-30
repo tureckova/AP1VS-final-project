@@ -31,12 +31,7 @@ def primeNumber(x):
     ...
     ValueError: Must be natural number
 
-    >>> primeNumber(2.55,5) 
-    Traceback (most recent call last):
-    ...
-    ValueError: Must be natural number
-
-    primeNumber(2,5) 
+    >>> primeNumber(2,5) 
     Traceback (most recent call last):
     ...
     ValueError: Must be natural number
