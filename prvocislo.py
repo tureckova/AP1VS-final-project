@@ -1,13 +1,21 @@
-def primeNumber(x):
+def number():
+    x = int(input("Enter a number: "))
+    while x <= 0:
+        x = int(input("Enter a number: "))
+    return x
+
+def test_number(x):
     y = 0
     for i in range(2,x):
         if (x%i)==0:
             y = 1
             break
     if y == 1:
-        print(x, "nie je prvocislo")
-    else:
-        print(x, "je prvocislo")
+        print(x, "Not a prime number")
+    else:   
+        print(x, "Prime number")
+            
 
-primeNumber(x=int(input("Zadaj cislo: ")))
+
+test_number(number())
 
