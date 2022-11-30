@@ -50,6 +50,56 @@ def convert_num_to_rn(number_input):
 
     return rn_result
 
+def convert_rn_to_num(rn_input, number_result, invalid):
+
+    i = 0
+    number_result = ""
+
+    while (i < len(rn_maps_to)):
+
+        decreaser_char_index = 0
+        decreaser_char = ""
+
+        if (i < len(rn_maps_to) - 1):
+                        
+            decreaser_index = i + (2 if i % 2 == 0 else 1)
+            decreaser_char = rn_chars[decreaser_char_index]
+                        
+
+        if (len(rn_input) < 1): 
+            break
+
+        firstChar = str(rn_input[0])
+        secondChar = ""
+
+        if(len(rn_input) > 1):
+            secondChar = str(rn_input[1])
+
+
+        if (firstChar == rn_chars[i]):
+                        
+            rn_input = rn_input.Substring(1)
+            numberResult = numberResult + rn_maps_to[i]
+                        
+        elif(firstChar == decreaser_char and secondChar == rn_chars[i]):
+            rn_input = rn_input.Substring(2)
+            numberResult = numberResult + rn_maps_to[i] - rn_maps_to[decreaser_char_index]
+                        
+        elif(i < Array.IndexOf(rn_chars, firstChar)):
+            i = i + 1
+        """
+        else:              
+            invalid = true
+            Console.Clear()
+            Console.WriteLine("This is not a valid ROMAN NUMERAL.")
+            Console.WriteLine("Press any key to terminate.")
+            Console.ReadKey()
+            return
+        """
+                        
+                    
+    return number_result 
+
 if __name__ == '__main__':
 
     num = int(input('Insert a number:'))
