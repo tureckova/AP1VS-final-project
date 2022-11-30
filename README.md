@@ -19,8 +19,8 @@ Tento repozitář slouží jako podklad a vzor pro závěrečný projekt z před
 1. Vytvořte si účet na github.com pokud nemáte (všichni členové týmu).
 2. Nastavte si přístup na GitHub z vašeho počítače, použijte a credential helper jako je [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) nebo si vygenerujte osobní přístupový token: [a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). Případně můžete commity provádět přes web GitHubu (což je ale hodně neprogramátorská varianta :wink:).
 2. Jeden z řešitelů udělá Fork projektu a upraví nastavení (Settings nahoře v liště ) projektu, ostatní členové projektu se budou účastnit jako přispěvatelé (Contributors) do projektu hlavního řešitele.
-    1. Fork projektu:
-        * Použijte tlačítko Fork na https://github.com/tureckova/AP1VS-final-project
+    1. Fork projektu: HOTOVO
+        * Použijte tlačítko Fork na https://github.com/tureckova/AP1VS-final-project HOTOVO
     2. Nastavení repozitáře v Settings: HOTOVO
         * V sekci Actions -> General je nutné vybrat permissions Allow all actions and reusable workflows HOTOVO
         * V sekci Pages je nutné nastavit Build and Deployment Source na Github Actions. HOTOVO
