@@ -1,4 +1,5 @@
 from prvocislo import primeNumber
+from prvocislo import odpoved
 import pytest
 
 def test_primeNumber():
@@ -14,3 +15,16 @@ def test_primeNumber():
         primeNumber(2.0)       
         primeNumber(-2.1)
         primeNumber(2,5)
+
+def test_odpoved():
+    """test answer values values"""
+    assert primeNumber("y" or "Y") == "Enter a number: "
+    assert primeNumber("n" or "N") == "End of application"
+    assert primeNumber("X") == "Choose y or n"
+    
+    with pytest.raises(TypeError):
+        primeNumber(True)
+    with pytest.raises(ValueError):
+        primeNumber(2)       
+        primeNumber(-2.1)
+        primeNumber(5j+2)

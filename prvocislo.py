@@ -1,22 +1,22 @@
 def primeNumber(x):
-    """Calc Uloha value.
+    """Calc primeNumber value.
     
     Sample usage:
-    >>> primeNuber(1)
+    >>> primeNumber(1)
     "Not valid input, please enter natural number"
     
-    >>> primeNuber(2)
+    >>> primeNumber(2)
     "Prime number"
     
-    >>> primeNuber(-10)
+    >>> primeNumber(-10)
     "Not valid input, please enter natural number"
     
-    >>> primeNuber(True)
+    >>> primeNumber(True)
     Traceback (most recent call last):
     ...
     TypeError: Must be natural number
     
-    >>> primeNuber("5")
+    >>> primeNumber("5")
     Traceback (most recent call last):
     ...
     TypeError: Must be natural number
@@ -51,10 +51,14 @@ def primeNumber(x):
 def odpoved():   
     while True:
         answer=input("Enter another number?: y/n ")
-        if answer=="y":
+        if answer=="y" or answer=="Y":
             primeNumber(x = int(input("Enter a number: ")))
+        elif answer=="n" or answer=="N":
+            print("End of application") 
+            break
         else:
-            print("End of aplication") 
+            print("Choose y or n")
+            odpoved()
             break
 
 primeNumber(x = int(input("Enter a number: ")))
