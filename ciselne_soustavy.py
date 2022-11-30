@@ -6,6 +6,8 @@ and ending at the hexatridecimal numeral system.
 Other numeral systems are basically useless because there is no
 usage for them and there is not enough letters in
 the latin alphabet for them to use.
+
+.. include:: README.md
 """
 from typing import List, Dict
 
