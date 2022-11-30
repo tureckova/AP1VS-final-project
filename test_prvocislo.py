@@ -6,7 +6,6 @@ def test_primeNumber():
     assert primeNumber(1) == "Not valid input, please enter natural number"
     assert primeNumber(2) == "Prime number"
     assert primeNumber(-10) == "Not valid input, please enter natural number"
-    assert primeNumber(2,5) == "Not valid input, please enter natural number"
     
     with pytest.raises(TypeError):
         primeNumber(True)
@@ -15,3 +14,4 @@ def test_primeNumber():
         primeNumber(2.0)
         primeNumber(2.55.55)        
         primeNumber(-2.1)
+        primeNumber(2,5)
