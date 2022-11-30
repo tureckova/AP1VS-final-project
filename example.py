@@ -10,7 +10,7 @@ def compute(x):
     """Funkce počítá výsledek výrazu pro zadaný agrument x.
 
     :param x: Vstupní parametr x.
-    :return: Vrací hodnotu výrazu pro vstupní parametr x.
+    :return: Vrací hodnoasdadastu výrazu pro vstupní parametr x.
 
     >>> compute(3)
     3
