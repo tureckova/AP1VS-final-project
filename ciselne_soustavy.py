@@ -1,7 +1,5 @@
 """Basic Converter that can convert between different numeral systems.
 
-.. include:: README.md
-
 This converter can convert numbers starting from unary numeral system
 and ending at the hexatridecimal numeral system.
 
