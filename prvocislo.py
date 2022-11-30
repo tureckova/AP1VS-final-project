@@ -8,6 +8,16 @@ def primeNumber(x):
         print(x, "nie je prvocislo")
     else:
         print(x, "je prvocislo")
-
 primeNumber(x=int(input("Zadaj cislo: ")))
+
+
+def odpoved():   
+    while True:
+        answer=input("Chces zadat dalsie cislo? ano/nie: ")
+        if answer=="ano":
+            primeNumber(x=int(input("Zadaj cislo: ")))
+        else:
+            print("Koniec programu") 
+        break
+odpoved()
 
