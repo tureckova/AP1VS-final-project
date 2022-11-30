@@ -8,4 +8,4 @@ if y == 1:
     print(x, "nie je prvocislo")
 else:
     print(x, "je prvocislo")
-
+#martin je programator
