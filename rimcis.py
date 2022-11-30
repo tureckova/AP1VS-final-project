@@ -4,9 +4,13 @@
 
 Následuje ukázka vzorové funkce.
 """
-
+import sys
+import re
 rn_chars = ["M", "D", "C", "L", "X", "V", "I"]
 rn_maps_to = [1000, 500, 100, 50, 10, 5, 1]
+
+rxRN = re.compile("^[IVXLCDM]+$")
+
 
 def compute(x):
     """Funkce počítá výsledek výrazu pro zadaný agrument x.
@@ -94,7 +98,8 @@ def convert_rn_to_num(rn_input):
     return number_result 
 
 if __name__ == '__main__':
-
-    num = input('Insert a RN:')
-    print(convert_rn_to_num(num))
+    input = input("hodnota: ")
+    print(rxRN.match(input)!=None)
+    if rxRN.match(input)!=None:
+        print(convert_rn_to_num(input))
 
