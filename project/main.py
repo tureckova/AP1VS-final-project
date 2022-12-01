@@ -44,15 +44,15 @@ def documentInput():
 def sort(numbers):
     print("Select sort algorithm:")
     print("1 - Quick sort")
-    print("2 - Insert sort")
+    print("2 - Insertion sort")
     print("3 - Bubble sort")
 
     choice = input()
 
     if choice == "1":
-        print("quick sort")
+        return quickSort(numbers)
     elif choice == "2":
-        print("insert sort")
+        return insertionSort(numbers)
     elif choice == "3":
         return bubbleSort(numbers)
 
@@ -66,6 +66,39 @@ def bubbleSort(numbers):
                 numbers[j + 1] = temp
 
     return numbers
+
+
+def insertionSort(numbers):
+    for i in range(1, len(numbers)):
+        key = numbers[i]
+        j = i - 1
+        while j >= 0 and key < numbers[j]:
+            numbers[j + 1] = numbers[j]
+            j -= 1
+
+        numbers[j + 1] = key
+
+    return numbers
+
+
+def quickSort(numbers):
+    less = []
+    equal = []
+    greater = []
+
+    if len(numbers) > 1:
+        pivot = numbers[0]
+        for x in numbers:
+            if x < pivot:
+                less.append(x)
+            elif x == pivot:
+                equal.append(x)
+            elif x > pivot:
+                greater.append(x)
+
+        return quickSort(less)+equal+quickSort(greater)
+    else:
+        return numbers
 
 
 if __name__ == '__main__':
