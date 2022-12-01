@@ -1,17 +1,24 @@
 import sys
 import random
 
-def inputType(name):
-    if sys.argv == 0:
-        print("random")
-    elif sys.argv == 1:
+def inputType():
+    argumentsNumber = len(sys.argv)
+
+    if argumentsNumber == 1:
+        randomNumbers()
+    elif argumentsNumber == 2:
         print("document")
-    elif sys.argv > 1:
-        print("numbers")
+    elif argumentsNumber > 2:
+        handleInputNumbers()
 
 
-if __name__ == '__main__':
-    print()
+def handleInputNumbers():
+    numbers = []
+    for arg in sys.argv[1:]:
+        numbers.append(int(arg))
+
+    return numbers
+
 
 def randomNumbers():
     listNumbers = []
@@ -19,3 +26,11 @@ def randomNumbers():
         listNumbers.append(random.randint(0, 50))
 
     return listNumbers
+
+
+def documentInput():
+    print()
+
+
+if __name__ == '__main__':
+    inputType()
