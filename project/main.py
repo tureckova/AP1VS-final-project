@@ -3,13 +3,23 @@ import random
 
 def inputType():
     argumentsNumber = len(sys.argv)
-
+    numbers = []
     if argumentsNumber == 1:
-        return sort(randomNumbers())
+        numbers = sort(randomNumbers())
     elif argumentsNumber == 2:
-        return sort(documentInput())
+        numbers = sort(documentInput())
     elif argumentsNumber > 2:
-        return sort(handleInputNumbers())
+        numbers = sort(handleInputNumbers())
+
+    return numbers
+
+
+def minMax(numbers):
+    maxn = max(numbers)
+    minn = min(numbers)
+    print(f"Max number: {maxn} on index {numbers.index(maxn)}")
+    print(f"Min number: {minn} on index {numbers.index(minn)}")
+    print()
 
 
 def handleInputNumbers():
@@ -17,6 +27,7 @@ def handleInputNumbers():
     for arg in sys.argv[1:]:
         numbers.append(int(arg))
 
+    minMax(numbers)
     return numbers
 
 
@@ -25,6 +36,7 @@ def randomNumbers():
     for x in range(20):
         listNumbers.append(random.randint(0, 50))
 
+    minMax(listNumbers)
     return listNumbers
 
 
@@ -37,7 +49,7 @@ def documentInput():
     for n in contents.split(" "):
         intCollection.append(int(n))
 
-    print(intCollection)
+    minMax(intCollection)
     return intCollection
 
 
@@ -102,4 +114,9 @@ def quickSort(numbers):
 
 
 if __name__ == '__main__':
+    print()
     print(inputType())
+
+#1. user input - only one number, invalid file, user enters letters, invalid sort selection
+#2. Testing - Unit tests, etc.
+#3. Documentation
