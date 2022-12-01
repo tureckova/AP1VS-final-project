@@ -13,6 +13,9 @@ dt1 = translator.detect(text)
 print(dt1)
 #automaticky preklad
 if srclan == '':
+    #osetreni vstupu
+     if destlan not in googletrans.LANGUAGES:
+        destlan = input('Do jakého jazyka si přejete překládat? Zadejte platný jazyk z listu výše!')
     result = translator.translate(text, dest=destlan)
 else:
     #osetreni vstupu
