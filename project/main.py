@@ -1,30 +1,44 @@
+# coding=utf-8
+
+"""Script to sort numbers given by user, read in file or randomly assigned."""
 import sys
 import random
 
+
 def inputType():
+    """Decide on the type of input based on a number of parameters."""
     argumentsNumber = len(sys.argv)
     numbers = []
+
+    # No argument provided by a user - random numbers
     if argumentsNumber == 1:
         numbers = sort(randomNumbers())
+
+    # One argument provided - document input
     elif argumentsNumber == 2:
-        numbers = sort(documentInput())
+        numbers = sort(documentInput(sys.argv[1]))
+
+    # Multiple arguments provided - custom input
     elif argumentsNumber > 2:
-        numbers = sort(handleInputNumbers())
+        numbers = sort(handleInputNumbers(sys.argv[1:]))
 
     return numbers
 
 
 def minMax(numbers):
+    """Find the minimum and maximum in a collection."""
     maxn = max(numbers)
     minn = min(numbers)
     print(f"Max number: {maxn} on index {numbers.index(maxn)}")
     print(f"Min number: {minn} on index {numbers.index(minn)}")
     print()
+    return maxn, minn
 
 
-def handleInputNumbers():
+def handleInputNumbers(numbers):
+    """Save numbers to sort entered as arguments in a command line."""
     numbers = []
-    for arg in sys.argv[1:]:
+    for arg in numbers:
         numbers.append(int(arg))
 
     minMax(numbers)
@@ -32,6 +46,7 @@ def handleInputNumbers():
 
 
 def randomNumbers():
+    """Generate 20 random numbers if no arguments are given by the user."""
     listNumbers = []
     for x in range(20):
         listNumbers.append(random.randint(0, 50))
@@ -40,8 +55,9 @@ def randomNumbers():
     return listNumbers
 
 
-def documentInput():
-    with open(sys.argv[1]) as f:
+def documentInput(fileName):
+    """Pull out numbers from a file specified by a user."""
+    with open(fileName) as f:
         contents = f.readline()
 
     intCollection = []
@@ -54,6 +70,7 @@ def documentInput():
 
 
 def sort(numbers):
+    """Provide user with a choice of algorithms and sort numbers."""
     print("Select sort algorithm:")
     print("1 - Quick sort")
     print("2 - Insertion sort")
@@ -70,6 +87,7 @@ def sort(numbers):
 
 
 def bubbleSort(numbers):
+    """Sorting algorithm - Bubble sort."""
     for i in range(len(numbers)):
         for j in range(0, len(numbers) - i - 1):
             if numbers[j] > numbers[j + 1]:
@@ -81,6 +99,7 @@ def bubbleSort(numbers):
 
 
 def insertionSort(numbers):
+    """Sorting algorithm - Insertion sort."""
     for i in range(1, len(numbers)):
         key = numbers[i]
         j = i - 1
@@ -94,6 +113,7 @@ def insertionSort(numbers):
 
 
 def quickSort(numbers):
+    """Sorting algorithm - Quick sort."""
     less = []
     equal = []
     greater = []
@@ -116,7 +136,3 @@ def quickSort(numbers):
 if __name__ == '__main__':
     print()
     print(inputType())
-
-#1. user input - only one number, invalid file, user enters letters, invalid sort selection
-#2. Testing - Unit tests, etc.
-#3. Documentation
