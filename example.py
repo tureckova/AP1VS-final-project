@@ -1,3 +1,6 @@
+import googletrans
+
+print(googletrans.LANGUAGES)
 """Vzorový kód pro závěrečný projekt předmětu Ap1VS.
 
 .. include:: README.md
