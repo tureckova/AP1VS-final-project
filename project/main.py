@@ -1,5 +1,5 @@
 import sys
-
+import random
 
 def inputType(name):
     if sys.argv == 0:
@@ -13,3 +13,9 @@ def inputType(name):
 if __name__ == '__main__':
     print()
 
+def randomNumbers():
+    listNumbers = []
+    for x in range(21):
+        listNumbers.append(random.randint(0, 50))
+
+    return listNumbers
