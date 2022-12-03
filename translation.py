@@ -1,8 +1,7 @@
 """TODO: docs."""
-import googletrans
-from googletrans import Translator
+from googletrans import LANGUAGES, LANGCODES, Translator
 
-languages = list(googletrans.LANGUAGES) + list(googletrans.LANGCODES)
+languages = list(LANGUAGES) + list(LANGCODES)
 translator = Translator()
 
 
@@ -51,7 +50,7 @@ def main():
 
     # vypsani dostupnych jazyku z knihovny
     print("Tohle jsou všechny dostupné jazyky.")
-    print(googletrans.LANGUAGES)
+    print(LANGUAGES)
 
     # input part
     srclan = get_source_language()
