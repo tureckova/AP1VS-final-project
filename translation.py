@@ -47,7 +47,6 @@ def get_destination_language():  # pragma: no cover - TODO
 
 def main():
     """Entry point when run as script."""
-
     # vypsani dostupnych jazyku z knihovny
     print("Tohle jsou všechny dostupné jazyky.")
     print(LANGUAGES)
