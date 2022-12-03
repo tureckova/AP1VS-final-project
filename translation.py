@@ -17,7 +17,7 @@ def translate(text, dest, src="auto"):
     return translator.translate(text, src=src, dest=dest).text
 
 
-def get_source_language():
+def get_source_language():  # pragma: no cover - TODO
     """TODO: docs.
 
     TODO: unit test
@@ -33,7 +33,7 @@ def get_source_language():
     return language
 
 
-def get_destination_language():
+def get_destination_language():  # pragma: no cover - TODO
     """TODO: docs.
 
     TODO: unit test
