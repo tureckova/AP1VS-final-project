@@ -2,43 +2,65 @@
 import math
 
 
-def vypocetstrany(bod1x,bod1y,bod2x,bod2y):
+def vypocetstrany(bod1x, bod1y, bod2x, bod2y):
+   if type(bod1x) not in[int,float] or type(bod2x) not in[int,float] or type(bod1y) not in[int,float] or type(bod2y) not in[int,float]:
+       raise TypeError()
+   else:
     a = bod2x - bod1x
     b = bod2y - bod1y
     strana = math.sqrt(math.pow(a, 2) + math.pow(b, 2))
     return strana
 
 
-def sestavitelnost(strana_a,strana_b,strana_c):
-    if strana_a+strana_b > strana_c or strana_a+strana_c > strana_b or strana_b+strana_c > strana_a:
-        return True
+def sestavitelnost(strana_a, strana_b, strana_c):
+    if type(strana_a) not in [int, float] or type(strana_b) not in [int, float] or type(strana_c) not in [int, float]:
+        raise TypeError()
     else:
-        return False
+        if strana_a+strana_b > strana_c or strana_a+strana_c > strana_b or strana_b+strana_c > strana_a:
+            return True
+        else:
+            return False
 
 
-def obsah(strana_a,strana_b,strana_c):
-    s = (strana_a + strana_b + strana_c) / 2
-    obsah_s = math.sqrt(s * (s - strana_a) * (s - strana_b) * (s - strana_c))
-    return obsah_s
+def obsah(strana_a, strana_b, strana_c):
+    if type(strana_a) not in [int, float] or type(strana_b) not in [int, float] or type(strana_c) not in [int, float]:
+        raise TypeError()
+    else:
+        s = (strana_a + strana_b + strana_c) / 2
+        obsah_s = math.sqrt(s * (s - strana_a) * (s - strana_b) * (s - strana_c))
+        return obsah_s
 
 
-def obvod(strana_a,strana_b,strana_c):
+def obvod(strana_a, strana_b, strana_c):
+   if type(strana_a) not in[int,float] or type(strana_b) not in[int,float] or type(strana_c) not in[int,float]:
+       raise TypeError()
+
+   else:
     obvod_o = round(strana_a + strana_b + strana_c, 2)
     return obvod_o
 
 
-def uhel(uhel_u_strany,strana_protilehla1,strana_protilehla2):
-    uhel1 = (math.pow(strana_protilehla1, 2) + math.pow(strana_protilehla2, 2) - math.pow(uhel_u_strany, 2)) / \
+def uhel(uhel_u_strany, strana_protilehla1, strana_protilehla2):
+   if type(uhel_u_strany) not in[int, float] or type(strana_protilehla1) not in[int, float] or type(strana_protilehla2) not in[int, float]:
+        raise TypeError()
+
+   else:
+        uhel1 = (math.pow(strana_protilehla1, 2) + math.pow(strana_protilehla2, 2) - math.pow(uhel_u_strany, 2)) / \
             (2 * strana_protilehla1 * strana_protilehla2)
-    uhel_final = round(math.degrees(math.acos(uhel1)), 2)
-    return uhel_final
+        uhel_final = round(math.degrees(math.acos(uhel1)), 2)
+        return uhel_final
 
 
-def pravouhlost(alfa,beta,gama):
-    if alfa == 90 or beta == 90 or gama == 90:
-        return True
-    else:
-        return False
+def pravouhlost(alfa, beta, gama):
+
+   if type(alfa) not in[int,float] or type(beta) not in[int,float] or type(gama) not in[int,float]:
+        raise TypeError()
+
+   else:
+        if alfa == 90 or beta == 90 or gama == 90:
+            return True
+        else:
+            return False
 
 
 def triangle(x1, y1, x2, y2, x3, y3):
