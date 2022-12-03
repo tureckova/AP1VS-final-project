@@ -1,13 +1,12 @@
 """TODO: docs."""
-# TODO: smazat všechny pragma až se udělá unit test!
 import googletrans
-from googletrans import Translator  # pragma: no cover
+from googletrans import Translator
 
-languages = list(googletrans.LANGUAGES) + list(googletrans.LANGCODES)  # pragma: no cover
-translator = Translator()  # pragma: no cover
+languages = list(googletrans.LANGUAGES) + list(googletrans.LANGCODES)
+translator = Translator()
 
 
-def translate(text, dest, src="auto"):  # pragma: no cover
+def translate(text, dest, src="auto"):
     """TODO: docs.
 
     TODO: unit test
@@ -19,7 +18,7 @@ def translate(text, dest, src="auto"):  # pragma: no cover
     return translator.translate(text, src=src, dest=dest).text
 
 
-def get_source_language():  # pragma: no cover
+def get_source_language():
     """TODO: docs.
 
     TODO: unit test
@@ -35,7 +34,7 @@ def get_source_language():  # pragma: no cover
     return language
 
 
-def get_destination_language():  # pragma: no cover
+def get_destination_language():
     """TODO: docs.
 
     TODO: unit test
@@ -47,7 +46,7 @@ def get_destination_language():  # pragma: no cover
     return language
 
 
-def main():  # pragma: no cover
+def main():
     """Entry point when run as script."""
 
     # vypsani dostupnych jazyku z knihovny
@@ -66,6 +65,6 @@ def main():  # pragma: no cover
     print(translate(srctext, destlan, srclan))
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == "__main__":
     """Executed if run as script."""
     main()
