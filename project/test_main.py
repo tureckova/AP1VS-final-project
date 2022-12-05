@@ -1,7 +1,6 @@
 """Tests for main.py."""
 import builtins
 import pytest
-import main
 from main import minMax
 from main import bubbleSort
 from main import insertionSort
