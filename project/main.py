@@ -25,6 +25,16 @@ def inputType():
     return numbers
 
 
+def handleInputNumbers(numbers):
+    """Save numbers to sort entered as arguments in a command line."""
+    numbersInt = []
+    for arg in numbers:
+        numbersInt.append(int(arg))
+
+    minMax(numbersInt)
+    return numbersInt
+
+
 def minMax(numbers):
     """Find the minimum and maximum in a collection."""
     maxn = max(numbers)
@@ -33,16 +43,6 @@ def minMax(numbers):
     print(f"Min number: {minn} on index {numbers.index(minn)}")
     print()
     return maxn, minn
-
-
-def handleInputNumbers(numbers):
-    """Save numbers to sort entered as arguments in a command line."""
-    numbers = []
-    for arg in numbers:
-        numbers.append(int(arg))
-
-    minMax(numbers)
-    return numbers
 
 
 def randomNumbers():

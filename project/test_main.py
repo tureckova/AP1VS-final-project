@@ -69,7 +69,8 @@ def test_randomNumbers():
 
 
 def test_handleInputNumbers():
-    assert isinstance(handleInputNumbers([4, 4, 6, -9]), list)
+    numbers = [4, 4, 6, -9]
+    assert isinstance(handleInputNumbers(numbers), list)
 
-    for x in len(numbers):
-        assert isinstance(result[x], int)
+    for x in numbers:
+        assert isinstance(x, int)
