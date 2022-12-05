@@ -1,6 +1,6 @@
 # Závěrečný projekt z předmětu AP1VS
 Tento repozitář slouží jako podklad a vzor pro závěrečný projekt z předmětu AP1VS.
-
+uprava
 ## Požadavky na projekt
 * Projekt bude řešen formou forku a odevzdán pomocí pull requestu na githubu
 * Projekt může zpracovávat tým o 2-5 studentech:
