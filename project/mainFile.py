@@ -6,7 +6,10 @@ import random
 
 
 def inputType():
-    """Decide on the type of input based on a number of parameters."""
+    """Decide on the type of input based on a number of parameters.
+
+    :return: Returns numbers used in calculations
+    """
     argumentsNumber = len(sys.argv)
     numbers = []
 
@@ -26,7 +29,13 @@ def inputType():
 
 
 def handleInputNumbers(numbers):
-    """Save numbers to sort entered as arguments in a command line."""
+    """Save numbers to sort entered as arguments in a command line.
+
+    :param number:
+    Numbers in string data format
+
+    :return: Returns an array of numbers
+    """
     numbersInt = []
     for arg in numbers:
         numbersInt.append(int(arg))
@@ -36,7 +45,13 @@ def handleInputNumbers(numbers):
 
 
 def minMax(numbers):
-    """Find the minimum and maximum in a collection."""
+    """Find the minimum and maximum in a collection.
+
+    :param numbers:
+    array of numbers
+
+    :return: Returns max and min number
+    """
     maxn = max(numbers)
     minn = min(numbers)
     print(f"Max number: {maxn} on index {numbers.index(maxn)}")
@@ -46,7 +61,10 @@ def minMax(numbers):
 
 
 def randomNumbers():
-    """Generate 20 random numbers if no arguments are given by the user."""
+    """Generate 20 random numbers if no arguments are given by the user.
+
+    :return: Returns randomly generated numbers in list
+    """
     listNumbers = []
     for x in range(20):
         listNumbers.append(random.randint(0, 50))
@@ -56,7 +74,12 @@ def randomNumbers():
 
 
 def documentInput(fileName):
-    """Pull out numbers from a file specified by a user."""
+    """Pull out numbers from a file specified by a user.
+
+    :param fileName:
+    File name
+    :return: Returns a list of numbers
+    """
     with open(fileName) as f:
         contents = f.readline()
 
