@@ -60,7 +60,7 @@ def test_documentInput():
     assert documentInput("project/testfiles/testfile2.txt") == [5, 8, -4, 0, -2, -3, 1]
 
     with pytest.raises(ValueError):
-        assert documentInput("testfiles/testfile3.txt")
+        assert documentInput("project/testfiles/testfile3.txt")
 
 
 def test_randomNumbers():
