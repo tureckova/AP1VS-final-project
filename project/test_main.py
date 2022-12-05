@@ -1,5 +1,8 @@
 """Tests for main.py."""
 import pytest
+import builtins
+import os
+import sys
 from mainFile import minMax
 from mainFile import bubbleSort
 from mainFile import insertionSort
@@ -7,6 +10,9 @@ from mainFile import quickSort
 from mainFile import documentInput
 from mainFile import randomNumbers
 from mainFile import handleInputNumbers
+from mainFile import sort
+
+sys.path.append(os.path.dirname(__file__))
 
 
 def test_minMax():
@@ -19,6 +25,16 @@ def test_minMax():
     with pytest.raises(TypeError):
         minMax(["fgdf", 12, True, 5.4])
         minMax([12, 2.4, 4, 8])
+
+
+def test_sort():
+    """Testing sorting selection."""
+    builtins.input = lambda: "1"
+    result = sort([4, 2, 6, 5, 8])
+    assert isinstance(result, list)
+
+    for x in range(5):
+        assert isinstance(result[x], int)
 
 
 def test_bubbleSort():
@@ -59,13 +75,13 @@ def test_quickSort():
 
 def test_documentInput():
     """Testing document input."""
-    assert documentInput("project/testfiles/testfile.txt") ==\
+    assert documentInput("testfiles/testfile.txt") ==\
            [5, 4, 7, 8, 9, 3, -4, 0, 1, 2]
-    assert documentInput("project/testfiles/testfile2.txt") ==\
+    assert documentInput("testfiles/testfile2.txt") ==\
            [5, 8, -4, 0, -2, -3, 1]
 
     with pytest.raises(ValueError):
-        assert documentInput("project/testfiles/testfile3.txt")
+        assert documentInput("testfiles/testfile3.txt")
 
 
 def test_randomNumbers():
