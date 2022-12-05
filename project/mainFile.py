@@ -39,6 +39,12 @@ def handleInputNumbers(numbers):
 
     :return:
     Returns an array of numbers
+
+    >>> handleInputNumbers(['5', '4', '2'])
+    Max number: 5 on index 0
+    Min number: 2 on index 2
+    <BLANKLINE>
+    [5, 4, 2]
     """
     numbersInt = []
     for arg in numbers:
@@ -57,6 +63,12 @@ def minMax(numbers):
 
     :return:
     Returns max and min number
+
+    >>> minMax(['2', '1', '8'])
+    Max number: 8 on index 2
+    Min number: 1 on index 1
+    <BLANKLINE>
+    ('8', '1')
     """
     maxn = max(numbers)
     minn = min(numbers)
@@ -137,6 +149,9 @@ def bubbleSort(numbers):
 
     :return:
     Returns a sorted list
+
+    >>> bubbleSort([2, 4, 7, 1])
+    [1, 2, 4, 7]
     """
     for i in range(len(numbers)):
         for j in range(0, len(numbers) - i - 1):
@@ -157,6 +172,9 @@ def insertionSort(numbers):
 
     :return:
     Returns a sorted list
+
+    >>> insertionSort([2, 4, 7, 1])
+    [1, 2, 4, 7]
     """
     for i in range(1, len(numbers)):
         key = numbers[i]
@@ -179,6 +197,9 @@ def quickSort(numbers):
 
     :return:
     Returns a sorted list
+
+    >>> quickSort([2, 4, 7, 1])
+    [1, 2, 4, 7]
     """
     less = []
     equal = []
