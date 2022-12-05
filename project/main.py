@@ -14,7 +14,7 @@ def inputType():
     if argumentsNumber == 1:
         numbers = sort(randomNumbers())
 
-    # One argument provided - document input
+    # One argument provided - input from document
     elif argumentsNumber == 2:
         numbers = sort(documentInput(sys.argv[1]))
 
