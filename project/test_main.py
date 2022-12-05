@@ -1,5 +1,4 @@
 """Tests for main.py."""
-import builtins
 import pytest
 from mainFile import minMax
 from mainFile import bubbleSort
@@ -59,25 +58,15 @@ def test_quickSort():
         quickSort([15.2, 0, 5, 4, -4.1])
 
 
-def test_sort():
-    """Testing sorting selection."""
-    builtins.input = lambda: "1"
-    result = sort([4, 2, 6, 5, 8])
-    assert isinstance(result, list)
-
-    for x in range(5):
-        assert isinstance(result[x], int)
-
-
 def test_documentInput():
     """Testing document input."""
-    assert documentInput("project/testfiles/testfile.txt") ==\
+    assert documentInput("testfiles/testfile.txt") ==\
            [5, 4, 7, 8, 9, 3, -4, 0, 1, 2]
-    assert documentInput("project/testfiles/testfile2.txt") ==\
+    assert documentInput("testfiles/testfile2.txt") ==\
            [5, 8, -4, 0, -2, -3, 1]
 
     with pytest.raises(ValueError):
-        assert documentInput("project/testfiles/testfile3.txt")
+        assert documentInput("testfiles/testfile3.txt")
 
 
 def test_randomNumbers():
