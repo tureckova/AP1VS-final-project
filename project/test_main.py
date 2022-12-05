@@ -31,7 +31,7 @@ def test_bubbleSort():
     assert bubbleSort([4, 2, 6, 5, 8]) == [2, 4, 5, 6, 8]  # noqa: F405
     assert bubbleSort([5, 0, 4, 6, 12]) == [0, 4, 5, 6, 12]  # noqa: F405
     assert bubbleSort([-4, -2, -6, -5, -8]) ==\
-     [-8, -6, -5, -4, -2]  # noqa: F405
+        [-8, -6, -5, -4, -2]  # noqa: F405
     assert bubbleSort([-5, 0, 4, -6, 12]) == [-6, -5, 0, 4, 12]  # noqa: F405
 
     with pytest.raises(TypeError):
@@ -45,7 +45,8 @@ def test_insertionSort():
     assert insertionSort([5, 0, 4, 6, 12]) == [0, 4, 5, 6, 12]  # noqa: F405
     assert insertionSort([-4, -2, -6, -5, -8]) ==\
         [-8, -6, -5, -4, -2]  # noqa: F405
-    assert insertionSort([-5, 0, 4, -6, 12]) == [-6, -5, 0, 4, 12]  # noqa: F405
+    assert insertionSort([-5, 0, 4, -6, 12]) ==\
+        [-6, -5, 0, 4, 12]  # noqa: F405
 
     with pytest.raises(TypeError):
         insertionSort(["dfgh", 0, False, -6, 12.4])  # noqa: F405
@@ -56,7 +57,8 @@ def test_quickSort():
     """Testing quick sort algorithm."""
     assert quickSort([4, 2, 6, 5, 8]) == [2, 4, 5, 6, 8]  # noqa: F405
     assert quickSort([5, 0, 4, 6, 12]) == [0, 4, 5, 6, 12]  # noqa: F405
-    assert quickSort([-4, -2, -6, -5, -8]) == [-8, -6, -5, -4, -2]  # noqa: F405
+    assert quickSort([-4, -2, -6, -5, -8]) ==\
+        [-8, -6, -5, -4, -2]  # noqa: F405
     assert quickSort([-5, 0, 4, -6, 12]) == [-6, -5, 0, 4, 12]  # noqa: F405
 
     with pytest.raises(TypeError):
