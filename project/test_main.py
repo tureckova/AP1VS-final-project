@@ -1,18 +1,7 @@
 """Tests for main.py."""
 import pytest
 import builtins
-import os
-import sys
-from mainFile import minMax
-from mainFile import bubbleSort
-from mainFile import insertionSort
-from mainFile import quickSort
-from mainFile import documentInput
-from mainFile import randomNumbers
-from mainFile import handleInputNumbers
-from mainFile import sort
-
-sys.path.append(os.path.dirname(__file__))
+from mainFile import *
 
 
 def test_minMax():
