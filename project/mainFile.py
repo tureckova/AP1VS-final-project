@@ -8,7 +8,7 @@ import random
 def inputType():
     """
     Decide on the type of input based on a number of parameters.
-
+ 
     :return:
     Returns numbers used in calculations
     """
