@@ -4,7 +4,6 @@ from mainFile import minMax
 from mainFile import bubbleSort
 from mainFile import insertionSort
 from mainFile import quickSort
-from mainFile import sort
 from mainFile import documentInput
 from mainFile import randomNumbers
 from mainFile import handleInputNumbers
