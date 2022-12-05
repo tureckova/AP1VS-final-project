@@ -1,4 +1,6 @@
 """Tests for main.py."""
+import pytest
+import builtins
 from main import minMax
 from main import bubbleSort
 from main import insertionSort
@@ -7,8 +9,6 @@ from main import sort
 from main import documentInput
 from main import randomNumbers
 from main import handleInputNumbers
-import pytest
-import builtins
 
 
 def test_minMax():
