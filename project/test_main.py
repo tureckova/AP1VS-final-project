@@ -75,13 +75,13 @@ def test_quickSort():
 
 def test_documentInput():
     """Testing document input."""
-    assert documentInput("testfiles/testfile.txt") ==\
+    assert documentInput("project/testfiles/testfile.txt") ==\
            [5, 4, 7, 8, 9, 3, -4, 0, 1, 2]
-    assert documentInput("testfiles/testfile2.txt") ==\
+    assert documentInput("project/testfiles/testfile2.txt") ==\
            [5, 8, -4, 0, -2, -3, 1]
 
     with pytest.raises(ValueError):
-        assert documentInput("testfiles/testfile3.txt")
+        assert documentInput("project/testfiles/testfile3.txt")
 
 
 def test_randomNumbers():
