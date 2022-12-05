@@ -1,18 +1,16 @@
-from prvocislo import primeNumber
+from functools import partialmethod
+from prvocislo import primeNumber, odpoved
 import pytest
 
 
 def test_primeNumber():
     """test x values"""
-    assert primeNumber(-15) == "Not valid input, please enter natural number"
-    assert primeNumber(2) == "Prime number"
-    assert primeNumber(-10) == "Not valid input, please enter natural number"
+    assert primeNumber(2) == True
+    assert primeNumber(6) == False
+    assert primeNumber(22) == False
+    assert primeNumber(73) == True
 
-    with pytest.raises(TypeError):
-        primeNumber(True)
-        # primeNumber("5")
-    with pytest.raises(ValueError):
-        primeNumber(2.0)
-        primeNumber(-2.1)
-        primeNumber(2, 5)
-        primeNumber(5-2)
+
+def test_odpoved():
+    assert odpoved is None
+        

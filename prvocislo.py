@@ -1,20 +1,17 @@
+from unittest import result
+
+
 def primeNumber(x):
     """Calc primeNumber value.
 
     Sample usage:
-    >>> primeNumber(1)
-    "Not valid input, please enter natural number"
-
     >>> primeNumber(2)
-    "Prime number"
-
-    >>> primeNumber(-10)
-    "Not valid input, please enter natural number"
+    True
 
     >>> primeNumber(True)
     Traceback (most recent call last):
     ...
-    TypeError: Must be natural number
+    ValueError: invalid literal for int() with base 10: 'True'
 
     >>> primeNumber("5")
     Traceback (most recent call last):
@@ -25,33 +22,18 @@ def primeNumber(x):
     Traceback (most recent call last):
     ...
     ValueError: Must be natural number
-
-    >>> primeNumber(-2.1)
-    Traceback (most recent call last):
-    ...
-    ValueError: Must be natural number
-
-    >>> primeNumber(2,5)
-    Traceback (most recent call last):
-    ...
-    ValueError: Must be natural number
-
-    >>> primeNumber(5-2)
-    Traceback (most recent call last):
-    ...
-    ValueError: Must be natural number
     """
     y = 0
     if x <= 0 or x == 1:
-        return ("Not valid input, please enter natural number")
+        return False
     for i in range(2, x):
         if (x % i) == 0:
             y = 1
             break
     if y == 1:
-        return (x, "Not a prime number")
+        return False
     else:
-        return (x, "Prime number")
+        return True
 
 
 def odpoved():
@@ -59,7 +41,11 @@ def odpoved():
         answer = input("Enter another number?: y/n ")
         if answer == "y" or answer == "Y":
             x = int(input("Enter a number: "))
-            print(primeNumber(x))
+            z = primeNumber(x)
+            if z:
+                print("Prime number")
+            else:
+                print("Not a prime number")
         elif answer == "n" or answer == "N":
             return ("End of application")
         else:
@@ -70,5 +56,12 @@ def odpoved():
 
 if __name__ == "__main__":
     x = int(input("Enter a number: "))
-    print(primeNumber(x))
+    if x <= 0 or x == 1:
+            print("Invalid input")
+    else:
+        r = primeNumber(x)
+        if r:
+            print("Prime number")
+        else:
+            print("Not a prime number")
     odpoved()
