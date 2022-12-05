@@ -20,7 +20,7 @@ def czech_to_morse(message):
 
 def morse_to_czceh(message):
     message = message.split(" ")
-    czech = []  # Will contain English versions of letters
+    czech = []  # Will contain Czech versions of letters
     for code in message:
         if code in MORSE_TO_CZECH:
             czech.append(MORSE_TO_CZECH[code])
@@ -29,7 +29,7 @@ def morse_to_czceh(message):
 
 def main():
     while True:
-        response = input("Convert Morse to English (1) or English to Morse (2)? ").upper()
+        response = input("Convert Morse to Czech (1) or Czech to Morse (2)? ").upper()
         if response == "1" or response == "2":
             break
 
@@ -37,11 +37,11 @@ def main():
         print("Enter Morse code (with a space after each code): ")
         morse = input("> ")
         czech = morse_to_czceh(morse)
-        print("### English version ###")
+        print("### Czech version ###")
         print(czech)
 
     elif response == "2":
-        print("Zadej English text: ")
+        print("Zadej Czech text: ")
         czech = input("> ").upper()
         morse = czech_to_morse(czech)
         print("### Morse Code version ###")
