@@ -11,5 +11,5 @@ Seznam zakladni rimskych cisel.
 I	V	X	L	C	D	M
 1	5	10	50	100	500	1000
 """
-kmokmnon
+pls aspon znamku E
 
