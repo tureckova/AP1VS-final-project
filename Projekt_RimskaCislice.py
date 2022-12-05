@@ -40,3 +40,15 @@ def stovky(cislo):
     return sto  # znak na (8+1) pozici == DCCC
 
 
+def desitky(cislo):
+    """Zjisteni desitky.
+
+    >>>> desitky(3888)
+    'LXXX'
+    """
+    # index v poli zacina s hodnotou 0
+    d = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
+    if isinstance(cislo, str) or isinstance(cislo, float):
+        raise TypeError("Nelze prevodit")
+    deset = d[(cislo % 100) // 10]  # (3888 % 100) // 10 == 8
+    return deset  # znak na (8+1) pozici == LXXX
