@@ -41,7 +41,7 @@ def main():
         print(english)
 
     elif response == "2":
-        print("Enter English text: ")
+        print("Zadej English text: ")
         english = input("> ").upper()
         morse = english_to_morse(english)
         print("### Morse Code version ###")
