@@ -9,8 +9,8 @@ import re
 rn_chars = ["M", "D", "C", "L", "X", "V", "I"]
 rn_maps_to = [1000, 500, 100, 50, 10, 5, 1]
 
-rxRN = re.compile("^[IVXLCDM]+$")
-rxNO = re.compile("^[1234567890]+$")
+rx_only_roman_symbols = re.compile("^[IVXLCDM]+$")
+rx_only_digits = re.compile("^[1234567890]+$")
 
 
 def compute(x):
@@ -99,11 +99,14 @@ def convert_rn_to_num(rn_input):
     return number_result 
 
 if __name__ == '__main__':
-    input = input("hodnota: ")
-    if rxRN.match(input)!=None:
-        print(convert_rn_to_num(input))
 
-    if rxNO.match(input)!=None:
-        print(convert_num_to_rn(int(input)))
+    val = input("Value: ")
 
+    if rx_only_roman_symbols.match(val)!=None:
+        print(convert_rn_to_num(val))
+
+    if rx_only_digits.match(val)!=None:
+        print(convert_num_to_rn(int(val)))
+
+    input("Press Any Key To Exit ...")
 
