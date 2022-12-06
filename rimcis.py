@@ -32,11 +32,23 @@ def convert_num_to_rn(input_num):
     'M'
     >>> convert_num_to_rn(3999)
     'MMMCMXCIX'
+    >>> convert_num_to_rn(36)
+    'XXXVI'
+    >>> convert_num_to_rn(254)
+    'CCLIV'
+    >>> convert_num_to_rn(1847)
+    'MDCCCXLVII'
+    >>> convert_num_to_rn(2840)
+    'MMDCCCXL'
     >>> convert_num_to_rn(16.8)
     Traceback (most recent call last):
     ...
     TypeError: Input must be an integer.
     >>> convert_num_to_rn(7051)
+    Traceback (most recent call last):
+    ...
+    ValueError: Number is out of valid Roman Numeral range (1-3999).
+    >>> convert_num_to_rn(5874)
     Traceback (most recent call last):
     ...
     ValueError: Number is out of valid Roman Numeral range (1-3999).
@@ -100,6 +112,18 @@ def convert_rn_to_num(input_rn):
     1000
     >>> convert_rn_to_num('MMMCMXCIX')
     3999
+    >>> convert_rn_to_num('XV')
+    15
+    >>> convert_rn_to_num('XXIII')
+    23
+    >>> convert_rn_to_num('LXVIII')
+    68
+    >>> convert_rn_to_num('CMXCIX')
+    999
+    >>> convert_rn_to_num('MCMLXXXIV')
+    1984
+    >>> convert_rn_to_num('MMMDXLVIII')
+    3548
     >>> convert_rn_to_num(13)
     Traceback (most recent call last):
     ...
@@ -108,6 +132,27 @@ def convert_rn_to_num(input_rn):
     Traceback (most recent call last):
     ...
     ValueError: Input contains non-Roman Numeral symbols.
+
+    >>> convert_rn_to_num('XXXX')
+    Traceback (most recent call last):
+    ...
+    ValueError: Symbol X appears too many times in a row.
+
+    >>> convert_rn_to_num('DD')
+    Traceback (most recent call last):
+    ...
+    ValueError: Symbol D can never repeat.
+
+
+    >>> convert_rn_to_num('IXII')
+    Traceback (most recent call last):
+    ...
+    ValueError: Lesser formating error arose during conversion. Did you mean XI?
+
+    >>> convert_rn_to_num('XDMCL')
+    Traceback (most recent call last):
+    ...
+    ValueError: This is not a correct Roman Numeral order.
     """
 
     if type(input_rn) not in [str]:
