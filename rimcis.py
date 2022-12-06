@@ -57,7 +57,7 @@ def convert_num_to_rn(input_num):
 
         #pokud ani to ne, tak přidá k 'i' 1 a dívá se od znova z této pozice
         else:
-            i = i + 1
+            i += 1
 
     return result_rn
 
@@ -65,6 +65,7 @@ def convert_rn_to_num(input_rn):
 
     i = 0
     result_num = 0
+    symbol_repeating_count = 0
 
     while i < len(rn_chars_values):
 
@@ -92,6 +93,11 @@ def convert_rn_to_num(input_rn):
 
             input_rn = input_rn[1:]
             result_num = result_num + rn_chars_values[i]
+            symbol_repeating_count += 1
+
+            # Pokud se symbol opakuje víc jak 3x po sobě
+            if symbol_repeating_count > 3:
+                raise ValueError("Symbol appears too many times in a row")
 
         #Pokud lze první symbol použít jako předponu před očekávaným symbolem, a pokud je očekávaný symbol na druhém místě
         elif first_char == prefix_char and second_char == rn_chars[i]:
@@ -100,24 +106,34 @@ def convert_rn_to_num(input_rn):
 
         #Pokud nelze nic jiného, tak se podívá, zda je následující symbol ve správném pořadí oproti již porovnaných symbolech
         elif i < rn_chars.index(first_char):
-            i = i + 1
+            i += 1
+            symbol_repeating_count = 0
 
         #pokud není ve správném pořadí, ERROR
         else:
-            return -1
-
+            raise ValueError("This is not a correct Roman Numeral order") #nebo type error?
 
     return result_num 
+
+def generate_result(program_input):
+
+    program_input = program_input.upper()
+
+    if rx_only_rn.match(program_input) != None:
+        print(convert_rn_to_num(program_input))
+
+    elif rx_only_num.match(program_input) != None:
+        print(convert_num_to_rn(int(program_input)))
+
+    else:
+        raise ValueError("Input must contain only Roman Numerals, or only Numbers") #nebo type error?
+
 
 if __name__ == '__main__':
 
     val = input("Value: ")
 
-    if rx_only_rn.match(val)!=None:
-        print(convert_rn_to_num(val))
-
-    if rx_only_num.match(val)!=None:
-        print(convert_num_to_rn(int(val)))
+    generate_result(val)
 
     input("Press Any Key To Exit ...")
 
