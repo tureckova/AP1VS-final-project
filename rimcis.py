@@ -1,5 +1,5 @@
 """
-Závěrečný projekt skupiny Štefka,Bobál,Spurný do předmětu AP1VS.
+Závěrečný projekt skupiny Štefka Bobál Spurný do předmětu AP1VS.
 
 .. include:: README.md
 """
@@ -11,6 +11,55 @@ rn_chars_values = [1000, 500, 100, 50, 10, 5, 1]
 
 rx_only_rn = re.compile('^[IVXLCDM]+$')
 rx_only_num = re.compile('^[1234567890]+$')
+
+
+def generate_result(program_input):
+    """
+    Generate resulting string, given the input.
+
+    Given a particular input in the form of a string, returns the converted
+    value. Can detect whether it has recieved a Number input or a Roman
+    Numeral input, and calls the required convertor function accordingly.
+
+    :param program_input: The string input that the program recieves, which
+    needs to be converted.
+
+    Sample usage:
+    >>> generate_result('XVI')
+    16
+
+    >>> generate_result('16')
+    'XVI'
+
+    >>> generate_result(16)
+    Traceback (most recent call last):
+    ...
+    TypeError: Value must be a string.
+
+    >>> generate_result(True)
+    Traceback (most recent call last):
+    ...
+    TypeError: Value must be a string.
+
+    >>> generate_result('IV80_plus3')
+    Traceback (most recent call last):
+    ...
+    ValueError: Input must only contain Roman Numerals, or only Numbers.
+    """
+    if type(program_input) not in [str]:
+        raise TypeError('Value must be a string.')
+
+    program_input = program_input.upper()
+
+    if rx_only_rn.match(program_input) is not None:
+        return convert_rn_to_num(program_input)
+
+    elif rx_only_num.match(program_input) is not None:
+        return convert_num_to_rn(int(program_input))
+
+    else:
+        raise ValueError('Input must only contain Roman Numerals, or only '
+                         'Numbers.')
 
 
 def convert_num_to_rn(input_num):
@@ -27,22 +76,30 @@ def convert_num_to_rn(input_num):
     Sample usage:
     >>> convert_num_to_rn(1)
     'I'
+
     >>> convert_num_to_rn(1000)
     'M'
+
     >>> convert_num_to_rn(3999)
     'MMMCMXCIX'
+
     >>> convert_num_to_rn(36)
     'XXXVI'
+
     >>> convert_num_to_rn(254)
     'CCLIV'
+
     >>> convert_num_to_rn(1847)
     'MDCCCXLVII'
+
     >>> convert_num_to_rn(2840)
     'MMDCCCXL'
+
     >>> convert_num_to_rn(16.8)
     Traceback (most recent call last):
     ...
     TypeError: Input must be an integer.
+
     >>> convert_num_to_rn(7051)
     Traceback (most recent call last):
     ...
@@ -107,42 +164,55 @@ def convert_rn_to_num(input_rn):
     Sample usage:
     >>> convert_rn_to_num('I')
     1
+
     >>> convert_rn_to_num('M')
     1000
+
     >>> convert_rn_to_num('MMMCMXCIX')
     3999
+
     >>> convert_rn_to_num('LXVIII')
     68
+
     >>> convert_rn_to_num('CMXCIX')
     999
+
     >>> convert_rn_to_num('MCMLXXXIV')
     1984
+
     >>> convert_rn_to_num('MMMDXLVIII')
     3548
+
     >>> convert_rn_to_num(13)
     Traceback (most recent call last):
     ...
     TypeError: Input must be a string.
+
     >>> convert_rn_to_num('MMCBXIAA')
     Traceback (most recent call last):
     ...
     ValueError: Input contains non-Roman Numeral symbols.
+
     >>> convert_rn_to_num('MCXXXXIV')
     Traceback (most recent call last):
     ...
     ValueError: Symbol X appears too many times in a row.
+
     >>> convert_rn_to_num('MDDLVII')
     Traceback (most recent call last):
     ...
     ValueError: Symbol D can never repeat.
+
     >>> convert_rn_to_num('CIXXVII')
     Traceback (most recent call last):
     ...
     ValueError: Symbol X cannot repeat after a prefix.
+
     >>> convert_rn_to_num('IXII')
     Traceback (most recent call last):
     ...
     ValueError: Lesser formating error during conversion. Did you mean XI?
+
     >>> convert_rn_to_num('XDMCL')
     Traceback (most recent call last):
     ...
@@ -233,51 +303,6 @@ def convert_rn_to_num(input_rn):
                          f'mean {reference}?')
 
     return result_num
-
-
-def generate_result(program_input):
-    """
-    Generate resulting string, given the input.
-
-    Given a particular input in the form of a string, returns the converted
-    value. Can detect whether it has recieved a Number input or a Roman
-    Numeral input, and calls the required convertor function accordingly.
-
-    :param program_input: The string input that the program recieves, which
-    needs to be converted.
-
-    Sample usage:
-    >>> generate_result('XVI')
-    16
-    >>> generate_result('16')
-    'XVI'
-    >>> generate_result(16)
-    Traceback (most recent call last):
-    ...
-    TypeError: Value must be a string.
-    >>> generate_result(True)
-    Traceback (most recent call last):
-    ...
-    TypeError: Value must be a string.
-    >>> generate_result('IV80_plus3')
-    Traceback (most recent call last):
-    ...
-    ValueError: Input must only contain Roman Numerals, or only Numbers.
-    """
-    if type(program_input) not in [str]:
-        raise TypeError('Value must be a string.')
-
-    program_input = program_input.upper()
-
-    if rx_only_rn.match(program_input) is not None:
-        return convert_rn_to_num(program_input)
-
-    elif rx_only_num.match(program_input) is not None:
-        return convert_num_to_rn(int(program_input))
-
-    else:
-        raise ValueError('Input must only contain Roman Numerals, or only '
-                         'Numbers.')
 
 
 if __name__ == '__main__':
