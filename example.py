@@ -11,7 +11,7 @@ dictionary2={'.-':'A','-...':'B','-.-.':'C','-..':'D', '.':'E','..-.':'F','--.':
 
 
 for i in range(500):
-    d=int(input("1-zašifrovat 2=odšifrovat"))
+    
     a=input("Zadaj vec na šifrovanie")
     a=a.upper()
 
@@ -19,24 +19,28 @@ for i in range(500):
 
 
 
-
-    if d==1: # šifrování
-
+    d=int(input("1-zašifrovat 2=odšifrovat"))
+    if d==1:
+    
         void=" "
-        for i in a: #indexování
+        for i in a:
             if i != ' ':
                 void+=dictionary[i]+" "
             else:
-
+        
                 void += ' '
 
 
         print(void)
 
 
-
-    else: # dešifrování
+    
+    else:
         void = ""
-        splitstring = a.split(" ") #rozdělení
-        for i in splitstring: #indexování
+        splitstring = a.split(" ")
+        for i in splitstring:
             void += dictionary2[i]
+
+    
+    
+        print(void)
