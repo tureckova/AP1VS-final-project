@@ -1,17 +1,18 @@
-"""Vzorový kód pro závěrečný projekt předmětu Ap1VS.
+"""
+Závěrečný projekt skupiny Daniel Štefka, Martin Bobál, František Spurný, do předmětu AP1VS.
 
 .. include:: README.md
 
 Následuje ukázka vzorové funkce.
 """
-import sys
+
 import re
 
-rn_chars = ["M", "D", "C", "L", "X", "V", "I"]
+rn_chars = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
 rn_chars_values = [1000, 500, 100, 50, 10, 5, 1]
 
-rx_only_rn = re.compile("^[IVXLCDM]+$")
-rx_only_num = re.compile("^[1234567890]+$")
+rx_only_rn = re.compile('^[IVXLCDM]+$')
+rx_only_num = re.compile('^[1234567890]+$')
 
 def convert_num_to_rn(input_num):
     """
@@ -31,16 +32,24 @@ def convert_num_to_rn(input_num):
     'M'
     >>> convert_num_to_rn(3999)
     'MMMCMXCIX'
+    >>> convert_num_to_rn(16.8)
+    Traceback (most recent call last):
+    ...
+    TypeError: Input must be an integer.
+    >>> convert_num_to_rn(7051)
+    Traceback (most recent call last):
+    ...
+    ValueError: Number is out of valid Roman Numeral range (1-3999).
     """
 
     if type(input_num) not in [int]:
-        raise TypeError("Input must be an integer.")
+        raise TypeError('Input must be an integer.')
 
     if input_num < 1 or input_num > 3999:
-        raise ValueError("Number is out of valid Roman Numeral range (1-3999)")
+        raise ValueError('Number is out of valid Roman Numeral range (1-3999).')
 
     i = 0
-    result_rn = ""
+    result_rn = ''
 
     # Dokud nejsou projety všechny možné symboly
     while i < len(rn_chars_values):
@@ -81,22 +90,30 @@ def convert_rn_to_num(input_rn):
     :param input_rn: The Roman Numeral in the form of a string, which needs to be converted to a Numeral.
 
     Sample usage:
-    >>> convert_rn_to_num("I")
+    >>> convert_rn_to_num('I')
     1
-    >>> convert_rn_to_num("X")
+    >>> convert_rn_to_num('X')
     10
-    >>> convert_rn_to_num("C")
+    >>> convert_rn_to_num('C')
     100
-    >>> convert_rn_to_num("M")
+    >>> convert_rn_to_num('M')
     1000
-    >>> convert_rn_to_num("MMMCMXCIX")
+    >>> convert_rn_to_num('MMMCMXCIX')
     3999
+    >>> convert_rn_to_num(13)
+    Traceback (most recent call last):
+    ...
+    TypeError: Input must be a string.
+    >>> convert_rn_to_num('MMCBXIAA')
+    Traceback (most recent call last):
+    ...
+    ValueError: Input contains non-Roman Numeral symbols.
     """
 
     if type(input_rn) not in [str]:
-        raise TypeError("Input must be a string.")
+        raise TypeError('Input must be a string.')
     elif rx_only_rn.match(input_rn) is None:
-        raise ValueError("Input contains non-Roman Numeral symbols")
+        raise ValueError('Input contains non-Roman Numeral symbols.')
 
     input_unaltered = input_rn
     i = 0
@@ -107,7 +124,7 @@ def convert_rn_to_num(input_rn):
     while i < len(rn_chars_values):
 
         prefix_index = 0
-        prefix_char = ""
+        prefix_char = ''
 
         if i < len(rn_chars_values) - 1:
 
@@ -120,7 +137,7 @@ def convert_rn_to_num(input_rn):
 
         #proměnné uloží první dvě hodnoty ze vstupu (pokud má alespoň 2 hodnoty)
         first_char = str(input_rn[0])
-        second_char = ""
+        second_char = ''
 
         if len(input_rn) > 1:
             second_char = str(input_rn[1])
@@ -134,14 +151,14 @@ def convert_rn_to_num(input_rn):
 
             #Pokud se symbol opakuje víc jak 3x po sobě, nebo pokud se neopakovatelný symbol (V,L,D) ukáže více než 1x
             if symbol_repeating_count > 3:
-                raise ValueError(f"Symbol {rn_chars[i]} appears too many times in a row.")
+                raise ValueError(f'Symbol {rn_chars[i]} appears too many times in a row.')
 
             elif i % 2 == 1 and symbol_repeating_count > 1:
-                raise ValueError(f"Symbol {rn_chars[i]} can never repeat.")
+                raise ValueError(f'Symbol {rn_chars[i]} can never repeat.')
 
             #Pokud už bylo před symbolem něco jiného
             if symbol_already_prefixed:
-                raise ValueError(f"Symbol {rn_chars[i]} cannot repeat after a prefix.")
+                raise ValueError(f'Symbol {rn_chars[i]} cannot repeat after a prefix.')
 
         #Pokud lze první symbol použít jako předponu před očekávaným symbolem, a pokud je očekávaný symbol na druhém místě
         elif first_char == prefix_char and second_char == rn_chars[i]:
@@ -149,7 +166,7 @@ def convert_rn_to_num(input_rn):
             result_num = result_num + rn_chars_values[i] - rn_chars_values[prefix_index]
 
             if symbol_already_prefixed:
-                raise ValueError(f"Symbol {rn_chars[i]} cannot repeat after a prefix.")
+                raise ValueError(f'Symbol {rn_chars[i]} cannot repeat after a prefix.')
 
             symbol_already_prefixed = True
 
@@ -161,12 +178,12 @@ def convert_rn_to_num(input_rn):
 
         #pokud není ve správném pořadí, ERROR
         else:
-            raise ValueError("This is not a correct Roman Numeral order.") #nebo type error?
+            raise ValueError('This is not a correct Roman Numeral order.')
 
     #Poslední možnost zachytit chybu. Pokud je převedeno číslo zpět do římského, a nerovná se originálu, tak je originální římské číslo špatně formátované
     reference = convert_num_to_rn(result_num)
     if reference != input_unaltered:
-        raise ValueError(f"Lesser formating error arose during conversion. Did you mean {reference}?")
+        raise ValueError(f'Lesser formating error arose during conversion. Did you mean {reference}?')
 
     return result_num
 
@@ -178,11 +195,11 @@ def generate_result(program_input):
     :param program_input: The string input that the program recieves, which needs to be converted.
 
     Sample usage:
-    >>> generate_result("X")
-    10
-    >>> generate_result("10")
-    'X'
-    >>> generate_result(10)
+    >>> generate_result('XVI')
+    16
+    >>> generate_result('16')
+    'XVI'
+    >>> generate_result(16)
     Traceback (most recent call last):
     ...
     TypeError: Value must be a string.
@@ -193,7 +210,7 @@ def generate_result(program_input):
     """
 
     if type(program_input) not in [str]:
-        raise TypeError("Value must be a string.")
+        raise TypeError('Value must be a string.')
 
     program_input = program_input.upper()
 
@@ -204,14 +221,14 @@ def generate_result(program_input):
         return convert_num_to_rn(int(program_input))
 
     else:
-        raise ValueError("Input must contain only Roman Numerals, or only Numbers.") #nebo type error?
+        raise ValueError('Input must contain only Roman Numerals, or only Numbers.')
 
 
 if __name__ == '__main__':
 
-    val = input("Value: ")
+    val = input('Value: ')
 
     print(generate_result(val))
 
-    input("Press Any Key To Exit ...")
+    input('Press Any Key To Exit ... ')
 
