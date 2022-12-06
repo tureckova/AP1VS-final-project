@@ -66,7 +66,10 @@ def convert_rn_to_num(input_rn):
     i = 0
     result_num = 0
     symbol_repeating_count = 0
+<<<<<<< HEAD
     symbol_already_prefixed = False
+=======
+>>>>>>> 31d37f906a210ba71f2f276306d476fe5e0f2226
 
     while i < len(rn_chars_values):
 
@@ -96,6 +99,7 @@ def convert_rn_to_num(input_rn):
             result_num = result_num + rn_chars_values[i]
             symbol_repeating_count += 1
 
+<<<<<<< HEAD
             #Pokud se symbol opakuje víc jak 3x po sobě
             if symbol_repeating_count > 3:
                 raise ValueError("Symbol appears too many times in a row")
@@ -104,27 +108,43 @@ def convert_rn_to_num(input_rn):
             if symbol_already_prefixed:
                 raise ValueError("Symbol cannot be repeated after a prefix")
 
+=======
+            # Pokud se symbol opakuje víc jak 3x po sobě
+            if symbol_repeating_count > 3:
+                raise ValueError("Symbol appears too many times in a row")
+
+>>>>>>> 31d37f906a210ba71f2f276306d476fe5e0f2226
         #Pokud lze první symbol použít jako předponu před očekávaným symbolem, a pokud je očekávaný symbol na druhém místě
         elif first_char == prefix_char and second_char == rn_chars[i]:
             input_rn = input_rn[2:]
             result_num = result_num + rn_chars_values[i] - rn_chars_values[prefix_index]
 
+<<<<<<< HEAD
             if symbol_already_prefixed:
                 raise ValueError("Symbol cannot be repeated after a prefix")
 
             symbol_already_prefixed = True
 
+=======
+>>>>>>> 31d37f906a210ba71f2f276306d476fe5e0f2226
         #Pokud nelze nic jiného, tak se podívá, zda je následující symbol ve správném pořadí oproti již porovnaných symbolech
         elif i < rn_chars.index(first_char):
             i += 1
             symbol_repeating_count = 0
+<<<<<<< HEAD
             symbol_already_prefixed = False
+=======
+>>>>>>> 31d37f906a210ba71f2f276306d476fe5e0f2226
 
         #pokud není ve správném pořadí, ERROR
         else:
             raise ValueError("This is not a correct Roman Numeral order") #nebo type error?
 
+<<<<<<< HEAD
     return result_num
+=======
+    return result_num 
+>>>>>>> 31d37f906a210ba71f2f276306d476fe5e0f2226
 
 def generate_result(program_input):
 
