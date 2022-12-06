@@ -6,11 +6,12 @@ Následuje ukázka vzorové funkce.
 """
 import sys
 import re
-rn_chars = ["M", "D", "C", "L", "X", "V", "I"]
-rn_maps_to = [1000, 500, 100, 50, 10, 5, 1]
 
-rxRN = re.compile("^[IVXLCDM]+$")
-rxNO = re.compile("^[1234567890]+$")
+rn_chars = ["M", "D", "C", "L", "X", "V", "I"]
+rn_chars_values = [1000, 500, 100, 50, 10, 5, 1]
+
+rx_only_rn = re.compile("^[IVXLCDM]+$")
+rx_only_num = re.compile("^[1234567890]+$")
 
 
 def compute(x):
@@ -25,85 +26,125 @@ def compute(x):
     return 3
 
 
-def convert_num_to_rn(number_input):
+def convert_num_to_rn(input_num):
 
     i = 0
-    rn_result = ""
+    result_rn = ""
 
-    while i < len(rn_maps_to):
+    # Dokud nejsou projety všechny možné symboly
+    while i < len(rn_chars_values):
 
-        decreaser_index = 0
-        decreaser = 0
+        prefix_index = 0
+        prefix_val = 0
 
-        if i < len(rn_maps_to) - 1:
+        #IF se podívá, jaká předpona by mohla být použita pro toto číslo, kdyby se zde celá hodnota symbolu na pozici 'i' nevešla
+        if i < len(rn_chars_values) - 1:
 
-            decreaser_index = i + (2 if i % 2 == 0 else 1)
-            decreaser = rn_maps_to[decreaser_index]
+            prefix_index = i + (2 if i % 2 == 0 else 1)
+            prefix_val = rn_chars_values[prefix_index]
 
-        if number_input >= rn_maps_to[i]:
+        #IF se rozhodne, jestli se dá od čísla odečíst hodnota symbolu na pozici 'i'
+        if input_num >= rn_chars_values[i]:
 
-            number_input -= rn_maps_to[i]
-            rn_result += rn_chars[i]
+            input_num -= rn_chars_values[i]
+            result_rn += rn_chars[i]
 
-        elif number_input >= rn_maps_to[i] - decreaser:
+        #pokud ne, tak se podívá, zda by se zde toto číslo vešlo, kdyby od něj byla odečtena předpona
+        elif input_num >= rn_chars_values[i] - prefix_val:
 
-            number_input -= rn_maps_to[i] - decreaser
-            rn_result += rn_chars[decreaser_index] + rn_chars[i]
+            input_num -= rn_chars_values[i] - prefix_val
+            result_rn += rn_chars[prefix_index] + rn_chars[i]
 
+        #pokud ani to ne, tak přidá k 'i' 1 a dívá se od znova z této pozice
         else:
-            i = i + 1
+            i += 1
 
-    return rn_result
+    return result_rn
 
-def convert_rn_to_num(rn_input):
+def convert_rn_to_num(input_rn):
 
     i = 0
-    number_result = 0
+    result_num = 0
+    symbol_repeating_count = 0
+    symbol_already_prefixed = False
 
-    while i < len(rn_maps_to):
+    while i < len(rn_chars_values):
 
-        decreaser_char_index = 0
-        decreaser_char = ""
+        prefix_index = 0
+        prefix_char = ""
 
-        if i < len(rn_maps_to) - 1:
+        if i < len(rn_chars_values) - 1:
 
-            decreaser_char_index = i + (2 if i % 2 == 0 else 1)
-            decreaser_char = rn_chars[decreaser_char_index]
-                        
+            prefix_index = i + (2 if i % 2 == 0 else 1)
+            prefix_char = rn_chars[prefix_index]
 
-        if len(rn_input) < 1:
+        #pokud ze vstupu už nic nezbývá
+        if len(input_rn) < 1:
             break
 
-        first_char = str(rn_input[0])
+        #proměnné uloží první dvě hodnoty ze vstupu (pokud má alespoň 2 hodnoty)
+        first_char = str(input_rn[0])
         second_char = ""
 
-        if len(rn_input) > 1:
-            second_char = str(rn_input[1])
+        if len(input_rn) > 1:
+            second_char = str(input_rn[1])
 
+        #Pokud je první symbol očekávaný symbol
         if first_char == rn_chars[i]:
-                        
-            rn_input = rn_input[1:]
-            number_result = number_result + rn_maps_to[i]
-                        
-        elif first_char == decreaser_char and second_char == rn_chars[i]:
-            rn_input = rn_input[2:]
-            number_result = number_result + rn_maps_to[i] - rn_maps_to[decreaser_char_index]
-                        
+
+            input_rn = input_rn[1:]
+            result_num = result_num + rn_chars_values[i]
+            symbol_repeating_count += 1
+
+            #Pokud se symbol opakuje víc jak 3x po sobě
+            if symbol_repeating_count > 3:
+                raise ValueError("Symbol appears too many times in a row")
+
+            #Pokud už bylo před symbolem něco jiného
+            if symbol_already_prefixed:
+                raise ValueError("Symbol cannot be repeated after a prefix")
+
+        #Pokud lze první symbol použít jako předponu před očekávaným symbolem, a pokud je očekávaný symbol na druhém místě
+        elif first_char == prefix_char and second_char == rn_chars[i]:
+            input_rn = input_rn[2:]
+            result_num = result_num + rn_chars_values[i] - rn_chars_values[prefix_index]
+
+            if symbol_already_prefixed:
+                raise ValueError("Symbol cannot be repeated after a prefix")
+
+            symbol_already_prefixed = True
+
+        #Pokud nelze nic jiného, tak se podívá, zda je následující symbol ve správném pořadí oproti již porovnaných symbolech
         elif i < rn_chars.index(first_char):
-            i = i + 1
+            i += 1
+            symbol_repeating_count = 0
+            symbol_already_prefixed = False
 
+        #pokud není ve správném pořadí, ERROR
         else:
-            return -1
+            raise ValueError("This is not a correct Roman Numeral order") #nebo type error?
 
+    return result_num
 
-    return number_result 
+def generate_result(program_input):
+
+    program_input = program_input.upper()
+
+    if rx_only_rn.match(program_input) != None:
+        print(convert_rn_to_num(program_input))
+
+    elif rx_only_num.match(program_input) != None:
+        print(convert_num_to_rn(int(program_input)))
+
+    else:
+        raise ValueError("Input must contain only Roman Numerals, or only Numbers") #nebo type error?
+
 
 if __name__ == '__main__':
-    input = input("hodnota: ")
-    if rxRN.match(input)!=None:
-        print(convert_rn_to_num(input))
 
-    if rxNO.match(input)!=None:
-        print(convert_num_to_rn(int(input)))
+    val = input("Value: ")
 
+    generate_result(val)
+
+    input("Press Any Key To Exit ...")
 
