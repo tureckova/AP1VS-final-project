@@ -8,12 +8,12 @@ translator = Translator()
 def translate(text, dest, src="auto"):
     """Translate given text.
 
-    >>> translate("Hellow world.", "cs")
-    Ahoj světe.
-    >>>translate("Hellow world.", "e1m1")
-    Neplatný jazyk výstupu.
-    >>>translate("Hellow world.", "cs", "e1m1")
-    Neplatný jazyk výstupu.
+    >>> translate("Hello world.", "cs")
+    'Ahoj světe.'
+    >>> translate("Hello world.", "e1m1")
+    'Neplatný jazyk výstupu.'
+    >>> translate("Hello world.", "cs", "e1m1")
+    'Neplatný jazyk výstupu.'
     """
     if dest not in languages:
         return "Neplatný jazyk výstupu."
