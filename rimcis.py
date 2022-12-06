@@ -1,7 +1,5 @@
 """Vzorový kód pro závěrečný projekt předmětu Ap1VS.
-
 .. include:: README.md
-
 Následuje ukázka vzorové funkce.
 """
 import sys
@@ -15,10 +13,8 @@ rx_only_digits = re.compile("^[1234567890]+$")
 
 def compute(x):
     """Funkce počítá výsledek výrazu pro zadaný agrument x.
-
     :param x: Vstupní parametr x.
     :return: Vrací hodnotu výrazu pro vstupní parametr x.
-
     >>> compute(3)
     3
     """
@@ -69,7 +65,7 @@ def convert_rn_to_num(rn_input):
 
             decreaser_char_index = i + (2 if i % 2 == 0 else 1)
             decreaser_char = rn_chars[decreaser_char_index]
-                        
+
 
         if len(rn_input) < 1:
             break
@@ -81,14 +77,14 @@ def convert_rn_to_num(rn_input):
             second_char = str(rn_input[1])
 
         if first_char == rn_chars[i]:
-                        
+
             rn_input = rn_input[1:]
             number_result = number_result + rn_maps_to[i]
-                        
+
         elif first_char == decreaser_char and second_char == rn_chars[i]:
             rn_input = rn_input[2:]
             number_result = number_result + rn_maps_to[i] - rn_maps_to[decreaser_char_index]
-                        
+
         elif i < rn_chars.index(first_char):
             i = i + 1
 
@@ -96,7 +92,7 @@ def convert_rn_to_num(rn_input):
             return -1
 
 
-    return number_result 
+    return number_result
 
 if __name__ == '__main__':
 
@@ -109,4 +105,4 @@ if __name__ == '__main__':
         print(convert_num_to_rn(int(val)))
 
     input("Press Any Key To Exit ...")
-
+    
