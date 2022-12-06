@@ -2,8 +2,6 @@
 Závěrečný projekt skupiny Daniel Štefka, Martin Bobál, František Spurný, do předmětu AP1VS.
 
 .. include:: README.md
-
-Následuje ukázka vzorové funkce.
 """
 
 import re
@@ -24,10 +22,6 @@ def convert_num_to_rn(input_num):
     Sample usage:
     >>> convert_num_to_rn(1)
     'I'
-    >>> convert_num_to_rn(10)
-    'X'
-    >>> convert_num_to_rn(100)
-    'C'
     >>> convert_num_to_rn(1000)
     'M'
     >>> convert_num_to_rn(3999)
@@ -45,10 +39,6 @@ def convert_num_to_rn(input_num):
     ...
     TypeError: Input must be an integer.
     >>> convert_num_to_rn(7051)
-    Traceback (most recent call last):
-    ...
-    ValueError: Number is out of valid Roman Numeral range (1-3999).
-    >>> convert_num_to_rn(5874)
     Traceback (most recent call last):
     ...
     ValueError: Number is out of valid Roman Numeral range (1-3999).
@@ -104,18 +94,10 @@ def convert_rn_to_num(input_rn):
     Sample usage:
     >>> convert_rn_to_num('I')
     1
-    >>> convert_rn_to_num('X')
-    10
-    >>> convert_rn_to_num('C')
-    100
     >>> convert_rn_to_num('M')
     1000
     >>> convert_rn_to_num('MMMCMXCIX')
     3999
-    >>> convert_rn_to_num('XV')
-    15
-    >>> convert_rn_to_num('XXIII')
-    23
     >>> convert_rn_to_num('LXVIII')
     68
     >>> convert_rn_to_num('CMXCIX')
@@ -132,23 +114,22 @@ def convert_rn_to_num(input_rn):
     Traceback (most recent call last):
     ...
     ValueError: Input contains non-Roman Numeral symbols.
-
-    >>> convert_rn_to_num('XXXX')
+    >>> convert_rn_to_num('MCXXXXIV')
     Traceback (most recent call last):
     ...
     ValueError: Symbol X appears too many times in a row.
-
-    >>> convert_rn_to_num('DD')
+    >>> convert_rn_to_num('MDDLVII')
     Traceback (most recent call last):
     ...
     ValueError: Symbol D can never repeat.
-
-
+    >>> convert_rn_to_num('CIXXVII')
+    Traceback (most recent call last):
+    ...
+    ValueError: Symbol X cannot repeat after a prefix.
     >>> convert_rn_to_num('IXII')
     Traceback (most recent call last):
     ...
     ValueError: Lesser formating error arose during conversion. Did you mean XI?
-
     >>> convert_rn_to_num('XDMCL')
     Traceback (most recent call last):
     ...
@@ -252,6 +233,10 @@ def generate_result(program_input):
     Traceback (most recent call last):
     ...
     TypeError: Value must be a string.
+    >>> generate_result('IV80_plus3')
+    Traceback (most recent call last):
+    ...
+    ValueError: Input must contain only Roman Numerals, or only Numbers.
     """
 
     if type(program_input) not in [str]:
