@@ -1,4 +1,4 @@
-"""TODO: docs."""
+"""Translator project."""
 from googletrans import LANGUAGES, LANGCODES, Translator
 
 languages = list(LANGUAGES) + list(LANGCODES)
@@ -6,9 +6,14 @@ translator = Translator()
 
 
 def translate(text, dest, src="auto"):
-    """TODO: docs.
+    """Translate given text.
 
-    TODO: unit test
+    >>> translate("Hellow world.", "cs")
+    Ahoj světe.
+    >>>translate("Hellow world.", "e1m1")
+    Neplatný jazyk výstupu.
+    >>>translate("Hellow world.", "cs", "e1m1")
+    Neplatný jazyk výstupu.
     """
     if dest not in languages:
         return "Neplatný jazyk výstupu."
@@ -18,8 +23,9 @@ def translate(text, dest, src="auto"):
 
 
 def get_source_language():  # pragma: no cover - TODO
-    """TODO: docs.
+    """Get source language.
 
+    Receive source language from which to translate
     TODO: unit test
     """
     language = input("Z jakého jazyka si přejete překládat? "
@@ -34,7 +40,9 @@ def get_source_language():  # pragma: no cover - TODO
 
 
 def get_destination_language():  # pragma: no cover - TODO
-    """TODO: docs.
+    """Get destination language.
+
+    Receive destination language to which to translate
 
     TODO: unit test
     """
