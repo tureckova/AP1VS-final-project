@@ -13,20 +13,28 @@ rn_chars_values = [1000, 500, 100, 50, 10, 5, 1]
 rx_only_rn = re.compile("^[IVXLCDM]+$")
 rx_only_num = re.compile("^[1234567890]+$")
 
-
-def compute(x):
-    """Funkce počítá výsledek výrazu pro zadaný agrument x.
-
-    :param x: Vstupní parametr x.
-    :return: Vrací hodnotu výrazu pro vstupní parametr x.
-
-    >>> compute(3)
-    3
-    """
-    return 3
-
-
 def convert_num_to_rn(input_num):
+    """
+    Given a particular Numeral, converts it to its corresponding Roman Numeral. Can identify whether the Numeral it has
+    recieved falls into the range of valid Roman Numerals.
+
+    :param input_num: The Numeral in the form of an int, which needs to be converted to a Roman Numeral.
+
+    Sample usage:
+    >>> convert_num_to_rn(1)
+    'I'
+    >>> convert_num_to_rn(10)
+    'X'
+    >>> convert_num_to_rn(100)
+    'C'
+    >>> convert_num_to_rn(1000)
+    'M'
+    >>> convert_num_to_rn(3999)
+    'MMMCMXCIX'
+    """
+
+    if type(input_num) not in [int]:
+        raise TypeError("Input must be an integer.")
 
     if input_num < 1 or input_num > 3999:
         raise ValueError("Number is out of valid Roman Numeral range (1-3999)")
@@ -64,7 +72,32 @@ def convert_num_to_rn(input_num):
 
     return result_rn
 
+
 def convert_rn_to_num(input_rn):
+    """
+    Given a particular Roman Numeral, converts it to its corresponding Numeral. Can identify whether the string it has
+    recieved is a valid Roman Numeral, and return a custom error message if it isn't; detailing the problem.
+
+    :param input_rn: The Roman Numeral in the form of a string, which needs to be converted to a Numeral.
+
+    Sample usage:
+    >>> convert_rn_to_num("I")
+    1
+    >>> convert_rn_to_num("X")
+    10
+    >>> convert_rn_to_num("C")
+    100
+    >>> convert_rn_to_num("M")
+    1000
+    >>> convert_rn_to_num("MMMCMXCIX")
+    3999
+    """
+
+    if type(input_rn) not in [str]:
+        raise TypeError("Input must be a string.")
+    elif rx_only_rn.match(input_rn) is None:
+        raise ValueError("Input contains non-Roman Numeral symbols")
+
     input_unaltered = input_rn
     i = 0
     result_num = 0
@@ -138,8 +171,28 @@ def convert_rn_to_num(input_rn):
     return result_num
 
 def generate_result(program_input):
+    """
+    Given a particular input in the form of a string, returns the converted value. Can detect whether it has recieved a
+    Numeral input or a Roman Numeral input, and calls the required convertor function accordingly.
 
-    if type(val) not in [str]:
+    :param program_input: The string input that the program recieves, which needs to be converted.
+
+    Sample usage:
+    >>> generate_result("X")
+    10
+    >>> generate_result("10")
+    'X'
+    >>> generate_result(10)
+    Traceback (most recent call last):
+    ...
+    TypeError: Value must be a string.
+    >>> generate_result(True)
+    Traceback (most recent call last):
+    ...
+    TypeError: Value must be a string.
+    """
+
+    if type(program_input) not in [str]:
         raise TypeError("Value must be a string.")
 
     program_input = program_input.upper()
