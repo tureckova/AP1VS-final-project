@@ -28,6 +28,9 @@ def compute(x):
 
 def convert_num_to_rn(input_num):
 
+    if input_num < 1 or input_num > 3999:
+        raise ValueError("Number is out of valid Roman Numeral range (1-3999)")
+
     i = 0
     result_rn = ""
 
@@ -62,7 +65,7 @@ def convert_num_to_rn(input_num):
     return result_rn
 
 def convert_rn_to_num(input_rn):
-
+    input_unaltered = input_rn
     i = 0
     result_num = 0
     symbol_repeating_count = 0
@@ -96,13 +99,16 @@ def convert_rn_to_num(input_rn):
             result_num = result_num + rn_chars_values[i]
             symbol_repeating_count += 1
 
-            #Pokud se symbol opakuje víc jak 3x po sobě
+            #Pokud se symbol opakuje víc jak 3x po sobě, nebo pokud se neopakovatelný symbol (V,L,D) ukáže více než 1x
             if symbol_repeating_count > 3:
-                raise ValueError("Symbol appears too many times in a row")
+                raise ValueError(f"Symbol {rn_chars[i]} appears too many times in a row.")
+
+            elif i % 2 == 1 and symbol_repeating_count > 1:
+                raise ValueError(f"Symbol {rn_chars[i]} can never repeat.")
 
             #Pokud už bylo před symbolem něco jiného
             if symbol_already_prefixed:
-                raise ValueError("Symbol cannot be repeated after a prefix")
+                raise ValueError(f"Symbol {rn_chars[i]} cannot repeat after a prefix.")
 
         #Pokud lze první symbol použít jako předponu před očekávaným symbolem, a pokud je očekávaný symbol na druhém místě
         elif first_char == prefix_char and second_char == rn_chars[i]:
@@ -110,7 +116,7 @@ def convert_rn_to_num(input_rn):
             result_num = result_num + rn_chars_values[i] - rn_chars_values[prefix_index]
 
             if symbol_already_prefixed:
-                raise ValueError("Symbol cannot be repeated after a prefix")
+                raise ValueError(f"Symbol {rn_chars[i]} cannot repeat after a prefix.")
 
             symbol_already_prefixed = True
 
@@ -122,29 +128,37 @@ def convert_rn_to_num(input_rn):
 
         #pokud není ve správném pořadí, ERROR
         else:
-            raise ValueError("This is not a correct Roman Numeral order") #nebo type error?
+            raise ValueError("This is not a correct Roman Numeral order.") #nebo type error?
+
+    #Poslední možnost zachytit chybu. Pokud je převedeno číslo zpět do římského, a nerovná se originálu, tak je originální římské číslo špatně formátované
+    reference = convert_num_to_rn(result_num)
+    if reference != input_unaltered:
+        raise ValueError(f"Lesser formating error arose during conversion. Did you mean {reference}?")
 
     return result_num
 
 def generate_result(program_input):
 
+    if type(val) not in [str]:
+        raise TypeError("Value must be a string.")
+
     program_input = program_input.upper()
 
-    if rx_only_rn.match(program_input) != None:
-        print(convert_rn_to_num(program_input))
+    if rx_only_rn.match(program_input) is not None:
+        return convert_rn_to_num(program_input)
 
-    elif rx_only_num.match(program_input) != None:
-        print(convert_num_to_rn(int(program_input)))
+    elif rx_only_num.match(program_input) is not None:
+        return convert_num_to_rn(int(program_input))
 
     else:
-        raise ValueError("Input must contain only Roman Numerals, or only Numbers") #nebo type error?
+        raise ValueError("Input must contain only Roman Numerals, or only Numbers.") #nebo type error?
 
 
 if __name__ == '__main__':
 
     val = input("Value: ")
 
-    generate_result(val)
+    print(generate_result(val))
 
     input("Press Any Key To Exit ...")
 
