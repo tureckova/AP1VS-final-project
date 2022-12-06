@@ -11,11 +11,11 @@ dictionary2={'.-':'A','-...':'B','-.-.':'C','-..':'D', '.':'E','..-.':'F','--.':
 
 
 for i in range(500):
-    d=int(input("1-zašifrovat 2=odšifrovat"))
-    a=input("Zadaj vec na šifrovanie")
+    d=int(input("1. Z ČEŠTINY DO MORSEOVKY || 2. Z MORESOVKY DO ČEŠTINY: ")) # menu
+    a=input("ZADEJ TEXT NA ŠIFROVÁNÍ: ")
     a=a.upper()
 
-    sifra=""
+    sifra="" # nevyužívá se ale bez ní program nelze spustit
 
 
 
@@ -37,7 +37,7 @@ for i in range(500):
 
     else: # dešifrování
         void = ""
-        splitstring = a.split(" ") #rozdělení
+        splitstring = a.split(" ") #rozdělení podle mezer
         for i in splitstring: #indexování
             void += dictionary2[i]
 
