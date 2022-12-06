@@ -1,10 +1,22 @@
+"""
+Rimcis related testing.
+
+This file's goal is to always ensure proper results, and to create
+a warning when these results deviate from expectations.
+"""
 from rimcis import convert_num_to_rn
 from rimcis import convert_rn_to_num
 from rimcis import generate_result
-
 import pytest
 
-def test_relu():
+
+def test_rimcis():
+    """
+    Test use cases and edge cases of rimcis.
+
+    Tests that the possible cases, that can arise while using rimcis,
+    always return correct values.
+    """
     # Expected results of generate_result
     assert generate_result('XVI') == 16
     assert generate_result('16') == 'XVI'
