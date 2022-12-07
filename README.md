@@ -10,19 +10,29 @@ Tento repozitář slouží jako podklad a vzor pro závěrečný projekt z před
 * Zároveň dojde k automatickému vygenerování dokumentace s docstringů pomocí knihovny pdoc.
 
 PYTEST
+
 	py.exe -m pip install -U pytest
+
 	py.exe -m pip install pytest-cov
-	py.exe -m pytest --cov=. --cov-fail-under=75 --cov-report term-missing
-	py.exe -m pytest --doctest-modules --cov=. --cov-fail-under=75 --cov-report term-missing
+
+	py.exe -m pytest --cov=. --cov-fail-under=90 --cov-report term-missing
+
+	py.exe -m pytest --doctest-modules --cov=. --cov-fail-under=90 --cov-report term-missing
 
 FLAKE8
+
 	py.exe -m pip install flake8 flake8-docstrings
+
 	py.exe -m flake8 rimcis.py
+
 	py.exe -m flake8 test_rimcis.py
 
 PDOC
+
 	py.exe -m pip install pdoc
+
 	py.exe -m pdoc rimcis.py
+
 	py.exe -m pdoc test_rimcis.py
 
 ## Postup

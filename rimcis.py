@@ -5,6 +5,7 @@ Závěrečný projekt skupiny Štefka Bobál Spurný do předmětu AP1VS.
 """
 
 import re
+import sys
 
 # Hodnoty Římských číslic a čísla, ke kterým korespondují
 rn_chars = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
@@ -142,7 +143,7 @@ def convert_num_to_rn(input_num):
             input_num -= rn_chars_values[i]
             result_rn += rn_chars[i]
 
-        # pokud ne, tak se podívá, zda se hodnota dala odečíst, kdyby byla
+        # pokud ne, tak se podívá, zda by se hodnota dala odečíst, kdyby byla
         # hodnota znížena pomocí předpony
         elif input_num >= rn_chars_values[i] - prefix_val:
 
@@ -329,8 +330,14 @@ def convert_rn_to_num(input_rn):
 
 if __name__ == '__main__':
 
-    val = input('Value: ')
+    val = ""
+
+    if len(sys.argv) > 1:
+        val = sys.argv[1]
+    else:
+        val = input('Value: ')
 
     print(generate_result(val))
 
-    input('Press Any Key To Exit ... ')
+    if len(sys.argv) <= 1:
+        input('Press Any Key To Exit ... ')
