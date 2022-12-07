@@ -53,7 +53,7 @@ def obsah(strana_a, strana_b, strana_c):
     """
     Výpočet obsahu přes Heronův vzorec.
 
-    s -- potřebné pro výpočet obsahu obecného trojúhelníka
+    s - potřebné pro výpočet obsahu obecného trojúhelníka
     :param strana_a: Vstupní parametr strana_a.
     :param strana_b: Vstupní parametr strana_b.
     :param strana_c: Vstupní parametr strana_c.
