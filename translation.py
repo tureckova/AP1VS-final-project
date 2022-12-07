@@ -28,7 +28,7 @@ def translate(text, dest, src="auto"):
 
 
 def detect_language(text):
-    """Automatic detection of language and validation of the translated text input (input must be string).
+    """Detection of language and Validation of text input.
 
     :param text: Translated text
     :return: Returns detected language
@@ -40,9 +40,9 @@ def detect_language(text):
 
 
 def is_valid_language(language):
-    """This function checks if the selected source/destination language is from the defined list of languages. 
+    """Checks if language parameter is in list of defined languages.
 
-    :param language: language from the list of languages
+    :param language: Language from the list of languages
     :return: Returns if the language is contained in the defined list of languages
     """
     if language not in languages:
