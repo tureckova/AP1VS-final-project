@@ -6,9 +6,11 @@ Závěrečný projekt skupiny Štefka Bobál Spurný do předmětu AP1VS.
 
 import re
 
+# Hodnoty Římských číslic a čísla, ke kterým korespondují
 rn_chars = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
 rn_chars_values = [1000, 500, 100, 50, 10, 5, 1]
 
+# Regex který dokáže rozeznat symboly římských číslic a normální číslice
 rx_only_rn = re.compile('^[IVXLCDM]+$')
 rx_only_num = re.compile('^[1234567890]+$')
 
@@ -49,11 +51,15 @@ def generate_result(program_input):
     if type(program_input) not in [str]:
         raise TypeError('Value must be a string.')
 
+    # Převede vstup na uppercase, aby byly symboly rozeznány v programu
     program_input = program_input.upper()
 
+    # Pokud obsahuje vstup pouze římské symboly, proveď převedení z
+    # římských symbolů na číslo
     if rx_only_rn.match(program_input) is not None:
         return convert_rn_to_num(program_input)
 
+    # Pokud obsahuje pouze čísla, převeď z čísla na Římskou číslici
     elif rx_only_num.match(program_input) is not None:
         return convert_num_to_rn(int(program_input))
 
@@ -115,34 +121,36 @@ def convert_num_to_rn(input_num):
     i = 0
     result_rn = ''
 
-    # Dokud nejsou projety všechny možné symboly
+    # Dívá se na menší a menší symboly, jestli se nevlezou do zbytku čísla
     while i < len(rn_chars_values):
 
+        # Předpona je symbol, který může být napsán před římský symbol, pro
+        # znížení její hodnoty.
         prefix_index = 0
         prefix_val = 0
 
-        # IF se podívá, jaká předpona by mohla být použita pro toto číslo,
-        # kdyby se zde celá hodnota symbolu na pozici 'i' nevešla
+        # Podívá se, jaká předpona by mohla být použita pro toto číslo, pokud
+        # by se samotný symbol do zbytku nevešel
         if i < len(rn_chars_values) - 1:
 
             prefix_index = i + (2 if i % 2 == 0 else 1)
             prefix_val = rn_chars_values[prefix_index]
 
-        # IF se rozhodne, jestli se dá od čísla odečíst hodnota symbolu na
-        # pozici 'i'
+        # Rozhodne se, jestli se dá od čísla odečíst hodnota daného symbolu
         if input_num >= rn_chars_values[i]:
 
             input_num -= rn_chars_values[i]
             result_rn += rn_chars[i]
 
-        # pokud ne, tak se podívá, zda by se zde toto číslo vešlo, kdyby od
-        # něj byla odečtena předpona
+        # pokud ne, tak se podívá, zda se hodnota dala odečíst, kdyby byla
+        # hodnota znížena pomocí předpony
         elif input_num >= rn_chars_values[i] - prefix_val:
 
             input_num -= rn_chars_values[i] - prefix_val
             result_rn += rn_chars[prefix_index] + rn_chars[i]
 
-        # pokud ani to ne, tak přidá k 'i' 1 a dívá se od znova z této pozice
+        # pokud ani to ne, tak přidá k 'i' 1 a opakuje celý proces se symbolem
+        # s menší hodnotou
         else:
             i += 1
 
@@ -228,9 +236,14 @@ def convert_rn_to_num(input_rn):
     elif rx_only_rn.match(input_rn) is None:
         raise ValueError('Input contains non-Roman Numeral symbols.')
 
+    # Použit pro finální porovnávací test integrity
     input_unaltered = input_rn
+
     i = 0
     result_num = 0
+
+    # Hodnoty použity pro ujištění, že se symboly neoběvují v místech, kde
+    # by neměli
     symbol_repeating_count = 0
     symbol_already_prefixed = False
 
@@ -244,7 +257,7 @@ def convert_rn_to_num(input_rn):
             prefix_index = i + (2 if i % 2 == 0 else 1)
             prefix_char = rn_chars[prefix_index]
 
-        # pokud ze vstupu už nic nezbývá
+        # Pokud byl rozebrán celý vstup a nic z něho nezbývá, ukončí převádění
         if len(input_rn) < 1:
             break
 
@@ -255,7 +268,8 @@ def convert_rn_to_num(input_rn):
         if len(input_rn) > 1:
             second_char = str(input_rn[1])
 
-        # Pokud je první symbol očekávaný symbol
+        # Pokud je první symbol očekávaný symbol, přičti jeho hodnotu k
+        # výsledku, a odstraň tento symbol z inputu
         if first_char == rn_chars[i]:
 
             input_rn = input_rn[1:]
@@ -263,7 +277,7 @@ def convert_rn_to_num(input_rn):
             symbol_repeating_count += 1
 
             # Pokud se symbol opakuje víc jak 3x po sobě, nebo pokud se
-            # neopakovatelný symbol (V,L,D) ukáže více než 1x
+            # neopakovatelný symbol (V,L,D) ukáže více než 1x, je špatně
             if symbol_repeating_count > 3:
                 raise ValueError(f'Symbol {rn_chars[i]} appears too many '
                                  f'times in a row.')
@@ -271,13 +285,16 @@ def convert_rn_to_num(input_rn):
             elif i % 2 == 1 and symbol_repeating_count > 1:
                 raise ValueError(f'Symbol {rn_chars[i]} can never repeat.')
 
-            # Pokud už bylo před symbolem něco jiného
+            # Pokud se kterýkoliv symbol opakuje poté, co na něm byla použita
+            # předpona, je špatně
             if symbol_already_prefixed:
                 raise ValueError(f'Symbol {rn_chars[i]} cannot repeat after '
                                  f'a prefix.')
 
         # Pokud lze první symbol použít jako předponu před očekávaným
-        # symbolem, a pokud je očekávaný symbol na druhém místě
+        # symbolem, a pokud je očekávaný symbol na druhém místě, lze odečíst
+        # hodnotu očekávaného symbolu mínus hodnotu předpony. Tyto symboly
+        # jsou poté odstraněny z inputu
         elif first_char == prefix_char and second_char == rn_chars[i]:
             input_rn = input_rn[2:]
             result_num = result_num + rn_chars_values[i] \
@@ -296,7 +313,7 @@ def convert_rn_to_num(input_rn):
             symbol_repeating_count = 0
             symbol_already_prefixed = False
 
-        # pokud není ve správném pořadí, ERROR
+        # pokud není ve správném pořadí, je input špatně
         else:
             raise ValueError('This is not a correct Roman Numeral order.')
 

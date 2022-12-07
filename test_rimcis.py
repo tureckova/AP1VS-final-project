@@ -98,7 +98,7 @@ def test_rimcis():
 
     with pytest.raises(ValueError):
         convert_rn_to_num('CIXXVII')  # Opakování po předponě
-        
+
     with pytest.raises(ValueError):
         convert_rn_to_num('MCMCMXIV')  # Opakování po předponě
 
