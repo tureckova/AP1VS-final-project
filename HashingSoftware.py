@@ -3,9 +3,9 @@
 import hashlib
 
 
-def HashPassw(hashChoice, passw, hsh):
+def HashPassw(choice, passw, hsh):
     """
-    Hashes the password via selected hash method.
+    Hashes the password via selected hash algorithm.
 
     :param choice: Determines the hash algorithm (int)
     :param passw: The password to be hashed (string)
@@ -13,29 +13,27 @@ def HashPassw(hashChoice, passw, hsh):
     :return: Hashed version of the password (string)
     """
     hashIt = passw + hsh
-    if hashChoice == 1:
+    if choice == 1:
         hashed = hashlib.md5(hashIt.encode())
-        return hashed.hexdigest()
-    elif hashChoice == 2:
+    elif choice == 2:
         hashed = hashlib.sha384(hashIt.encode())
-        return hashed.hexdigest()
-    elif hashChoice == 3:
+    elif choice == 3:
         hashed = hashlib.sha512(hashIt.encode())
-        return hashed.hexdigest()
+    return hashed.hexdigest()
 
 
-def CheckInput(hashChoice):
+def CheckInput(choice):
     """
     Datatype and value check.
 
-    :param uInput: Algorithm choice (string)
+    :param choice: Hash algorithm choice (string)
     """
-    if hashChoice.isdigit():
-        hashChoice = int(hashChoice)
-        if hashChoice != 1 and hashChoice != 2 and hashChoice != 3:
+    if choice.isdigit():
+        choice = int(choice)
+        if choice != 1 and choice != 2 and choice != 3:
             raise ValueError("Choose number 1, 2 or 3!!")
     else:
-        raise TypeError("The input must be integer!!")
+        raise TypeError("The algorithm choice must be an integer!!")
 
 
 def CheckLength(passw, hsh):
@@ -54,11 +52,11 @@ def CheckLength(passw, hsh):
 if __name__ == "__main__":
     password = input("Password to hash (8 or more symbols): ")
     hash = input("Your own hash (5 or more symbols): ")
-    algChoice = input("Choose algorith (1 = md5 ; 2 = sha384 ; 3 = sha512): ")
+    algChoice = input("Choose algorithm (1 = md5 ; 2 = sha384 ; 3 = sha512): ")
 
     CheckInput(algChoice)
     CheckLength(password, hash)
 
-    print("\n\n")
+    print("\n")
     print("Hashed password: " + HashPassw(int(algChoice), password, hash))
     print("\n")
