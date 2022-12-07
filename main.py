@@ -37,7 +37,6 @@ def sestavitelnost(strana_a, strana_b, strana_c):
     :param strana_b: Vstupní parametr strana_b.
     :param strana_c: Vstupní parametr strana_c.
     :return: Vrací hodnotu True || False
-    trojuhelnik lze sestavit pokud platí všechny tyto pravidla
     """
     if type(strana_a) not in [int, float] or type(strana_b) \
             not in [int, float] or type(strana_c) not in [int, float]:
@@ -77,7 +76,6 @@ def obvod(strana_a, strana_b, strana_c):
     :param strana_a: Vstupní parametr strana_a.
     :param strana_b: Vstupní parametr strana_b.
     :param strana_c: Vstupní parametr strana_c.
-    Vstupní parametry pro výpočet obvodu
     :return: Vrací hodnotu obvodu
     """
     if type(strana_a) not in [int, float] or type(strana_b) not in \
