@@ -67,6 +67,7 @@ def checkWrongData():
     ca = 0
     cb = 0
     
+    
     global a1
     if len(a_x.get())<=3:
         if a_x.get().isdigit() and int(a_x.get()) <= 500:
@@ -193,8 +194,10 @@ def vypis_vypocet():
 
 
 def kresba():
+    #Nadefinuje rozměry a další informace kanvasu.
     udaje = tk.Canvas(root, width=500, height=500, background='#c4c4c4')
     udaje.grid(row=0, column=1, columnspan=5)
+
     # Narýsuje trojúhelník
     udaje.create_line(a1,a2,b1,b2,fill="blue",width=5)
     udaje.create_line(b1,b2,c1,c2,fill="blue",width=5)
