@@ -30,7 +30,7 @@ print( )
 print("Výpočet obsahu trojúhelníku ABC:")
 s = (stranaA + stranaB + stranaC) / 2
 obsah = numpy.sqrt(s * (s - stranaA) * (s - stranaB) * (s - stranaC))
-print("Trojúhelník ABC má obsah = %.1f cm." %obsah)
+print("Trojúhelník ABC má obsah = %.1f cm2." %obsah)
 
 print( )
 print("Ověření sestrojitelnosti trojúhelníku ABC:")
