@@ -31,7 +31,7 @@ def detect_language(text):
     """Automatic detection of language and validation of the translated text input (input must be string).
 
     :param text: Translated text
-    :return:
+    :return: Returns detected language
     """
     if type(text) is not str or not text.strip():
         return "Text musí být nenulový string."
@@ -40,10 +40,10 @@ def detect_language(text):
 
 
 def is_valid_language(language):
-    """This function checks if the selected source/destination language is from the defined list of languages 
+    """This function checks if the selected source/destination language is from the defined list of languages. 
 
     :param language: language from the list of languages
-    :return:
+    :return: Returns if the language is contained in the defined list of languages
     """
     if language not in languages:
         print("Neplatný jazyk.")
