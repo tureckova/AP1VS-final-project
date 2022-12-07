@@ -12,11 +12,11 @@ def vypocetstrany(bod1x, bod1y, bod2x, bod2y):
     """
     Vypocet strany.
 
-                :param bod1x: Vstupní parametr bod1x.
-                :param bod1y: Vstupní parametr bod1y.
-                :param bod2x: Vstupní parametr bod2x.
-                :param bod2y: Vstupní parametr bod2y.
-                :return: Vrací stranu
+    :param bod1x: Vstupní parametr bod1x.
+    :param bod1y: Vstupní parametr bod1y.
+    :param bod2x: Vstupní parametr bod2x.
+    :param bod2y: Vstupní parametr bod2y.
+    :return: Vrací stranu
     """
     if type(bod1x) not in [int, float] or type(bod2x) not in [int, float] or \
             type(bod1y) not in [int, float] or type(
@@ -33,11 +33,11 @@ def sestavitelnost(strana_a, strana_b, strana_c):
     """
     Sestavitelnost.
 
-            :param strana_a: Vstupní parametr strana_a.
-            :param strana_b: Vstupní parametr strana_b.
-            :param strana_c: Vstupní parametr strana_c.
-            :return: Vrací hodnotu True || False
-            trojuhelnik lze sestavit pokud platí všechny tyto pravidla
+    :param strana_a: Vstupní parametr strana_a.
+    :param strana_b: Vstupní parametr strana_b.
+    :param strana_c: Vstupní parametr strana_c.
+    :return: Vrací hodnotu True || False
+    trojuhelnik lze sestavit pokud platí všechny tyto pravidla
     """
     if type(strana_a) not in [int, float] or type(strana_b) \
             not in [int, float] or type(strana_c) not in [int, float]:
@@ -54,11 +54,11 @@ def obsah(strana_a, strana_b, strana_c):
     """
     Výpočet obsahu přes Heronův vzorec.
 
-                s -- potřebné pro výpočet obsahu obecného trojúhelníka
-                :param strana_a: Vstupní parametr strana_a.
-                :param strana_b: Vstupní parametr strana_b.
-                :param strana_c: Vstupní parametr strana_c.
-                :return: Vrací hodnotu obsahu
+    s -- potřebné pro výpočet obsahu obecného trojúhelníka
+    :param strana_a: Vstupní parametr strana_a.
+    :param strana_b: Vstupní parametr strana_b.
+    :param strana_c: Vstupní parametr strana_c.
+    :return: Vrací hodnotu obsahu
     """
     if type(strana_a) not in [int, float] or type(strana_b) not in \
             [int, float] or type(strana_c) not in [int, float]:
@@ -74,11 +74,11 @@ def obvod(strana_a, strana_b, strana_c):
     """
     Výpočet obvodu.
 
-                :param strana_a: Vstupní parametr strana_a.
-                :param strana_b: Vstupní parametr strana_b.
-                :param strana_c: Vstupní parametr strana_c.
-                Vstupní parametry pro výpočet obvodu
-                :return: Vrací hodnotu obvodu
+    :param strana_a: Vstupní parametr strana_a.
+    :param strana_b: Vstupní parametr strana_b.
+    :param strana_c: Vstupní parametr strana_c.
+    Vstupní parametry pro výpočet obvodu
+    :return: Vrací hodnotu obvodu
     """
     if type(strana_a) not in [int, float] or type(strana_b) not in \
             [int, float] or type(strana_c) not in [int, float]:
@@ -93,12 +93,12 @@ def uhel(uhel_u_strany, strana_protilehla1, strana_protilehla2):
     """
     Výpočet úhlů.
 
-                    :param uhel_u_strany: Vstupní parametr uhel_u_strany.
-                    :param strana_protilehla1:
-                    Vstupní parametr strana_protilehla1.
-                    :param strana_protilehla2:
-                    Vstupní parametr strana_protilehla2.
-                    :return: Vrací hodnotu finalního úhlu
+    :param uhel_u_strany: Vstupní parametr uhel_u_strany.
+    :param strana_protilehla1:
+    Vstupní parametr strana_protilehla1.
+    :param strana_protilehla2:
+    Vstupní parametr strana_protilehla2.
+    :return: Vrací hodnotu finalního úhlu
     """
     if type(uhel_u_strany) not in [int, float] or type(strana_protilehla1) \
             not in [int, float] or type(
