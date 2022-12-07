@@ -2,7 +2,9 @@
 from number_systems import number_system_converter
 import pytest
 
+
 def test_number_system_converter():
+    """Test the converter function."""
     # x > 0
     assert number_system_converter(5) == 'Binary: 0b101, hexadecimal: 0x5, octal: 0o5'
     assert number_system_converter(1) == 'Binary: 0b1, hexadecimal: 0x1, octal: 0o1'
