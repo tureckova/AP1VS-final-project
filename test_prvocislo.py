@@ -1,19 +1,22 @@
-from prvocislo import primeNumber
+from prvocislo import primeNumber, odpoved
 import pytest
 
 
 def test_primeNumber():
     """test x values"""
-    assert primeNumber(-15) == "Not valid input, please enter natural number"
-    # assert primeNumber(5) == "Prime number"
-    assert primeNumber(-10) == "Not valid input, please enter natural number"
+    assert primeNumber(2)
+    assert not primeNumber(6)
+    assert not primeNumber(22)
+    assert primeNumber(73)
+
+
+def test_odpoved():
+    assert odpoved(2) == "Prime number"
+    assert odpoved(6) == "Not a prime number"
+
+    with pytest.raises(ValueError):
+        odpoved("j")
 
     with pytest.raises(TypeError):
-        primeNumber("5")
-    
-    with pytest.raises(ValueError):
-        primeNumber(True)
-        primeNumber(2.0)
-        primeNumber(-2.1)
-        primeNumber(2, 5)
-        primeNumber(5-2)
+        odpoved(-5)
+        odpoved(1)
