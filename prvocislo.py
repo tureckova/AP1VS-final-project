@@ -1,3 +1,6 @@
+"""Main module."""
+
+
 def primeNumber(x):
     """Calc primeNumber value.
 
@@ -21,9 +24,7 @@ def primeNumber(x):
 
 
 def odpoved(x):
-    """
-    Tests type errors and input number.
-    """
+    """Test type errors and input number."""
     if type(x) not in [int]:
         raise ValueError("Enter natural number")
     if x <= 0:
@@ -40,9 +41,7 @@ def odpoved(x):
 
 
 def main():
-    """
-    Test of the entered answer.
-    """
+    """Test of the entered answer."""
     x = int(input("Enter a number: "))
     odpoved(x)
     while True:

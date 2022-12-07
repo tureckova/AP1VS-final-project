@@ -1,9 +1,10 @@
+"""Test module."""
 from prvocislo import primeNumber, odpoved
 import pytest
 
 
 def test_primeNumber():
-    """test x values"""
+    """Test x values."""
     assert primeNumber(2)
     assert not primeNumber(6)
     assert not primeNumber(22)
@@ -11,6 +12,7 @@ def test_primeNumber():
 
 
 def test_odpoved():
+    """Test odpoved function."""
     assert odpoved(2) == "Prime number"
     assert odpoved(6) == "Not a prime number"
 
