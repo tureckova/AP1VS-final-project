@@ -1,5 +1,6 @@
 ﻿import numpy
 
+#V následujícím bloku zadá uživatel hodnoty souřadnic pro body A,B,C
 #nadefinování proměnných, výpis textu na konzoli
 aX = float(input("Enter the x coordinate for point A: "))
 aY = float(input("Enter the y coordinate for point A: "))
@@ -8,6 +9,7 @@ bY = float(input("Enter the y coordinate for point B: "))
 cX = float(input("Enter the x coordinate for point C: "))
 cY = float(input("Enter the y coordinate for point C: "))
 
+#Zadané souřadnice se uživateli postupně vypíší
 #výpis hodnot na konzoli (hodnoty, které byly zadány uživatelem)
 print()
 print("Bod A = [%.1f, %.1f]" %(aX, aY))
@@ -16,6 +18,7 @@ print("Bod C = [%.1f, %.1f]" %(cX, cY))
 
 time.sleep(2)#waitTime 2 sekundy
 
+#Zde se uživateli ukáží vypočítané strany troujúhelníku
 #výpis textu
 print( )
 print("Výpočet délky jednotlivých stran trojúhelníku ABC:")
@@ -30,6 +33,7 @@ print("Délka strany c = %.1f cm." %stranaC)
 
 time.sleep(2)#waitTime 2 sekundy
 
+#V tomto bloku se ukáže vypočítaný obvod troujúhelníku
 #výpis textu
 print( )
 print("Výpočet obvodu trojúhelníku ABC:")
@@ -40,6 +44,7 @@ print("Trojúhelník ABC má obvod = %.1f cm." %obvod)
 
 time.sleep(2)#waitTime 2 sekundy
 
+#Uživateli se zde ukáže vypočítaný obsah zadaného trojúhelníku
 #výpis textu
 print( )
 print("Výpočet obsahu trojúhelníku ABC:")
@@ -51,6 +56,7 @@ print("Trojúhelník ABC má obsah = %.1f cm2." %obsah)
 
 time.sleep(2)#waitTime 2 sekundy
 
+#Uživateli se zobrazí zda je vůbec možné sestorjit trojúhelník
 #výpis textu
 print( )
 print("Ověření sestrojitelnosti trojúhelníku ABC:")
@@ -63,7 +69,8 @@ else:
     print("Trojúhelník ABC nelze sestrojit.")
 
 time.sleep(2)#waitTime 2 sekundy
-    
+
+#Poslední věc co se uživateli ukáže je ověření, zda je trojúhelník pravoúhlý
 #výpis textu
 print( )
 print("Ověření pravoúhlosti trojúhelníku ABC:")
