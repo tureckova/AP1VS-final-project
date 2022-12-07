@@ -36,6 +36,44 @@ def data():
 
     tk.Button(frame, text='Nakresli', command=checkWrongData, width=15).grid(row=8,column=1,columnspan=2, rowspan=2,sticky=N)
 
+def strana(b1, b2, c1, c2):
+    """
+    Výpočet strany."""
+    if  type(b1)  not in [int, float]:
+        raise TypeError("Musí byť číslo")
+    if  type(b2)  not in [int, float]:
+        raise TypeError("Musí byť číslo")
+    if  type(c1)  not in [int, float]:
+        raise TypeError("Musí byť číslo")
+    if  type(c2)  not in [int, float]:
+        raise TypeError("Musí byť číslo")
+    return (((b1-c1)**2+(b2-c2)**2)**(1/2)) 
+
+def strana(c1, c2, a1, a2):
+    """
+    Výpočet strany."""
+    if  type(c1)  not in [int, float]:
+        raise TypeError("Musí byť číslo")
+    if  type(c2)  not in [int, float]:
+        raise TypeError("Musí byť číslo")
+    if  type(a1)  not in [int, float]:
+        raise TypeError("Musí byť číslo")
+    if  type(a2)  not in [int, float]:
+        raise TypeError("Musí byť číslo")
+    return (((c1-a1)**2+(c2-a2)**2)**(1/2)) 
+    
+def strana(a1, a2, b1, b2):
+    """
+    Výpočet strany."""
+    if  type(a1)  not in [int, float]:
+        raise TypeError("Musí byť číslo")
+    if  type(a2)  not in [int, float]:
+        raise TypeError("Musí byť číslo")
+    if  type(b1)  not in [int, float]:
+        raise TypeError("Musí byť číslo")
+    if  type(b2)  not in [int, float]:
+        raise TypeError("Musí byť číslo")
+    return (((a1-b1)**2+(a2-b2)**2)**(1/2))
 
 def checkWrongData():
 
@@ -142,17 +180,17 @@ def vypis_vypocet():
 
     # Výpočet strany A
     global strana_A
-    strana_A = (((b1-c1)**2+(b2-c2)**2)**(1/2)) 
+    strana_A = strana(b1, b2, c1, c2)
     strana_A = round(strana_A,2)
 
     # Výpočet strany B
     global strana_B
-    strana_B= (((c1-a1)**2+(c2-a2)**2)**(1/2))
+    strana_B= strana(c1, c2, a1, a2)
     strana_B = round(strana_B,2)
 
     # Výpočet strany C
     global strana_C
-    strana_C = (((a1-b1)**2+(a2-b2)**2)**(1/2))
+    strana_C = strana(a1, a2, b1, b2)
     strana_C = round(strana_C,2)
         
     if strana_A+strana_B>strana_C and strana_B+strana_C>strana_A and strana_A+strana_C>strana_B:
@@ -172,15 +210,12 @@ def vypis_vypocet():
 
         # Výpočet obvodu
         global obvod
-        obvod = strana_A+strana_B+strana_C
+        obvod = obvod_Stran(strana_A,strana_B,strana_C)
         obvod = round(obvod,2)
-
-        # Mezivýpočet pro obsah
-        s = (obvod)/2
 
         # Výpočet obsahu
         global obsah
-        obsah = ((s*(s-strana_A)*(s-strana_B)*(s-strana_C))**(1/2))
+        obsah = Obsah_Trojuholnika(strana_A,strana_B,strana_C)
         obsah = round(obsah,2)
 
         # Výpis obvodu a obsahu
@@ -191,6 +226,13 @@ def vypis_vypocet():
     else:
         Label(frame, text=("Trojuholník sa nedá narýsovať"), font="Helvetica 12 bold", fg="red").grid(row=10,column=0, columnspan=10, sticky=N)
 
+def obvod_Stran(strana_A,strana_B,strana_C):
+    return strana_A+strana_B+strana_C
+
+def Obsah_Trojuholnika(strana_A,strana_B,strana_C):
+    s = (strana_A+strana_B+strana_C)/2
+    obsah = ((s*(s-strana_A)*(s-strana_B)*(s-strana_C))**(1/2))
+    return obsah
 
 def kresba():
     udaje = tk.Canvas(root, width=500, height=500, background='#c4c4c4')
