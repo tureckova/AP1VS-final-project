@@ -59,7 +59,7 @@ def checkWrongData():
     labelC2.grid(row=7,column=2)
     
 
-    
+    #vynulovanie strán
     aa = 0
     ab = 0
     ba = 0
