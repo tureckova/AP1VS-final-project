@@ -23,7 +23,11 @@ def test_rimcis():
 
     # Expected results of convert_num_to_rn
     assert convert_num_to_rn(1) == 'I'
+    assert convert_num_to_rn(5) == 'V'
     assert convert_num_to_rn(10) == 'X'
+    assert convert_num_to_rn(50) == 'L'
+    assert convert_num_to_rn(100) == 'C'
+    assert convert_num_to_rn(500) == 'D'
     assert convert_num_to_rn(1000) == 'M'
     assert convert_num_to_rn(3999) == 'MMMCMXCIX'
     assert convert_num_to_rn(36) == 'XXXVI'
@@ -33,7 +37,11 @@ def test_rimcis():
 
     # Expected results of convert_rn_to_num
     assert convert_rn_to_num('I') == 1
+    assert convert_rn_to_num('V') == 5
     assert convert_rn_to_num('X') == 10
+    assert convert_rn_to_num('L') == 50
+    assert convert_rn_to_num('C') == 100
+    assert convert_rn_to_num('D') == 500
     assert convert_rn_to_num('M') == 1000
     assert convert_rn_to_num('MMMCMXCIX') == 3999
     assert convert_rn_to_num('LXVIII') == 68
@@ -46,7 +54,26 @@ def test_rimcis():
         generate_result(16)
         generate_result(True)
 
+        convert_num_to_rn(150.15)
+        convert_num_to_rn(False)
+        convert_num_to_rn([20, 190, 708])
+
+        convert_rn_to_num(500)
+        convert_rn_to_num(True)
+        convert_rn_to_num(['XXI', 'MCIV', 'DCC'])
+
     # Possible raised ValueErrors
     with pytest.raises(ValueError):
+
         generate_result('IV80_plus3')
         generate_result('MM10001000CCM')
+
+        convert_num_to_rn(4000)
+        convert_num_to_rn(0)
+
+        convert_rn_to_num('MMCBXIAA')  # Vstup obsahuje ne-římské číslice
+        convert_rn_to_num('MCXXXXIV')  # > 3x Opakující se symboly
+        convert_rn_to_num('MDDLVII')  # Opakující se pětkové symboly
+        convert_rn_to_num('CIXXVII')  # Opakování po předponě
+        convert_rn_to_num('IXII')  # Ostatní chyby
+        convert_rn_to_num('XDMCL')  # Špatné seřazení

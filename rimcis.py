@@ -208,6 +208,11 @@ def convert_rn_to_num(input_rn):
     ...
     ValueError: Symbol X cannot repeat after a prefix.
 
+    >>> convert_rn_to_num('MCMCMXIV')
+    Traceback (most recent call last):
+    ...
+    ValueError: Symbol M cannot repeat after a prefix.
+
     >>> convert_rn_to_num('IXII')
     Traceback (most recent call last):
     ...
