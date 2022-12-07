@@ -42,7 +42,7 @@ def odpoved(x):
 
 
 def main():
-    """Test of the entered answer."""
+    """Communication with user, tets of input and print answer."""
     x = int(input("Enter a number: "))
     odpoved(x)
     while True:
