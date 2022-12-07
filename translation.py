@@ -8,10 +8,10 @@ translator = Translator()
 def translate(text, dest, src="auto"):
     """Translate given text.
 
-    :param text: Translated text
+    :param text: Text to translate
     :param dest: Language we're translating into
     :param src: Language we're translating from
-    :return:
+    :return: Translated text
 
     >>> translate("Hello world.", "cs")
     'Ahoj světe.'
