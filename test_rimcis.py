@@ -52,28 +52,55 @@ def test_rimcis():
     # Possible raised TypeErrors
     with pytest.raises(TypeError):
         generate_result(16)
+
+    with pytest.raises(TypeError):
         generate_result(True)
 
+    with pytest.raises(TypeError):
         convert_num_to_rn(150.15)
+
+    with pytest.raises(TypeError):
         convert_num_to_rn(False)
+
+    with pytest.raises(TypeError):
         convert_num_to_rn([20, 190, 708])
 
+    with pytest.raises(TypeError):
         convert_rn_to_num(500)
+
+    with pytest.raises(TypeError):
         convert_rn_to_num(True)
+
+    with pytest.raises(TypeError):
         convert_rn_to_num(['XXI', 'MCIV', 'DCC'])
 
     # Possible raised ValueErrors
     with pytest.raises(ValueError):
-
         generate_result('IV80_plus3')
+
+    with pytest.raises(ValueError):
         generate_result('MM10001000CCM')
 
+    with pytest.raises(ValueError):
         convert_num_to_rn(4000)
+
+    with pytest.raises(ValueError):
         convert_num_to_rn(0)
 
+    with pytest.raises(ValueError):
         convert_rn_to_num('MMCBXIAA')  # Vstup obsahuje ne-římské číslice
+
+    with pytest.raises(ValueError):
         convert_rn_to_num('MCXXXXIV')  # > 3x Opakující se symboly
+
+    with pytest.raises(ValueError):
         convert_rn_to_num('MDDLVII')  # Opakující se pětkové symboly
+
+    with pytest.raises(ValueError):
         convert_rn_to_num('CIXXVII')  # Opakování po předponě
+
+    with pytest.raises(ValueError):
         convert_rn_to_num('IXII')  # Ostatní chyby
+
+    with pytest.raises(ValueError):
         convert_rn_to_num('XDMCL')  # Špatné seřazení
