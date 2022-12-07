@@ -70,7 +70,9 @@ def obvod(strana_a, strana_b, strana_c):
     """
     Výpočet obvodu.
 
-                :param strana_a, strana_b, strana_c:
+                :param strana_a: Vstupní parametr strana_a.
+                :param strana_b: Vstupní parametr strana_b.
+                :param strana_c: Vstupní parametr strana_c.
                 Vstupní parametry pro výpočet obvodu
                 :return: Vrací hodnotu obvodu
     """
@@ -87,9 +89,9 @@ def uhel(uhel_u_strany, strana_protilehla1, strana_protilehla2):
     """
     Výpočet úhlů.
 
-                    :param uhel_u_strany, strana_protilehla1,
-                     strana_protilehla2:
-                    Vstupní parametry pro výpočet úhlů
+                    :param uhel_u_strany: Vstupní parametr uhel_u_strany.
+                    :param strana_protilehla1: Vstupní parametr strana_protilehla1.
+                    :param strana_protilehla2: Vstupní parametr strana_protilehla2.
                     :return: Vrací hodnotu finalního úhlu
     """
     if type(uhel_u_strany) not in [int, float] or type(strana_protilehla1) \
