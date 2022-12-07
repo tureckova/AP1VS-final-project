@@ -1,5 +1,5 @@
 """
-Závěrečný projekt skupiny Štefka Bobál Spurný do předmětu AP1VS.
+Program rimcis.
 
 .. include:: README.md
 """
