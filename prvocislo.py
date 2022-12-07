@@ -5,7 +5,7 @@ def primeNumber(x):
     """Calc primeNumber value.
 
     :param x = entered number
-    
+    :return True
     Sample usage:
     >>> primeNumber(2)
     True
