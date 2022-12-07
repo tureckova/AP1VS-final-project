@@ -8,9 +8,9 @@ translator = Translator()
 def translate(text, dest, src="auto"):
     """Translate given text.
 
-    :param text: Překládaný text
-    :param dest: Jazyk do kterého se text překládá
-    :param src: Jazyk ze kterého se text překládá
+    :param text: Translated text
+    :param dest: Language we're translating into
+    :param src: Language we're translating from
     :return:
 
     >>> translate("Hello world.", "cs")
@@ -28,9 +28,9 @@ def translate(text, dest, src="auto"):
 
 
 def detect_language(text):
-    """TODO.
+    """Automatic detection of language and validation of the translated text input (input must be string).
 
-    :param text: Překládaný text
+    :param text: Translated text
     :return:
     """
     if type(text) is not str or not text.strip():
@@ -40,9 +40,9 @@ def detect_language(text):
 
 
 def is_valid_language(language):
-    """TODO.
+    """This function checks if the selected source/destination language is from the defined list of languages 
 
-    :param language: jazyk z listu jazyků
+    :param language: language from the list of languages
     :return:
     """
     if language not in languages:
