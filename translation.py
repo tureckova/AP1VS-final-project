@@ -28,7 +28,7 @@ def translate(text, dest, src="auto"):
 
 
 def detect_language(text):
-    """Detection of language and Validation of text input.
+    """Detect language and Validate text input.
 
     :param text: Translated text
     :return: Output detected language
@@ -40,10 +40,10 @@ def detect_language(text):
 
 
 def is_valid_language(language):
-    """Checks if language parameter is in list of defined languages.
+    """Check if language parameter is in list of defined languages.
 
     :param language: Language from the list of languages
-    :return: Output if the language is contained in the defined list of languages
+    :return: Language validity
     """
     if language not in languages:
         print("Neplatný jazyk.")
