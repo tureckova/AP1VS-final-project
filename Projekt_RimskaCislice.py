@@ -89,8 +89,8 @@ def kontrola(cislo):
         print("Nelze prevodit. Rismke cislice nelze napsat v zapornych cisel")
     else:
         print("Prevod na rimsky: " + vysledek())
-        
-        
+
+
 if __name__ == "__main__":
     print("Rismke cislice lze prevadet pouze prirozena cisla od 1 do 3999\n")
     try:
@@ -98,4 +98,3 @@ if __name__ == "__main__":
         kontrola(cislo)
     except ValueError:
         print("Nelze prevodit. Zadali jste spatny vstup")
-        
