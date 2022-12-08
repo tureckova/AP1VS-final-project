@@ -1,5 +1,8 @@
-"""@authors: Do, Janostik, Lunga, Blaho."""
+""".
 
+@mainpage
+@authors Do, Janostik, Lunga, Blaho
+"""
 
 """
 Seznam zakladni rimskych cisel.
