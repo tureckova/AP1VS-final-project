@@ -43,7 +43,7 @@ def stovky(cislo):
 def desitky(cislo):
     """Zjisteni desitky.
 
-    >>>> desitky(3888)
+    >>> desitky(3888)
     'LXXX'
     """
     # index v poli zacina s hodnotou 0
@@ -98,5 +98,4 @@ if __name__ == "__main__":
         kontrola(cislo)
     except ValueError:
         print("Nelze prevodit. Zadali jste spatny vstup")
-        
         
