@@ -19,7 +19,11 @@ def translate(text, dest, src=""):
     'Neplatný jazyk výstupu.'
     >>> translate("Hello world.", "cs", "e1m1")
     'Neplatný jazyk vstupu.'
+    >>> translate(123, "cs")
+    'Text musí být nenulový string.'
     """
+    if type(text) is not str or not text.split():
+        return "Text musí být nenulový string."
     if not src.strip():
         src = "auto"
     if dest not in languages:
@@ -34,6 +38,11 @@ def detect_language(text):
 
     :param text: Translated text
     :return: Output detected language
+
+    >>> detect_language("Hello world.")
+    'Detekovaný jazyk: en'
+    >>> detect_language(123)
+    'Text musí být nenulový string.'
     """
     if type(text) is not str or not text.strip():
         return "Text musí být nenulový string."
@@ -47,6 +56,21 @@ def is_valid_language(language, is_source=False):
     :param language: Language from the list of languages
     :param is_source: If True, then empty string return true for auto-detection
     :return: Language validity
+
+    >>> is_valid_language("cs")
+    True
+    >>> is_valid_language("123")
+    Neplatný jazyk.
+    False
+    >>> is_valid_language("")
+    Neplatný jazyk.
+    False
+    >>> is_valid_language("", True)
+    Jazyk bude automaticky rozpoznán.
+    True
+    >>> is_valid_language("123", True)
+    Neplatný jazyk.
+    False
     """
     if language not in languages:
         if is_source and not language.strip():

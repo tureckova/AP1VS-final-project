@@ -9,6 +9,8 @@ def test_translate():
     assert translate("Hellow world.", "cs", "e1m1") == "Neplatný jazyk vstupu."
     assert translate("Das war ein Befehl!", "en", "de") == "This was an order!"
     assert translate("Amogus is great.", "cs", "auto") == "Amogus je skvělý."
+    assert translate(12345, "cs") == "Text musí být nenulový string."
+    assert translate("", "en", "cs") == "Text musí být nenulový string."
 
 
 def test_detect_language():
@@ -25,5 +27,6 @@ def test_is_valid_language():
     assert is_valid_language("cs")
     assert is_valid_language("", True)
     assert not is_valid_language("123")
+    assert not is_valid_language(12345)
     assert not is_valid_language("123", True)
     assert not is_valid_language("")
