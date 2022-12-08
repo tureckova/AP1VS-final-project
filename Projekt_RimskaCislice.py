@@ -1,6 +1,4 @@
-"""
-Do, Janostik, Lunga, Blaho.
-"""
+"""@authors: Do, Janostik, Lunga, Blaho. """
 
 
 """
