@@ -65,11 +65,3 @@ def jednotky(cislo):
         raise TypeError("Nelze prevodit")
     jednotka = j[cislo % 10]  # 3888 % 10 == 8
     return jednotka  # znak na (8+1) pozici == VIII
-
-if __name__ == "__main__":
-    print("Rismke cislice lze prevadet pouze prirozena cisla od 1 do 3999\n")
-    try:
-        cislo = int(input("Zadejte cislo na prevod: "))
-        kontrola(cislo)
-    except ValueError:
-        print("Nelze prevodit. Zadali jste spatny vstup")
