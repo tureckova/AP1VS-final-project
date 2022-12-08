@@ -1,10 +1,6 @@
 """Prevod arabskych cisel na rimske.
 
-Vypracovali:
-Do,
-Janostik,
-Lunga,
-Blaho
+Vypracovali: Do, Janostik, Lunga, Blaho
 """
 
 
