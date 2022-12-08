@@ -1,7 +1,9 @@
 """.
-
-@mainpage
-@authors Do, Janostik, Lunga, Blaho
+Vypracovali:
+Do, 
+Janostik,
+Lunga,
+Blaho
 """
 
 """
