@@ -52,3 +52,16 @@ def desitky(cislo):
         raise TypeError("Nelze prevodit")
     deset = d[(cislo % 100) // 10]  # (3888 % 100) // 10 == 8
     return deset  # znak na (8+1) pozici == LXXX
+
+def jednotky(cislo):
+    """Zjisteni desitky.
+
+    >>> jednotky(3888)
+    'VIII'
+    """
+    # index v poli zacina s hodnotou 0
+    j = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
+    if isinstance(cislo, str) or isinstance(cislo, float):
+        raise TypeError("Nelze prevodit")
+    jednotka = j[cislo % 10]  # 3888 % 10 == 8
+    return jednotka  # znak na (8+1) pozici == VIII
