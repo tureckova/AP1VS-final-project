@@ -1,8 +1,5 @@
-""".
-
-@mainpage
-@brief Prevod z arabskych cisel na rimska cisla
-@author Do, Janostik, Lunga, Blaho
+"""
+Do, Janostik, Lunga, Blaho.
 """
 
 
