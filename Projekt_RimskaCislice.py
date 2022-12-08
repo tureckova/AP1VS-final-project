@@ -53,6 +53,7 @@ def desitky(cislo):
     deset = d[(cislo % 100) // 10]  # (3888 % 100) // 10 == 8
     return deset  # znak na (8+1) pozici == LXXX
 
+
 def jednotky(cislo):
     """Zjisteni desitky.
 
@@ -65,6 +66,7 @@ def jednotky(cislo):
         raise TypeError("Nelze prevodit")
     jednotka = j[cislo % 10]  # 3888 % 10 == 8
     return jednotka  # znak na (8+1) pozici == VIII
+
 
 def vysledek():
     """Vysledek."""
@@ -96,3 +98,5 @@ if __name__ == "__main__":
         kontrola(cislo)
     except ValueError:
         print("Nelze prevodit. Zadali jste spatny vstup")
+        
+        
