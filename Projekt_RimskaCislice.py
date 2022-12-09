@@ -154,8 +154,8 @@ if __name__ == "__main__":
         try:
             cislo = int(input("\nZadejte cislo na prevod: "))
             kontrola(cislo)
-    except ValueError:
-        print("Nelze prevodit. Zadali jste spatny vstup\n")
+        except ValueError:
+            print("Nelze prevodit. Zadali jste spatny vstup\n")
 
     while True:
         znova = str(input("\nSpustit znovu? (y/n): "))
