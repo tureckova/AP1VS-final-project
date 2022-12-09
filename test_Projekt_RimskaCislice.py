@@ -171,7 +171,6 @@ def test_jednotky():
     # cislo == 9
     assert jednotky(9) == 'IX'
 
-
     # cislo nie je int
     with pytest.raises(TypeError):
         stovky("Nemozno prevodit")
