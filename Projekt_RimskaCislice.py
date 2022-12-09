@@ -53,6 +53,7 @@ def desitky(cislo):
     deset = d[(cislo % 100) // 10]  # (3888 % 100) // 10 == 8
     return deset  # znak na (8+1) pozici == LXXX
 
+
 def jednotky(cislo):
     """Zjisteni desitky.
 
@@ -65,3 +66,37 @@ def jednotky(cislo):
         raise TypeError("Nelze prevodit")
     jednotka = j[cislo % 10]  # 3888 % 10 == 8
     return jednotka  # znak na (8+1) pozici == VIII
+
+
+def vysledek():
+    """Vysledek."""
+    # spojeni vsech znaku
+    vysledek = tisice(cislo) + stovky(cislo) + desitky(cislo) + jednotky(cislo)
+    return vysledek  # MMM + DCCC + LXXX + VIII
+
+
+def kontrola(cislo):
+    """Kontrola.
+
+    Zjisti zda je mozne vstup prevodit
+    """
+    # Lze prevadet cisla od 1 do 3999
+    if cislo > 3999:
+        print("Nelze prevodit. Cislo je vetsi nez 3999")
+    elif cislo == 0:
+        print("Nelze prevodit. RimskÃ© cislice neobsahuji symbol pro nulu")
+    elif cislo < 0:
+        print("Nelze prevodit. Rismke cislice nelze napsat v zapornych cisel")
+    else:
+        print("Prevod na rimsky: " + vysledek())
+        
+        
+if __name__ == "__main__":
+    print("Rismke cislice lze prevadet pouze prirozena cisla od 1 do 3999\n")
+    try:
+        cislo = int(input("Zadejte cislo na prevod: "))
+        kontrola(cislo)
+    except ValueError:
+        print("Nelze prevodit. Zadali jste spatny vstup")
+        
+        
