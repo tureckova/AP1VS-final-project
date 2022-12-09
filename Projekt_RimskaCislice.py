@@ -1,22 +1,19 @@
-"""
-Prevod arabskych cisel na rimske.
+"""Prevod arabskych cisel na rimske.
 
 Vypracovali: Do, Janostik, Lunga, Blaho
 """
 
 
-"""
-Seznam zakladni rimskych cisel.
+"""Seznam zakladni rimskych cisel.
 I	V	X	L	C	D	M
 1	5	10	50	100	500	1000
 """
 
 
 def tisice(cislo):
-    """
-    Zjisteni tisice.
-    @param int cislo
+    """Zjisteni tisice.
 
+    @param int cislo
     >>> tisice(3888)
     'MMM'
     """
@@ -28,8 +25,8 @@ def tisice(cislo):
 
 
 def stovky(cislo):
-    """
-    Zjisteni stovky.
+    """ Zjisteni stovky.
+
     @param int cislo
     >>> stovky(3888)
     'DCCC'
@@ -45,6 +42,7 @@ def stovky(cislo):
 def desitky(cislo):
     """Zjisteni desitky.
 
+    @param int cislo
     >>> desitky(3888)
     'LXXX'
     """
@@ -59,6 +57,7 @@ def desitky(cislo):
 def jednotky(cislo):
     """Zjisteni desitky.
 
+    @param int cislo
     >>> jednotky(3888)
     'VIII'
     """
@@ -80,6 +79,7 @@ def vysledek():
 def kontrola(cislo):
     """Kontrola.
 
+    @param int cislo
     Zjisti zda je mozne vstup prevodit
     """
     # Lze prevadet cisla od 1 do 3999
