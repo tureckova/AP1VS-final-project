@@ -1,10 +1,9 @@
 """Prevod arabskych cisel na rimske.
 
 Vypracovali: Do, Janostik, Lunga, Blaho
-"""
 
-
-"""Seznam zakladni rimskych cisel.
+Seznam zakladni rimskych cisel
+------------------------------
 I	V	X	L	C	D	M
 1	5	10	50	100	500	1000
 """
@@ -13,9 +12,15 @@ I	V	X	L	C	D	M
 def kontrola(cislo):
     """Kontrola zda je mozne cislo prevodit.
 
+    Rimska cislice lze prevadet pouze cisla do 4000.
+    Nelze prevadet zaporne ani desetinne cisla
+    Rismka cislice neobsahuji znak pro 0, proto take nelze
+    
     Parameters
     ----------
     cislo : int
+            uzivatelsky vstup
+
     """
     # Lze prevadet cisla od 1 do 3999
     if isinstance(cislo, str) or isinstance(cislo, float):
@@ -33,7 +38,13 @@ def kontrola(cislo):
 def tisice(cislo):
     """Zjisteni tisice.
 
+    Seznam znaku pro tisice:
+    ["", "M", "MM", "MMM"]
+
     Funkce vypocita zadane cislo a ulozi znak na dane pozici.
+
+    Funkce: Vydelime vstupni cislo 1000, zjistime index v poli
+            Pole zacina s indexem 0
 
     Parameters
     ----------
@@ -49,7 +60,7 @@ def tisice(cislo):
     'MMM'
 
     """
-    t = ["", "M", "MM", "MMM"]  # index v poli zacina s hodnotou 0
+    t = ["", "M", "MM", "MMM"]  # seznam
     if isinstance(cislo, str) or isinstance(cislo, float):
         raise TypeError("Nelze prevodit")
     tisic = t[cislo // 1000]  # 3888 // 1000 == 3
@@ -59,7 +70,13 @@ def tisice(cislo):
 def stovky(cislo):
     """Zjisteni stovky.
 
+    Seznam znaku pro sto:
+    ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
+
     Funkce vypocita zadane cislo a ulozi znak na dane pozici.
+
+    Funkce: Vydelime vstupni cislo 1000 a zbytek vydelime 100
+            Pole zacina s indexem 0
 
     Parameters
     ----------
@@ -86,7 +103,13 @@ def stovky(cislo):
 def desitky(cislo):
     """Zjisteni desitky.
 
+    Seznam znaku pro desitky:
+    ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
+
     Funkce vypocita zadane cislo a ulozi znak na dane pozici.
+
+    Funkce: Vydelime vstupni cislo 100 a zbytek vydelime 10
+            Pole zacina s indexem 0
 
     Parameters
     ----------
@@ -113,7 +136,13 @@ def desitky(cislo):
 def jednotky(cislo):
     """Zjisteni desitky.
 
+    Seznam znaku pro jednotky:
+    ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
+
     Funkce vypocita zadane cislo a ulozi znak na dane pozici.
+
+    Funkce: Vydelime vstupni cislo 10 a zbytek po deleni je index
+            Pole zacina s indexem 0
 
     Parameters
     ----------
@@ -138,7 +167,15 @@ def jednotky(cislo):
 
 
 def vysledek():
-    """Sjednoceni znaku."""
+    """Sjednoceni znaku.
+    
+    Ulozi se vracene znaky do vysledku 
+
+    Returns
+    -------
+    vysledky_output: string
+    
+    """
     vysledek = tisice(cislo) + stovky(cislo) + desitky(cislo) + jednotky(cislo)
     return vysledek  # MMM + DCCC + LXXX + VIII
 
