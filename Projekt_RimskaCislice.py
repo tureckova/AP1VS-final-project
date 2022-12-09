@@ -126,7 +126,7 @@ def jednotky(cislo):
     Examples
     --------
     >>> jednotky(3888)
-    'XIII'
+    'VIII'
 
     """
     # index v poli zacina s hodnotou 0
