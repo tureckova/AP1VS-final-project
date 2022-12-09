@@ -89,7 +89,6 @@ def stovky(cislo):
     'DCCC'
 
     """
-    # index v poli zacina s hodnotou 0
     s = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
     if isinstance(cislo, str) or isinstance(cislo, float):
         raise TypeError("Nelze prevodit")
@@ -122,7 +121,6 @@ def desitky(cislo):
     'LXXX'
 
     """
-    # index v poli zacina s hodnotou 0
     d = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
     if isinstance(cislo, str) or isinstance(cislo, float):
         raise TypeError("Nelze prevodit")
@@ -155,7 +153,6 @@ def jednotky(cislo):
     'VIII'
 
     """
-    # index v poli zacina s hodnotou 0
     j = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
     if isinstance(cislo, str) or isinstance(cislo, float):
         raise TypeError("Nelze prevodit")
@@ -179,7 +176,7 @@ def spojeni():
 
 def vysledek():
     """Vysledek."""
-    print("Prevod na rimsky: " + spojeni())
+    print("Prevod na rimsky: " + spojeni())  # MMMDCCCLXXXVIII
 
 
 if __name__ == "__main__":
