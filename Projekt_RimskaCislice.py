@@ -1,22 +1,25 @@
-"""Prevod arabskych cisel na rimske.
+'''!
+Prevod arabskych cisel na rimske.
 
 Vypracovali: Do, Janostik, Lunga, Blaho
-"""
+'''!
 
 
-"""
+'''!
 Seznam zakladni rimskych cisel.
 I	V	X	L	C	D	M
 1	5	10	50	100	500	1000
-"""
+'''!
 
 
 def tisice(cislo):
-    """Zjisteni tisice.
+    '''!
+    Zjisteni tisice.
+    @param int cislo
 
     >>> tisice(3888)
     'MMM'
-    """
+    '''!
     t = ["", "M", "MM", "MMM"]  # index v poli zacina s hodnotou 0
     if isinstance(cislo, str) or isinstance(cislo, float):
         raise TypeError("Nelze prevodit")
@@ -25,11 +28,12 @@ def tisice(cislo):
 
 
 def stovky(cislo):
-    """Zjisteni stovky.
-
+    '''!
+    Zjisteni stovky.
+    @param int cislo
     >>> stovky(3888)
     'DCCC'
-    """
+    '''!
     # index v poli zacina s hodnotou 0
     s = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
     if isinstance(cislo, str) or isinstance(cislo, float):
