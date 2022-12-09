@@ -15,7 +15,7 @@ def kontrola(cislo):
     Rimska cislice lze prevadet pouze cisla do 4000.
     Nelze prevadet zaporne ani desetinne cisla
     Rismka cislice neobsahuji znak pro 0, proto take nelze
-    
+
     Parameters
     ----------
     cislo : int
@@ -168,13 +168,13 @@ def jednotky(cislo):
 
 def vysledek():
     """Sjednoceni znaku.
-    
-    Ulozi se vracene znaky do vysledku 
+
+    Ulozi se vracene znaky do vysledku
 
     Returns
     -------
     vysledky_output: string
-    
+
     """
     vysledek = tisice(cislo) + stovky(cislo) + desitky(cislo) + jednotky(cislo)
     return vysledek  # MMM + DCCC + LXXX + VIII
