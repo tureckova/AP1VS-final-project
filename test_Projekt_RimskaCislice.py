@@ -1,4 +1,5 @@
 """Import from Projekt_RimskaCislice."""
+# Vypracoval M. Blaho
 from Projekt_RimskaCislice import tisice
 from Projekt_RimskaCislice import stovky
 from Projekt_RimskaCislice import desitky
