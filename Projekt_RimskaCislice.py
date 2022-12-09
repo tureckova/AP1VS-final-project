@@ -1,25 +1,63 @@
-""".
+"""Prevod arabskych cisel na rimske.
 
-@mainpage
-@brief Prevod z arabskych cisel na rimska cisla
-@author Do, Janostik, Lunga, Blaho
+Vypracovali: Do, Janostik, Lunga, Blaho
+
+Seznam zakladni rimskych cisel
+------------------------------
+I:1 V:5 X:10 L:50 C:100 D:500 M:500
 """
 
 
-"""
-Seznam zakladni rimskych cisel.
-I	V	X	L	C	D	M
-1	5	10	50	100	500	1000
-"""
+def kontrola(cislo):
+    """Kontrola zda je mozne cislo prevodit.
+
+    Rimska cislice lze prevadet pouze cisla do 4000.
+    Nelze prevadet zaporne, ani desetinne cisla.
+    Rismka cislice neobsahuji znak pro 0, proto take nelze.
+
+    Parameters
+    ----------
+    cislo : int(uzivatelsky_vstup)
+
+    """
+    if isinstance(cislo, str) or isinstance(cislo, float):  # cislo nebude int
+        raise TypeError("Nelze prevodit")
+    elif cislo > 3999:  # cislo bude vetsi nez 3999
+        print("Nelze prevodit. Cislo je vetsi nez 3999")
+    elif cislo == 0:  # cislo bude 0
+        print("Nelze prevodit. RimskÃ© cislice neobsahuji symbol pro nulu")
+    elif cislo < 0:  # cislo bude zaporne
+        print("Nelze prevodit. Rismke cislice nelze napsat v zapornych cisel")
+    else:
+        vysledek()
 
 
 def tisice(cislo):
     """Zjisteni tisice.
 
+    Seznam znaku pro tisice:
+    ["", "M", "MM", "MMM"]
+
+    Funkce vypocita zadane cislo a ulozi znak na dane pozici.
+
+    Funkce: Vydelime vstupni cislo 1000, zjistime index v poli.
+            Pole zacina s indexem 0.
+
+    Parameters
+    ----------
+    cislo: int
+
+    Returns
+    -------
+    tisice_output: string
+
+    Examples
+    --------
     >>> tisice(3888)
     'MMM'
+
     """
-    t = ["", "M", "MM", "MMM"]  # index v poli zacina s hodnotou 0
+    t = ["", "M", "MM", "MMM"]  # seznam
     if isinstance(cislo, str) or isinstance(cislo, float):
         raise TypeError("Nelze prevodit")
     tisic = t[cislo // 1000]  # 3888 // 1000 == 3
@@ -29,10 +67,28 @@ def tisice(cislo):
 def stovky(cislo):
     """Zjisteni stovky.
 
+    Seznam znaku pro sto:
+    ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
+
+    Funkce vypocita zadane cislo a ulozi znak na dane pozici.
+
+    Funkce: Vydelime vstupni cislo 1000 a zbytek vydelime 100.
+            Pole zacina s indexem 0.
+
+    Parameters
+    ----------
+    cislo: int
+
+    Returns
+    -------
+    stovky_output: string
+
+    Examples
+    --------
     >>> stovky(3888)
     'DCCC'
+
     """
-    # index v poli zacina s hodnotou 0
     s = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
     if isinstance(cislo, str) or isinstance(cislo, float):
         raise TypeError("Nelze prevodit")
@@ -43,10 +99,28 @@ def stovky(cislo):
 def desitky(cislo):
     """Zjisteni desitky.
 
-    >>>> desitky(3888)
+    Seznam znaku pro desitky:
+    ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
+
+    Funkce vypocita zadane cislo a ulozi znak na dane pozici.
+
+    Funkce: Vydelime vstupni cislo 100 a zbytek vydelime 10.
+            Pole zacina s indexem 0.
+
+    Parameters
+    ----------
+    cislo: int
+
+    Returns
+    -------
+    desitky_output: string
+
+    Examples
+    --------
+    >>> desitky(3888)
     'LXXX'
+
     """
-    # index v poli zacina s hodnotou 0
     d = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
     if isinstance(cislo, str) or isinstance(cislo, float):
         raise TypeError("Nelze prevodit")
@@ -57,10 +131,28 @@ def desitky(cislo):
 def jednotky(cislo):
     """Zjisteni desitky.
 
+    Seznam znaku pro jednotky:
+    ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
+
+    Funkce vypocita zadane cislo a ulozi znak na dane pozici.
+
+    Funkce: Vydelime vstupni cislo 10 a zbytek po deleni je index.
+            Pole zacina s indexem 0
+
+    Parameters
+    ----------
+    cislo: int
+
+    Returns
+    -------
+    jednotky_output: string
+
+    Examples
+    --------
     >>> jednotky(3888)
     'VIII'
+
     """
-    # index v poli zacina s hodnotou 0
     j = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
     if isinstance(cislo, str) or isinstance(cislo, float):
         raise TypeError("Nelze prevodit")
@@ -68,35 +160,41 @@ def jednotky(cislo):
     return jednotka  # znak na (8+1) pozici == VIII
 
 
-def vysledek():
-    """Vysledek."""
-    # spojeni vsech znaku
+def spojeni():
+    """Sjednoceni znaku.
+
+    Ulozi se vracene znaky do vysledku.
+
+    Returns
+    -------
+    vysledky_output: string
+
+    """
     vysledek = tisice(cislo) + stovky(cislo) + desitky(cislo) + jednotky(cislo)
     return vysledek  # MMM + DCCC + LXXX + VIII
 
 
-def kontrola(cislo):
-    """Kontrola.
+def vysledek():
+    """Vysledek."""
+    print("Prevod na rimsky: " + spojeni())  # MMMDCCCLXXXVIII
 
-    Zjisti zda je mozne vstup prevodit
-    """
-    # Lze prevadet cisla od 1 do 3999
-    if cislo > 3999:
-        print("Nelze prevodit. Cislo je vetsi nez 3999")
-    elif cislo == 0:
-        print("Nelze prevodit. RimskÃ© cislice neobsahuji symbol pro nulu")
-    elif cislo < 0:
-        print("Nelze prevodit. Rismke cislice nelze napsat v zapornych cisel")
-    else:
-        print("Prevod na rimsky: " + vysledek())
-        
-        
+
 if __name__ == "__main__":
-    print("Rismke cislice lze prevadet pouze prirozena cisla od 1 do 3999\n")
-    try:
-        cislo = int(input("Zadejte cislo na prevod: "))
-        kontrola(cislo)
-    except ValueError:
-        print("Nelze prevodit. Zadali jste spatny vstup")
-        
-        
+    print("\nRismke cislice lze prevadet pouze prirozena cisla od 1 do 3999")
+    while True:
+        try:
+            cislo = int(input("\nZadejte cislo na prevod: "))
+            kontrola(cislo)
+        except ValueError:
+            print("Nelze prevodit. Zadali jste spatny vstup\n")
+
+    while True:
+        znova = str(input("\nSpustit znovu? (y/n): "))
+        if znova in ('y', 'n'):
+            break
+        print("Neplatny vstup.")
+        if znova == 'y':
+            continue
+        else:
+            print("Ukoncuji program.")
+            break
