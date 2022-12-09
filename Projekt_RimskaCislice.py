@@ -53,7 +53,7 @@ def tisice(cislo):
 
     Examples
     --------
-    #>>> tisice(3888)
+    >>> tisice(3888)
     'MMM'
 
     """
@@ -85,7 +85,7 @@ def stovky(cislo):
 
     Examples
     --------
-    #>>> stovky(3888)
+    >>> stovky(3888)
     'DCCC'
 
     """
@@ -117,7 +117,7 @@ def desitky(cislo):
 
     Examples
     --------
-   # >>> desitky(3888)
+    >>> desitky(3888)
     'LXXX'
 
     """
@@ -149,7 +149,7 @@ def jednotky(cislo):
 
     Examples
     --------
-    #>>> jednotky(3888)
+    >>> jednotky(3888)
     'VIII'
 
     """
