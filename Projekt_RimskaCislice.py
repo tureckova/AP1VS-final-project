@@ -20,17 +20,16 @@ def kontrola(cislo):
     cislo : int(uzivatelsky_vstup)
 
     """
-    # Lze prevadet cisla od 1 do 3999
-    if isinstance(cislo, str) or isinstance(cislo, float):
+    if isinstance(cislo, str) or isinstance(cislo, float): # cislo nebude int
         raise TypeError("Nelze prevodit")
-    elif cislo > 3999:
+    elif cislo > 3999: # cislo bude vetsi nez 3999
         print("Nelze prevodit. Cislo je vetsi nez 3999")
-    elif cislo == 0:
+    elif cislo == 0: # cislo bude 0
         print("Nelze prevodit. RimskÃ© cislice neobsahuji symbol pro nulu")
-    elif cislo < 0:
+    elif cislo < 0: # cislo bude zaporne
         print("Nelze prevodit. Rismke cislice nelze napsat v zapornych cisel")
     else:
-        main()
+        vysledek()
 
 
 def tisice(cislo):
@@ -164,7 +163,7 @@ def jednotky(cislo):
     return jednotka  # znak na (8+1) pozici == VIII
 
 
-def vysledek():
+def spojeni():
     """Sjednoceni znaku.
 
     Ulozi se vracene znaky do vysledku.
@@ -178,9 +177,9 @@ def vysledek():
     return vysledek  # MMM + DCCC + LXXX + VIII
 
 
-def main():
+def vysledek():
     """Vysledek."""
-    print("Prevod na rimsky: " + vysledek())
+    print("Prevod na rimsky: " + spojeni())
 
 
 if __name__ == "__main__":
