@@ -20,13 +20,13 @@ def kontrola(cislo):
     cislo : int(uzivatelsky_vstup)
 
     """
-    if isinstance(cislo, str) or isinstance(cislo, float): # cislo nebude int
+    if isinstance(cislo, str) or isinstance(cislo, float):  # cislo nebude int
         raise TypeError("Nelze prevodit")
-    elif cislo > 3999: # cislo bude vetsi nez 3999
+    elif cislo > 3999:  # cislo bude vetsi nez 3999
         print("Nelze prevodit. Cislo je vetsi nez 3999")
-    elif cislo == 0: # cislo bude 0
+    elif cislo == 0:  # cislo bude 0
         print("Nelze prevodit. RimskÃ© cislice neobsahuji symbol pro nulu")
-    elif cislo < 0: # cislo bude zaporne
+    elif cislo < 0:  # cislo bude zaporne
         print("Nelze prevodit. Rismke cislice nelze napsat v zapornych cisel")
     else:
         vysledek()
