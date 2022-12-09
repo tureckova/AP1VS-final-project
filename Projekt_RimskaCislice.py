@@ -4,8 +4,7 @@ Vypracovali: Do, Janostik, Lunga, Blaho
 
 Seznam zakladni rimskych cisel
 ------------------------------
-I	V	X	L	C	D	M
-1	5	10	50	100	500	1000
+I:1 V:5 X:10 L:50 C:100 D:500 M:500
 """
 
 
@@ -13,13 +12,12 @@ def kontrola(cislo):
     """Kontrola zda je mozne cislo prevodit.
 
     Rimska cislice lze prevadet pouze cisla do 4000.
-    Nelze prevadet zaporne ani desetinne cisla
-    Rismka cislice neobsahuji znak pro 0, proto take nelze
+    Nelze prevadet zaporne, ani desetinne cisla.
+    Rismka cislice neobsahuji znak pro 0, proto take nelze.
 
     Parameters
     ----------
-    cislo : int
-            uzivatelsky vstup
+    cislo : int(uzivatelsky_vstup)
 
     """
     # Lze prevadet cisla od 1 do 3999
@@ -43,8 +41,8 @@ def tisice(cislo):
 
     Funkce vypocita zadane cislo a ulozi znak na dane pozici.
 
-    Funkce: Vydelime vstupni cislo 1000, zjistime index v poli
-            Pole zacina s indexem 0
+    Funkce: Vydelime vstupni cislo 1000, zjistime index v poli.
+            Pole zacina s indexem 0.
 
     Parameters
     ----------
@@ -75,8 +73,8 @@ def stovky(cislo):
 
     Funkce vypocita zadane cislo a ulozi znak na dane pozici.
 
-    Funkce: Vydelime vstupni cislo 1000 a zbytek vydelime 100
-            Pole zacina s indexem 0
+    Funkce: Vydelime vstupni cislo 1000 a zbytek vydelime 100.
+            Pole zacina s indexem 0.
 
     Parameters
     ----------
@@ -108,8 +106,8 @@ def desitky(cislo):
 
     Funkce vypocita zadane cislo a ulozi znak na dane pozici.
 
-    Funkce: Vydelime vstupni cislo 100 a zbytek vydelime 10
-            Pole zacina s indexem 0
+    Funkce: Vydelime vstupni cislo 100 a zbytek vydelime 10.
+            Pole zacina s indexem 0.
 
     Parameters
     ----------
@@ -141,7 +139,7 @@ def jednotky(cislo):
 
     Funkce vypocita zadane cislo a ulozi znak na dane pozici.
 
-    Funkce: Vydelime vstupni cislo 10 a zbytek po deleni je index
+    Funkce: Vydelime vstupni cislo 10 a zbytek po deleni je index.
             Pole zacina s indexem 0
 
     Parameters
@@ -169,7 +167,7 @@ def jednotky(cislo):
 def vysledek():
     """Sjednoceni znaku.
 
-    Ulozi se vracene znaky do vysledku
+    Ulozi se vracene znaky do vysledku.
 
     Returns
     -------
