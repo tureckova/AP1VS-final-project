@@ -1,11 +1,21 @@
 """Import from Projekt_RimskaCislice."""
 # Vypracoval M. Blaho
+from Projekt_RimskaCislice import kontrola
 from Projekt_RimskaCislice import tisice
 from Projekt_RimskaCislice import stovky
 from Projekt_RimskaCislice import desitky
 from Projekt_RimskaCislice import jednotky
-from Projekt_RimskaCislice import kontrola
 import pytest
+
+
+def test_kontorla():
+    """Testovanie."""
+    assert kontrola(4000) == print("Nemozno prevodit")
+    assert kontrola(0) == print("Nemozno prevodit")
+    assert kontrola(-1) == print("Nemozno prevodit")
+
+    with pytest.raises(TypeError):
+        kontrola("Nemozno prevodit")
 
 
 def test_tisice():
@@ -161,16 +171,7 @@ def test_jednotky():
     # cislo == 9
     assert jednotky(9) == 'IX'
 
+
     # cislo nie je int
     with pytest.raises(TypeError):
         stovky("Nemozno prevodit")
-
-
-def test_kontorla():
-    """Testovanie."""
-    assert kontrola(4000) == print("Nemozno prevodit")
-    assert kontrola(0) == print("Nemozno prevodit")
-    assert kontrola(-1) == print("Nemozno prevodit")
-
-    with pytest.raises(TypeError):
-        kontrola("Nemozno prevodit")
