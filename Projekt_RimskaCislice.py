@@ -25,7 +25,7 @@ def tisice(cislo):
 
 
 def stovky(cislo):
-    """ Zjisteni stovky.
+    """Zjisteni stovky.
 
     @param int cislo
     >>> stovky(3888)
