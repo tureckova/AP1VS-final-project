@@ -1,3 +1,4 @@
+
 """Import from Projekt_RimskaCislice."""
 # Vypracoval M. Blaho
 from Projekt_RimskaCislice import kontrola
