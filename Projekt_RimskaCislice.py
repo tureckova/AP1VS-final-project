@@ -162,9 +162,9 @@ if __name__ == "__main__":
         if znova in ('y', 'n'):
             break
         print("Neplatny vstup.")
-    if znova == 'y':
-        continue
-    else:
-        print("Ukoncuji program.")
-        break
+        if znova == 'y':
+            continue
+        else:
+            print("Ukoncuji program.")
+            break
          
