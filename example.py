@@ -27,14 +27,19 @@ def decoding(s):
     for i in splitstring: #indexování
             void += dictionary2[i]
     print(void)
+    
+def selection(f):
+     f=int(input("1. Z ČEŠTINY DO MORSEOVKY || 2. Z MORESOVKY DO ČEŠTINY ")) # menu
+     return f
 
 c = 1
+d = 0
 while(c!="0"):
-    d=int(input("1. Z ČEŠTINY DO MORSEOVKY || 2. Z MORESOVKY DO ČEŠTINY ")) # menu
+    d =selection(d)
     a=input("ZADEJ TEXT NA ŠIFROVÁNÍ: ")
     a=a.upper()
 
-    sifra="" # nevyužívá se ale bez ní program nelze spustit
+    startUp="" # nevyužívá se ale bez ní program nelze spustit
 
 
 
