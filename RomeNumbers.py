@@ -8,7 +8,7 @@ def intToRoman(num):
     x = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
     i = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
   
-    # Převádění na římskou soustavu
+    # Převádění na římskou soustavu číslic
     tisice = m[num // 1000]
     sta = c[(num % 1000) // 100]
     desitky = x[(num % 100) // 10]
