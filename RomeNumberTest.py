@@ -1,8 +1,12 @@
 from RomeNumbers import intToRoman
 import unittest
 
+def intToRomanTest():
+    # test for numbers
+
+
 class intToRomanTest():
- def test_intoroman(self):
+ def test(self):
         self.assertEqual(intToRoman(1256, "MCCLVI"))
         self.assertEqual(intToRoman(3521, "MMMDXXI"))
         self.assertEqual(intToRoman(379, "CCCLXXIX"))
