@@ -1,16 +1,13 @@
 from RomeNumbers import intToRoman
 import unittest
 
-def intToRomanTest():
-    # test for numbers
-    
-    def test(self):
+class intToRomanTest():
+ def test_intoroman(self):
         self.assertEqual(intToRoman(1256, "MCCLVI"))
         self.assertEqual(intToRoman(3521, "MMMDXXI"))
         self.assertEqual(intToRoman(379, "CCCLXXIX"))
         self.assertEqual(intToRoman(899, "DCCCXCIX"))
 
-class intToRomanTest():
     def test_too_large(self):
         '''to_roman should fail with large input'''
         self.assertRaises(roman1.OutOfRangeError, roman1.to_roman, 4000)
