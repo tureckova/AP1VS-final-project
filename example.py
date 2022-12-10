@@ -10,8 +10,27 @@ dictionary2={'.-':'A','-...':'B','-.-.':'C','-..':'D', '.':'E','..-.':'F','--.':
              '..-':'U', '...-':'V', '.--':'W','-..-':'X', '-.--':'Y', '--..':'Z',}
 
 
-for i in range(500):
-    d=int(input("1. Z ČEŠTINY DO MORSEOVKY || 2. Z MORESOVKY DO ČEŠTINY: ")) # menu
+def coding(s):
+    void=" "
+    for i in s: #indexování
+        if i != ' ':
+            void+=dictionary[i]+" "
+        else:
+            void += ' '
+
+    print(void)
+
+    
+def decoding(s):
+    void = ""
+    splitstring = a.split(" ") #rozdělení podle mezer
+    for i in splitstring: #indexování
+            void += dictionary2[i]
+    print(void)
+
+c = 1
+while(c!="0"):
+    d=int(input("1. Z ČEŠTINY DO MORSEOVKY || 2. Z MORESOVKY DO ČEŠTINY ")) # menu
     a=input("ZADEJ TEXT NA ŠIFROVÁNÍ: ")
     a=a.upper()
 
@@ -21,26 +40,12 @@ for i in range(500):
 
 
     if d==1: # šifrování
-
-        void=" "
-        for i in a: #indexování
-            if i != ' ':
-                void+=dictionary[i]+" "
-            else:
-
-                void += ' '
-
-
-        print(void)
+        coding(a)
 
 
 
     else: # dešifrování
-        void = ""
-        splitstring = a.split(" ") #rozdělení podle mezer
-        for i in splitstring: #indexování
-            void += dictionary2[i]
+        decoding(a)
 
-
-
-        print(void)
+  
+    c = input(("POKUD CHCTE PROGRAM UKONČIT, ZADEJTE 0 || PRO POKRAČOVÁNÍ ZADEJTE LIBOVOLNÝ ZNAK : "))
