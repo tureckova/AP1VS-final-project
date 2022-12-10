@@ -1,7 +1,7 @@
 from RomeNumbers import intToRoman
 import unittest
 
-def intToRoman(unittest.TestCase):
+def intToRomanTest():
     # test for numbers
     
     def test(self):
