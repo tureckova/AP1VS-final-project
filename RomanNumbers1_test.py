@@ -56,7 +56,7 @@ class TestMethods(unittest.TestCase):
 
     def test13(self):
         """Kontrola správné hodnoty"""
-        assert prevod(500) == 'D'
+        assert intToRoman(500) == 'D'
 
     def test14(self):
         """Kontrola správné hodnoty"""
