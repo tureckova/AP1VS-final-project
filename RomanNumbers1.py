@@ -2,7 +2,6 @@
 
 def intToRoman(cislo):
     """Vytvoříme platnou Římskou soustavu podle pořadí 0-9."""
-
     """ 0   1000  2000  3000."""
     m = ["", "M", "MM", "MMM"]
     """    0   100  200   300    400   500  600   700     800    900."""
@@ -13,17 +12,17 @@ def intToRoman(cislo):
     """Tento postup upraví číslo tak, abychom mohli dostat Římské číslo."""
     tisice = m[cislo // 1000];      """ 2022 // 1000 -> "MM" """
     sta = c[(cislo % 1000) // 100]; """ 22 % 1000 = 22 // 100 -> "" """
-    desitky = x[(cislo % 100) // 10];""" 22 % 100 = 22 // 10 -> "XX" """
-    jednicky = i[cislo % 10];""" 2 % 10 = 2 -> "II" """
+    desitky = x[(cislo % 100) // 10]; """ 22 % 100 = 22 // 10 -> "XX" """
+    jednicky = i[cislo % 10]; """ 2 % 10 = 2 -> "II" """
 
     """ Výsledek udá v pořadí tisíců/stovek/desítek/jedniček."""
     vysledek = (tisice + sta + desitky + jednicky)
     """ Vracíme funkci kvůli testovacímu kódu."""
     return vysledek
 
-"""Tato funkce main je testovacím kódem."""
 
 def main():
+    """Tato funkce main je testovacím kódem."""
     unittest.main(exit=False)
     print("Zadej cislo, ktere chces prevest do Rimske soustavy: ")
     """ Vstupní kód uživatele. """
@@ -39,6 +38,7 @@ def main():
 
     """Výstupní číslo v Římské číselné soustavě."""
     print(intToRoman(cislo))
+
 
 if __name__ == "__main__":
     main()
