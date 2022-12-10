@@ -23,9 +23,6 @@ def main():
     print("Zadej cislo, ktere chces prevest do Rimske soustavy: ")
     # Vstupní kód uživatele
     number = int(input())
-    if number>3999:
-        print("error moc velke cislo")
-    else:
     # Výstupní číslo v římské soustavě
     print(intToRoman(number))
 
