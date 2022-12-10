@@ -1,13 +1,14 @@
 from RomeNumbers import intToRoman
-import pytest
+import unittest
 
-def intToRomanTest():
+def intToRomanTest(unittest.TestCase):
     # test for numbers
-    assert intToRomanTest(1256) == "MCCLVI"
-    assert intToRomanTest(3521) == "MMMDXXI"
-    assert intToRomanTest(379) == "CCCLXXIX"
-    assert intToRomanTest(899) == "DCCCXCIX"
+    
+    def test(self):
+        self.assertEqual(intToRoman(1256, "MCCLVI"))
+        self.assertEqual(intToRoman(3521, "MMMDXXI"))
+        self.assertEqual(intToRoman(379, "CCCLXXIX"))
+        self.assertEqual(intToRoman(899, "DCCCXCIX"))
 
-    # test for TypeError
-    with pytest.raises(TypeError):
-            intToRomanTest("Musi byt cislo!!!")
+if __name__ == '__main__':
+    unittest.main()
