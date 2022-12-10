@@ -1,6 +1,4 @@
-
 """Import from Projekt_RimskaCislice."""
-# Vypracoval M. Blaho
 from Projekt_RimskaCislice import kontrola
 from Projekt_RimskaCislice import tisice
 from Projekt_RimskaCislice import stovky
@@ -9,7 +7,7 @@ from Projekt_RimskaCislice import jednotky
 import pytest
 
 
-def test_kontorla():
+def test_kontrola():
     """Testovanie."""
     assert kontrola(4000) == print("Nemozno prevodit")
     assert kontrola(0) == print("Nemozno prevodit")
