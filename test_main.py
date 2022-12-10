@@ -4,9 +4,6 @@ A command-line utility for viewing cryptographic
 translations of user defined passwords.
 """
 
-import pdoc
-"""Funky library for generating briliantly useful documentation"""
-
 from main import intro, type_password, encrypt_password,\
     get_input, choose_algorithm
 """Main file's functions."""
