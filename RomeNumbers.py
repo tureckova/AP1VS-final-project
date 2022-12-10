@@ -25,7 +25,7 @@ def main():
     number = int(input())
     if number>3999:
         print("error moc velke cislo")
-        else
+    else:
     # Výstupní číslo v římské soustavě
     print(intToRoman(number))
 
