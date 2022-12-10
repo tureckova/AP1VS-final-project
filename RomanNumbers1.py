@@ -1,9 +1,7 @@
 """Funkce bude převádět číslo do Římské soustavy."""
 
 def intToRoman(cislo):
-
-
-    """Vytvoříme platnou Římskou soustavu podle pořadí 0-9"""
+    """Vytvoříme platnou Římskou soustavu podle pořadí 0-9."""
 
     """ 0   1000  2000  3000."""
     m = ["", "M", "MM", "MMM"]
