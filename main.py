@@ -4,7 +4,8 @@ A command-line utility for viewing cryptographic
 translations of user defined passwords.
 """
 
-
+import pdoc
+"""Funky library for generating briliantly useful documentation"""
 import hashlib
 """Library with all the fancy hash functions"""
 
