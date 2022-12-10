@@ -9,7 +9,15 @@ import hashlib
 """Library with all the fancy hash functions"""
 
 
-def encrypt_password(password, hash_type):
+def get_input(text):
+    """get_input prints the user's input."""
+    if text is None:
+        return input()
+    else:
+        return text
+
+
+def encrypt_password(password, hash_type, only_return=False):
     """encrypt_password encrypts the given password and returns the hash."""
     match hash_type:
         case "md5":
@@ -24,46 +32,49 @@ def encrypt_password(password, hash_type):
             print("Funny non existent hash algorithm detected.")
             return
 
+    if only_return:
+        return result.hexdigest()
+
     print("You've chosen " + hash_type + " as your hash algorithm.")
     print("The hexadecimal value of this password is: " + result.hexdigest())
     print("Thanks, and don't forget to come again!")
 
 
-def type_password():
+def type_password(password_example):
     """type_password gets the user's password."""
     print("Please, enter your password(I won't look):")
-    passwdinput = input()
-    return passwdinput
+    if password_example is None:
+        passwd_input = get_input(None)
+        return passwd_input
+    else:
+        return password_example
 
 
-def choose_algorithm():
+def choose_algorithm(count_input):
     """Choose Algorithm returns chooses the hash algorithm."""
     print(
         "Please, choose your algorithm:\n"
         "[1 - SHA1 || 2 - SHA256 || 3 - SHA512 || 4 - MD5]\n"
     )
-    count = input()
 
-    typeos = ''
+    if count_input is None:
+        count = get_input(None)
+    else:
+        count = count_input
 
     match count:
         case "1":
-            typeos = "sha1"
+            hash_type = "sha1"
         case "2":
-            typeos = "sha256"
+            hash_type = "sha256"
         case "3":
-            typeos = "sha512"
+            hash_type = "sha512"
         case "4":
-            typeos = "md5"
+            hash_type = "md5"
         case _:
-            typeos = ''
+            hash_type = ''
 
-    return typeos
-
-
-def get_input(text):
-    """get_input prints the user's input."""
-    return input(text)
+    return hash_type
 
 
 def intro():
@@ -79,9 +90,9 @@ if __name__ == '__main__':
     algorithm = ''
 
     while passwd == '':
-        passwd = type_password()
+        passwd = type_password(None)
 
     while algorithm == '':
-        algorithm = choose_algorithm()
+        algorithm = choose_algorithm(None)
 
     encrypt_password(passwd, algorithm)
