@@ -7,27 +7,36 @@ dictionary={'A':'.-', 'B':'-...',
 dictionary2={'.-':'A','-...':'B','-.-.':'C','-..':'D', '.':'E','..-.':'F','--.':'G','....':'H',
              '..':'I','.---':'J', '-.-':'K','.-..':'L', '--':'M', '-.':'N',
              '---':'O', '.--.':'P', '--.-':'Q','.-.':'R', '...':'S', '-':'T',
-             '..-':'U', '...-':'V', '.--':'W','-..-':'X', '-.--':'Y', '--..':'Z',}
+             '..-':'U', '...-':'V', '.--':'W','-..-':'X', '-.--':'Y', '--..':'Z', '':' ',}
 
 
 def coding(s):
-    void=" "
+    void=""
     for i in s: #indexování
         if i != ' ':
-            void+=dictionary[i]+" "
+            void+=dictionary[i]+' '
         else:
-            void += ' '
-
+            void +=' '
+    
     print(void)
 
     
 def decoding(s):
     void = ""
-    splitstring = a.split(" ") #rozdělení podle mezer
+    splitstring=s.split("  ")
+    
+    splitstring = s.split(" ")#rozdělení podle mezer
+    #splitstring=splitstring.remove('')
+
+    
     for i in splitstring: #indexování
-            void += dictionary2[i]
+        void += dictionary2[i]
+    
     print(void)
     
+
+
+
 def selection(f):
      f=int(input("1. Z ČEŠTINY DO MORSEOVKY || 2. Z MORESOVKY DO ČEŠTINY ")) # menu
      return f
