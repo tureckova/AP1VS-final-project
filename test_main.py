@@ -23,8 +23,7 @@ def test_get_input():
 
 
 def test_encrypt_password():
-    """test_encrypt_password tests all the possibilities of
-    encrypt_password method."""
+    """test_encrypt_password tests encrypt_password method."""
     password_one = "heslo@123"
     password_two = "Pudl42069"
     password_three = "vodaJeMokra."
