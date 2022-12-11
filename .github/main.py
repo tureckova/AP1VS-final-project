@@ -1,7 +1,7 @@
 from numpy import random
 import sys
 import os
-import argparse
+
 
 def generovatNahodnePole():
     nahodnePole=random.randint(1000, size=(20))
@@ -26,6 +26,7 @@ def nacteniZeSouboru(path):
         except:
             raise ValueError("nelze převést na int")
     return  polezesouboru
+
 def pole():
     if len(sys.argv) == 1:
         pole = generovatNahodnePole()
@@ -34,6 +35,7 @@ def pole():
     else:
         pole = parametrovePole()
     return pole
+
 def maximum(pole):
     hodnotaMax=max(pole)
     return hodnotaMax,pole.index(hodnotaMax)
@@ -41,5 +43,61 @@ def maximum(pole):
 def minimum(pole):
     hodnotaMin = min(pole)
     return hodnotaMin, pole.index(hodnotaMin)
+
+class sort:
+
+    def vyberSortu(pole):
+        print(".....\nVyberte si serazovaci algoritmus:\nb = bubbleSort\ni = insertionSort\ns = selectionSort\n.....")
+        x = input()
+        if x == "b":
+            sort.bubbleSort(pole)
+            print(pole)
+        elif x == "i":
+            sort.insertionSort(pole)
+            print(pole)
+        elif x == "s":
+            sort.selectionSort(pole)
+            print(pole)
+        else:
+            print("spatna volba")
+
+    def bubbleSort(pole):
+        n = len(pole)
+        for i in range(n - 1):
+            for j in range(0, n - i - 1):
+                if pole[j] > pole[j + 1]:
+                    pole[j], pole[j + 1] = pole[j + 1], pole[j]
+
+    def insertionSort(pole):
+        for i in range(1, len(pole)):
+            cislo = pole[i]
+            j = i - 1
+            while j >= 0 and cislo < pole[j]:
+                pole[j + 1] = pole[j]
+                j -= 1
+            pole[j + 1] = cislo
+
+    def selectionSort(pole):
+        for i in range(0, len(pole) - 1):
+            p = 0
+            mini = pole[-1]
+            for j in range(i, len(pole)):
+                if pole[j] <= mini:
+                    mini = pole[j]
+                    p = j
+            pole[i], pole[p] = pole[p], pole[i]
+
+
+
+
+
+
+
+test=pole()
+sort.vyberSortu(test)
+
+
+
+
 
 
