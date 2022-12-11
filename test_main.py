@@ -1,16 +1,14 @@
-"""TerminalHasher Test File.
+"""main.py Test File.
 
-A command-line utility for viewing cryptographic
-translations of user defined passwords.
+A command-line utility for viewing hashed form of user inputted passwords.
 """
 
-from main import intro, type_password, encrypt_password,\
-    get_input, choose_algorithm
-"""Main file's functions."""
+from main import *
+"""Main file import"""
 
 
 def test_intro(capsys):
-    """test_intro tests the intro method."""
+    """test_intro tests the output of intro method."""
     intro()
     capture = capsys.readouterr()
     assert "Welcome to the best password hasher 2022" in capture.out
@@ -24,7 +22,7 @@ def test_get_input():
 
 
 def test_encrypt_password():
-    """test_encrypt_password tests the encrypt_password method."""
+    """test_encrypt_password tests all the possibilities of encrypt_password method."""
     password_one = "heslo@123"
     password_two = "Pudl42069"
     password_three = "vodaJeMokra."

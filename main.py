@@ -5,7 +5,7 @@ translations of user defined passwords.
 """
 
 import hashlib
-"""Library with all the fancy hash functions"""
+"""Library with all the fancy hash functions."""
 
 
 def get_input(text):
@@ -40,7 +40,7 @@ def encrypt_password(password, hash_type, only_return=False):
 
 
 def type_password(password_example):
-    """type_password gets the user's password."""
+    """type_password gets the user's input."""
     print("Please, enter your password(I won't look):")
     if password_example is None:
         passwd_input = get_input(None)
@@ -50,7 +50,7 @@ def type_password(password_example):
 
 
 def choose_algorithm(count_input):
-    """Choose Algorithm returns chooses the hash algorithm."""
+    """choose_algorithm chooses the hashing Algorithm. User input can be 1,2,3,4"""
     print(
         "Please, choose your algorithm:\n"
         "[1 - SHA1 || 2 - SHA256 || 3 - SHA512 || 4 - MD5]\n"
@@ -77,12 +77,12 @@ def choose_algorithm(count_input):
 
 
 def intro():
-    """Intro prints the welcome string."""
+    """Intro prints the initial string."""
     print("Welcome to the best password hasher 2022")
 
 
 if __name__ == '__main__':
-    """Main function that runs everything."""
+    """Launches methods to run program."""
     intro()
 
     passwd = ''
