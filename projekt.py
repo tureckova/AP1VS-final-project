@@ -2,8 +2,9 @@
 import pyttsx3
 import pyjokes
 
+
 def speak(joke):
-        """
+    """
     Print and read a joke.
 
     :param joke: Must be string
@@ -17,15 +18,16 @@ def speak(joke):
     TypeError: Must be string.
     """
     if type(joke) not in [str]:
-       raise TypeError("Must be string.")
+        raise TypeError("Must be string.")
     print(joke)
     computer = pyttsx3.init()
     computer.setProperty("rate", 150)
     computer.say(joke)
     computer.runAndWait()
 
+
 def generateJoke(userInput):
-        """
+    """
     Sort out userInput.
 
     :param userInput: Must be int
@@ -47,8 +49,10 @@ def generateJoke(userInput):
     else:
         print("nezadal jsi číslo v rozmezí 1 - 3! ")
     return joke
+
+
 def main(game):
-        """
+    """
     Execute function.
 
     :param game: Must be boolean
