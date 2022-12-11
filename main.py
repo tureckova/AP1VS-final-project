@@ -4,7 +4,7 @@ Skupina: ST1416
 Projekt: Trojuhelnik
 Autori: Martin Žůrek, David Fiala, David Tomeček, Josef Kužel, David Žídek
  .. include:: README.md
- """
+"""
 #Importuje knihovnu pro umožnění uspání kódu na určitý čas
 import time
 
