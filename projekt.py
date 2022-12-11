@@ -16,6 +16,8 @@ def speak(joke):
     ...
     TypeError: Must be string.
     """
+    if type(joke) not in [str]:
+       raise TypeError("Must be string.")
     print(joke)
     computer = pyttsx3.init()
     computer.setProperty("rate", 150)
@@ -34,6 +36,8 @@ def generateJoke(userInput):
     ...
     TypeError: Must be predefined number.
     """
+    if type(userInput) not in [int]:
+        raise TypeError("Must be predefined number.")
     if userInput == 1:
         joke = pyjokes.get_joke(category="all")
     elif userInput == 2:
@@ -60,6 +64,8 @@ def main(game):
     ...
     TypeError: Must be (True, False).
     """
+    if type(game) not in [bool]:
+        raise TypeError("Must be (True, False).")
     while game:
         print("jakou kategorii vtipů chceš ?")
         print(" 1 - all \n" + " 2 - chuck\n" + " 3 - neutral")
