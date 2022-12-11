@@ -188,12 +188,12 @@ def vypis_vypocet():
     global strana_B
     strana_B= strana(c1, c2, a1, a2)
     strana_B = round(strana_B,2)
-
+ 
     # Výpočet strany C
     global strana_C
     strana_C = strana(a1, a2, b1, b2)
     strana_C = round(strana_C,2)
-        
+    
     if strana_A+strana_B>strana_C and strana_B+strana_C>strana_A and strana_A+strana_C>strana_B:
         Label(frame, text=("  Trojuholník sa dá narýsovať  "), font="Helvetica 15 bold", fg="white").grid(row=10,column=1, columnspan=2, sticky=N)
 
@@ -223,7 +223,11 @@ def vypis_vypocet():
         Label(frame2, text="Výpočty:", font="Helvetica 12 bold").grid(row=0,column=2, sticky=N)
         Label(frame2, text=("Obsah trojuholníka sa rovná: "+str(obsah)+" cm²"), font="Helvetica 10").grid(row=1,column=2, sticky=W)
         Label(frame2, text=("Obvod trojuholníka sa rovná: "+str(obvod)+" cm"), font="Helvetica 10").grid(row=2,column=2, sticky=W)
+        Label(frame2, text=(str(pravouhlost())), font="Helvetica 10").grid(row=3,column=2, sticky=W)
         kresba()
+        print(uhol(a1, a2,b1, b2,c1, c2))
+        print(uhol(c1, c2,a1, a2,b1, b2))
+        print(uhol(b1, b2,c1, c2,a1, a2))
     else:
         Label(frame, text=("Trojuholník sa nedá narýsovať"), font="Helvetica 12 bold", fg="red").grid(row=10,column=0, columnspan=10, sticky=N)
 
@@ -234,6 +238,18 @@ def Obsah_Trojuholnika(strana_A,strana_B,strana_C):
     s = (strana_A+strana_B+strana_C)/2
     obsah = ((s*(s-strana_A)*(s-strana_B)*(s-strana_C))**(1/2))
     return obsah
+
+def pravouhlost():
+    if(uhol(a1, a2,b1, b2,c1, c2)==90.00000000000001) or (uhol(c1, c2,a1, a2,b1, b2)==90.00000000000001) or(uhol(b1, b2,c1, c2,a1, a2)==90.00000000000001):
+        return "Trojuholnik je pravouhly"
+    else :
+        return "Trojuholnik nie je pravouhly"
+
+def uhol(a1, a2,b1, b2,c1, c2):
+    A = strana(b1, b2, c1, c2)
+    B= strana(c1, c2, a1, a2)
+    C = strana(a1, a2, b1, b2)
+    return degrees(acos((A * A + B * B - C * C)/(2.0 * A * B)))
 
 def kresba():
     #Nadefinuje rozměry a další informace kanvasu.
