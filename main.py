@@ -50,7 +50,8 @@ def type_password(password_example):
 
 
 def choose_algorithm(count_input):
-    """choose_algorithm chooses the hashing Algorithm. User input can be 1,2,3,4"""
+    """choose_algorithm chooses the hashing Algorithm.
+    User input can be 1,2,3,4.  """
     print(
         "Please, choose your algorithm:\n"
         "[1 - SHA1 || 2 - SHA256 || 3 - SHA512 || 4 - MD5]\n"
