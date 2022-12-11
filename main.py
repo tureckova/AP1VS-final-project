@@ -10,12 +10,12 @@ import time
 
 #V následujícím bloku zadá uživatel souřadnice pro body A, B, C
 #nadefinování proměnných pro jednotlivé body a výpis dotazu na zadání hodnot uživatelem
-aX = float(input("Enter the x coordinate for point A: "))
-aY = float(input("Enter the y coordinate for point A: "))
-bX = float(input("Enter the x coordinate for point B: "))
-bY = float(input("Enter the y coordinate for point B: "))
-cX = float(input("Enter the x coordinate for point C: "))
-cY = float(input("Enter the y coordinate for point C: "))
+aX = float(input("Zadejte souřadnici x pro bod A: "))
+aY = float(input("Zadejte souřadnici y pro bod A: "))
+bX = float(input("Zadejte souřadnici x pro bod B: "))
+bY = float(input("Zadejte souřadnici y pro bod B: "))
+cX = float(input("Zadejte souřadnici x pro bod C: "))
+cY = float(input("Zadejte souřadnici y pro bod C: "))
 
 #Zadané souřadnice bodů se uživateli vypíší na konzoli
 print()
