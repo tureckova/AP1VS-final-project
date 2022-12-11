@@ -2,7 +2,8 @@
 Téma: Pyjokes.
 
 ## Vstup
-Výběr kategorie vtipu, možnosti 1-3.
+• Volitelný parametr okruhu vtipů (dle knivny pyjokes)
 
 ## Výstup
-Vypíše vtip a přečte vtip.
+• Vypsání vtipu do konzole
+• Přečtení vtipu
