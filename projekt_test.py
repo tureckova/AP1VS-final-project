@@ -1,4 +1,4 @@
-from projekt import speak, generateJoke
+from projekt import speak, generateJoke, main
 import pytest
 
 def test_speak():
@@ -16,3 +16,8 @@ def test_generateJoke():
     # test if word "Chuck" is in GenerateJoke(2)
     word = "Chuck"
     assert word in generateJoke(2)
+    
+def test_main():
+    # TypeError if needed
+    with pytest.raises(TypeError):
+        main(int)
