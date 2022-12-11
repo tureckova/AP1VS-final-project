@@ -240,7 +240,7 @@ def Obsah_Trojuholnika(strana_A,strana_B,strana_C):
     return obsah
 
 def pravouhlost():
-    if(uhol(a1, a2,b1, b2,c1, c2)==90.00000000000001) or (uhol(c1, c2,a1, a2,b1, b2)==90.00000000000001) or(uhol(b1, b2,c1, c2,a1, a2)==90.00000000000001):
+    if(uhol(a1, a2,b1, b2,c1, c2)==90.00000000000001) or (uhol(a1, a2,b1, b2,c1, c2)==90.0) or (uhol(a1, a2,b1, b2,c1, c2)==89.99999999999999) or (uhol(c1, c2,a1, a2,b1, b2)==90.00000000000001) or (uhol(c1, c2,a1, a2,b1, b2)==90.0) or (uhol(c1, c2,a1, a2,b1, b2)==89.99999999999999) or(uhol(b1, b2,c1, c2,a1, a2)==90.00000000000001) or (uhol(b1, b2,c1, c2,a1, a2)==90.0) or (uhol(b1, b2,c1, c2,a1, a2)==89.99999999999999):
         return "Trojuholnik je pravouhly"
     else :
         return "Trojuholnik nie je pravouhly"
