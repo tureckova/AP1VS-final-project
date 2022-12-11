@@ -6,7 +6,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-sds
+
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.x
@@ -22,15 +22,12 @@ sds
         then
           pip install -r requirements.txt
         fi
-
     - name: Test with pytest
       run: |
         pytest --doctest-modules --cov=. --cov-fail-under=66
-
     - name: Lint with flake8
       run: |
         flake8 .
-
     - name: HTML documentation with pdoc
       run: |
         if [ -f __init__.py ]
@@ -39,7 +36,6 @@ sds
         else
           pdoc -o docs/ `ls --hide=*.md --hide=*.txt --hide=__pycache__`
         fi
-
     - name: Upload pages artifact
       uses: actions/upload-pages-artifact@v1
       with:
