@@ -3,19 +3,15 @@ from example import decoding
 import pytest
 
 
-def test_coding_edge_cases():
-    assert coding('HELLO') == '.... . .-.. .-.. --- '
-    assert coding(' ') == KeyError
-    assert coding(',') == KeyError  
-test_coding_edge_cases()
+def test_coding():
+    assert coding('HELLO') == '.... . .-.. .-.. ---'
+    assert coding('WORLD') == '.-- --- .-. .-.. -..'
+    
 
-#To write unit tests for the decoding() function, we can test that it decodes strings correctly by comparing the output of the function with the expected result. For example:
-
-
-
-def test_decoding_edge_cases():
+def test_decoding():
     assert decoding('.... . .-.. .-.. ---') == 'HELLO'
-    assert decoding('.-- .-. .. -. ..-. ') == 'WORLD'
-    assert decoding(' ') == KeyError
+    assert decoding('.-- --- .-. .-.. -..') == 'WORLD'
 
-test_decoding_edge_cases()
+    
+if __name__ == "__main__":
+    pytest.main()
