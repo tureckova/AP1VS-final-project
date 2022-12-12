@@ -35,7 +35,7 @@ def test_obvod():
     
 def test_obsah():
     """Test na výpočet obsahu trojúhelníku ABC."""
-    assert obsah(8, 3, 6) == 7.644442426
+    assert obsah(8, 3, 6) == 7.644442425710328
     
     """Zobrazí uživateli na konzoli hlášku TypeError"""
     with pytest.raises(TypeError):
