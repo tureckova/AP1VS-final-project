@@ -24,3 +24,6 @@ def test_decoding_edge_cases():
     
 
 test_decoding_edge_cases()
+
+if __name__ == "__main__":
+    pytest.main()
