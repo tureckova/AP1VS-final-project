@@ -5,6 +5,7 @@
 Následuje kód programu pro určení prvočíselnosti zadaných čísel.
 """
 import random
+import sys
 def TestPrvociselnosti(x):
     """Funkce počítá zdali je zadané číslo prvočíslo.
 
@@ -12,9 +13,9 @@ def TestPrvociselnosti(x):
     :return: Vrací textový řetězec s textem zdali je číslo prvočíslo.
 
     >>> TestPrvociselnosti(3)
-    Jedná se o prvočíslo.
+    'Jedná se o prvočíslo.'
     >>> TestPrvociselnosti(8)
-    Nejedná se o prvočíslo.
+    'Nejedná se o prvočíslo.'
     >>> TestPrvociselnosti(True)
     Traceback (most recent call last):
     ...
@@ -31,7 +32,10 @@ def TestPrvociselnosti(x):
         d //= 2
         s += 1
     for i in range(10):
-        a = random.randrange(2, x - 1)
+        if x != 3:
+            a = random.randrange(2, x - 1)
+        else:
+            a = 2
         x0 = pow(a, d, x)
         if x0 == 1 or x0 == x - 1:
             continue
@@ -46,7 +50,17 @@ def TestPrvociselnosti(x):
             return "Nejedná se o prvočíslo."
     return "Jedná se o prvočíslo."
 
-if __name__ == '_main_':
-    num = int(input('Zadej číslo k otestování:'))
+if __name__ == '__main__':
+    while True:
+        try:
+            if len(sys.argv) == 2:
+                num = int(sys.argv[1])
+            else:
+                num = int(input("Zadejte celé číslo k otestování:"))
+        except ValueError:
+            print("Byla zadána neplatná hodnota. Zadejte prosím celé číslo.")
+            continue
+        else:
+            break
     print(TestPrvociselnosti(num))
     print("Byla použita metoda Miller-Rabinova testu.")
