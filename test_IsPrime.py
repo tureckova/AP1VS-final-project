@@ -11,4 +11,10 @@ def test_TestPrvociselnosti():
     assert TestPrvociselnosti(-7) == "Nejedná se o prvočíslo."
     assert TestPrvociselnosti(-1) == "Nejedná se o prvočíslo."
 
-    
+    # return TypeError in other cases
+    with pytest.raises(TypeError):
+        TestPrvociselnosti(True)
+    with pytest.raises(TypeError):
+        TestPrvociselnosti(5 + 5j)
+    with pytest.raises(TypeError):
+        TestPrvociselnosti("r")
