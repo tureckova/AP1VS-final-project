@@ -19,7 +19,7 @@ dictionary2 = {'.-': 'A', '-...': 'B', '-.-.': 'C',
                '---': 'O', '.--.': 'P', '--.-': 'Q',
                '.-.': 'R', '...': 'S', '-': 'T',
                '..-': 'U', '...-': 'V', '.--': 'W',
-               '-..-': 'X', '-.--': 'Y', '--..': 'Z', '': ' ', }
+               '-..-': 'X', '-.--': 'Y', '--..': 'Z', '': ' ','/':' ' }
 
 
 def coding(s):
@@ -27,17 +27,17 @@ def coding(s):
     void = " "
     for i in s:  # indexování
         if i != ' ':
-            void += dictionary[i]+" "
+            void += dictionary[i]+"/"
         else:
-            void += ' '
+            void += '/'
     return void
 
 
 def decoding(s):
     """Coding."""
     void = ""
-    splitstring = s.split("  ")
-    splitstring = s.split(" ")  # rozdělení podle mezer
+    splitstring = s.split("/")
+    splitstring = s.split("/")  # rozdělení podle mezer
 
     for i in splitstring:  # indexování
         void += dictionary2[i]
