@@ -1,3 +1,9 @@
+"""Kód programu pro určení prvočíselnosti zadaných čísel.
+
+.. include:: README.md
+
+Následuje kód programu pro určení prvočíselnosti zadaných čísel.
+"""
 import random
 def TestPrvociselnosti(x):
     if x == 2:
@@ -25,7 +31,7 @@ def TestPrvociselnosti(x):
             return "Nejedná se o prvočíslo."
     return "Jedná se o prvočíslo."
 
-if _name_ == '_main_':
+if __name__ == '_main_':
     num = int(input('Zadej číslo k otestování:'))
     print(TestPrvociselnosti(num))
     print("Byla použita metoda Miller-Rabinova testu.")
