@@ -11,7 +11,7 @@ def test_decoding():
 
 def test_coding():
     """Test coding."""
-    assert type(coding('HELLO')) == str
+    assert type(coding('hello')) == str
 
 
 if __name__ == "__main__":
