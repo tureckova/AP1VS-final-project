@@ -26,7 +26,7 @@ def delkaStrany(prvniBodX, prvniBodY, druhyBodX, druhyBodY):
             type(druhyBodY) not in [int, float]):
         raise TypeError()
     else:
-        strana = math.sqrt(math.pow(prvniBodX - druhyBodX, 2) + 
+        strana = math.sqrt(math.pow(prvniBodX - druhyBodX, 2) +
                            math.pow(prvniBodY - druhyBodY, 2))
         return strana
 
@@ -105,11 +105,11 @@ def pravouhlost(stranaA, stranaB, stranaC):
             type(stranaC) not in [int, float]):
         raise TypeError()
     else:
-        if ((math.pow(stranaA, 2) + math.pow(stranaB, 2) == 
+        if ((math.pow(stranaA, 2) + math.pow(stranaB, 2) ==
              math.pow(stranaC, 2)) or
-                (math.pow(stranaB, 2) + math.pow(stranaC, 2) == 
+                (math.pow(stranaB, 2) + math.pow(stranaC, 2) ==
                  math.pow(stranaA, 2)) or
-                (math.pow(stranaC, 2) + math.pow(stranaA, 2) == 
+                (math.pow(stranaC, 2) + math.pow(stranaA, 2) ==
                  math.pow(stranaB, 2))):
             return True
         else:
@@ -117,7 +117,7 @@ def pravouhlost(stranaA, stranaB, stranaC):
 
 
 def trojuhelnik(aX, aY, bX, bY, cX, cY):
-    """Výpis vlastností trojúhelníku ABC s výpisem další vlastnosti po 2 sekundách."""
+    """Výpis vlastností trojúhelníku ABC."""
     stranaA = delkaStrany(bX, bY, cX, cY)
     stranaB = delkaStrany(aX, aY, cX, cY)
     stranaC = delkaStrany(aX, aY, bX, bY)
@@ -125,20 +125,20 @@ def trojuhelnik(aX, aY, bX, bY, cX, cY):
     vysledekObsah = obsah(stranaA, stranaB, stranaC)
 
     if sestrojitelnost(stranaA, stranaB, stranaC):
-        print("Bod A = [%.1f, %.1f]" %(aX, aY))
-        print("Bod B = [%.1f, %.1f]" %(bX, bY))
-        print("Bod C = [%.1f, %.1f]" %(cX, cY))
+        print("Bod A = [%.1f, %.1f]" % (aX, aY))
+        print("Bod B = [%.1f, %.1f]" % (bX, bY))
+        print("Bod C = [%.1f, %.1f]" % (cX, cY))
         time.sleep(2)
         print()
-        print("Délka strany a = %.1f cm." %stranaA)
-        print("Délka strany b = %.1f cm." %stranaB)
-        print("Délka strany c = %.1f cm." %stranaC)
+        print("Délka strany a = %.1f cm." % stranaA)
+        print("Délka strany b = %.1f cm." % stranaB)
+        print("Délka strany c = %.1f cm." % stranaC)
         time.sleep(2)
         print()
-        print("Trojúhelník ABC má obvod = %.1f cm." %vysledekObvod)
+        print("Trojúhelník ABC má obvod = %.1f cm." % vysledekObvod)
         time.sleep(2)
         print()
-        print("Trojúhelník ABC má obsah = %.1f cm2." %vysledekObsah)
+        print("Trojúhelník ABC má obsah = %.1f cm2." % vysledekObsah)
         time.sleep(2)
         print()
         if pravouhlost(stranaA, stranaB, stranaC):
