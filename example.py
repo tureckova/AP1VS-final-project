@@ -1,4 +1,4 @@
-"""Morse code."""
+"""Morse code translator."""
 
 dictionary = {'A': '.-', 'B': '-...',
               'C': '-.-.', 'D': '-..', 'E': '.',
@@ -23,7 +23,7 @@ dictionary2 = {'.-': 'A', '-...': 'B', '-.-.': 'C',
 
 
 def coding(s):
-    """Coding."""
+    """Translating from text to morse code."""
     void = " "
     for i in s:  # indexování
         if i != ' ':
@@ -34,7 +34,7 @@ def coding(s):
 
 
 def decoding(s):
-    """Coding."""
+    """Translating from morse code to text."""
     void = ""
     splitstring = s.split("/")
     splitstring = s.split("/")  # rozdělení podle mezer
@@ -45,7 +45,7 @@ def decoding(s):
 
 
 def main():
-    """Return the pathname of the KOS root directory."""
+    """Main function of program."""
     c = 1
     while (c != "0"):
         d = int(input("1.ČEŠTINY > MORSEOVKY|2.MORESOVKY > ČEŠTINY "))  # menu
