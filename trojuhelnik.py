@@ -9,19 +9,19 @@ import math
 import time
 
 
-def delkaStrany(bodXx, bodXy, bodYx, bodYy):
+def delkaStrany(prvniBodX, prvniBodY, druhyBodX, druhyBodY):
     """
     Výpočet délky strany trojúhelníku ABC.
-    :param bodXx: Vstupní parametr souřadnice x bodu X
-    :param bodXy: Vstupní parametr souřadnice y bodu X
-    :param bodYx: Vstupní parametr souřadnice x bodu Y
-    :param bodYy: Vstupní parametr souřadnice y bodu Y
+    :param prvniBodX: Vstupní parametr souřadnice x prvního bodu
+    :param prvniBodY: Vstupní parametr souřadnice y prvního bodu
+    :param druhyBodX: Vstupní parametr souřadnice x druhého bodu
+    :param druhyBodY: Vstupní parametr souřadnice y druhého bodu
     :return: Vrací délku strany trojúhelníku ABC
     """
-    if type(bodXx) not in [int, float] or type(bodXy) not in [int, float] or type(bodYx) not in [int, float] or type(bodYy) not in [int, float]:
+    if type(prvniBodX) not in [int, float] or type(prvniBodY) not in [int, float] or type(druhyBodX) not in [int, float] or type(druhyBodY) not in [int, float]:
         raise TypeError()
     else:
-        strana = math.sqrt(math.pow(bodYx - bodXx, 2) + math.pow(bodYx - bodXx, 2))
+        strana = math.sqrt(math.pow(prvniBodX - druhyBodX, 2) + math.pow(prvniBodY - druhyBodY, 2))
         return strana
 
 
@@ -68,9 +68,7 @@ def sestrojitelnost(stranaA, stranaB, stranaC):
     if type(stranaA) not in [int, float] or type(stranaB) not in [int, float] or type(stranaC) not in [int, float]:
         raise TypeError()
     else:
-        if ((stranaA + stranaB > stranaC) or
-            (stranaB + stranaC > stranaA) or
-            (stranaC + stranaA > stranaB)):
+        if ((stranaA + stranaB > stranaC) and (stranaB + stranaC > stranaA) and (stranaC + stranaA > stranaB)):
             return True
         else:
             return False
@@ -87,18 +85,16 @@ def pravouhlost(stranaA, stranaB, stranaC):
     if type(stranaA) not in [int, float] or type(stranaB) not in [int, float] or type(stranaC) not in [int, float]:
         raise TypeError()
     else:
-        if ((math.pow(stranaA, 2) + math.pow(stranaB, 2) == math.pow(stranaC, 2)) or
-            (math.pow(stranaB, 2) + math.pow(stranaC, 2) == math.pow(stranaA, 2)) or
-            (math.pow(stranaC, 2) + math.pow(stranaA, 2) == math.pow(stranaB, 2))):
+        if ((math.pow(stranaA, 2) + math.pow(stranaB, 2) == math.pow(stranaC, 2)) or (math.pow(stranaB, 2) + math.pow(stranaC, 2) == math.pow(stranaA, 2)) or (math.pow(stranaC, 2) + math.pow(stranaA, 2) == math.pow(stranaB, 2))):
             return True
         else:
             return False
 
 
 def trojuhelnik(aX, aY, bX, bY, cX, cY):
-    """Výpis vlastností trojúhelníku ABC."""
+    """Výpis vlastností trojúhelníku ABC s výpisem další vlastnosti po 2 sekundách."""
     stranaA = delkaStrany(bX, bY, cX, cY)
-    stranaB = delkaStrany(cX, cY, aX, aY)
+    stranaB = delkaStrany(aX, aY, cX, cY)
     stranaC = delkaStrany(aX, aY, bX, bY)
     vysledekObvod = obvod(stranaA, stranaB, stranaC)
     vysledekObsah = obsah(stranaA, stranaB, stranaC)
@@ -130,4 +126,4 @@ def trojuhelnik(aX, aY, bX, bY, cX, cY):
     else:
         print("Trojúhelník ABC nelze sestrojit.")
         
-trojuhelnik(-3, 3, 1, -3, 3, -1)
+trojuhelnik(0, 0, 6, 0, 3, 3)
