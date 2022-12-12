@@ -24,3 +24,8 @@ def TestPrvociselnosti(x):
         if a:
             return "Nejedná se o prvočíslo."
     return "Jedná se o prvočíslo."
+
+if _name_ == '_main_':
+    num = int(input('Zadej číslo k otestování:'))
+    print(TestPrvociselnosti(num))
+    print("Byla použita metoda Miller-Rabinova testu.")
