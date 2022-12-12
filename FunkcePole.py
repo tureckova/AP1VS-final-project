@@ -23,9 +23,8 @@ class FunkcePole:
         if not os.path.isfile(path):
             raise FileNotFoundError("soubor neexistuje")
         with open(path) as f:
-            try:
-                pole_soubor = [int(i) for i in f.readline()]
-            except ValueError:
+                pole_soubor = [int(i) for i in f.read().split(" ") if i.isdigit()]
+        if not pole_soubor:
                 raise ValueError("nelze převést na int")
         return pole_soubor
 
@@ -40,11 +39,11 @@ class FunkcePole:
 
     def maximum(self, pole):
         hodnota_max = max(pole)
-        return hodnota_max, pole.index(hodnota_max)
+        return hodnota_max, pole.index(hodnota_max) + 1
 
     def minimum(self, pole):
         hodnota_min = min(pole)
-        return hodnota_min, pole.index(hodnota_min)
+        return hodnota_min, pole.index(hodnota_min) + 1
 
     class Sort:
 
