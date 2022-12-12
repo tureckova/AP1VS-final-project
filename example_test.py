@@ -4,13 +4,13 @@ import pytest
 
 
 def test_coding():
-    assert test_coding('A') == '.-'
-    assert test_coding('B') == '-...'
+    assert coding('HELLO') == '.... . .-.. .-.. ---'
+    assert coding('WORLD') == '.-- --- .-. .-.. -..'
     
 
 def test_decoding():
-    assert test_decoding('.-') == 'A'
-    assert test_decoding('-...') == 'B'
+    assert decoding('.... . .-.. .-.. ---') == 'HELLO'
+    assert decoding('.-- --- .-. .-.. -..') == 'WORLD'
 
     
 if __name__ == "__main__":
