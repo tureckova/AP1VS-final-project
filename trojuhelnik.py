@@ -21,12 +21,13 @@ def delkaStrany(prvniBodX, prvniBodY, druhyBodX, druhyBodY):
     :return: Vrací délku strany trojúhelníku ABC
     """
     if (type(prvniBodX) not in [int, float] or
-        type(prvniBodY) not in [int, float] or
-        type(druhyBodX) not in [int, float] or
-        type(druhyBodY) not in [int, float]):
+            type(prvniBodY) not in [int, float] or
+            type(druhyBodX) not in [int, float] or
+            type(druhyBodY) not in [int, float]):
         raise TypeError()
     else:
-        strana = math.sqrt(math.pow(prvniBodX - druhyBodX, 2) + math.pow(prvniBodY - druhyBodY, 2))
+        strana = math.sqrt(math.pow(prvniBodX - druhyBodX, 2) + 
+                           math.pow(prvniBodY - druhyBodY, 2))
         return strana
 
 
@@ -40,8 +41,8 @@ def obvod(stranaA, stranaB, stranaC):
     :return: Vrací velikost obvodu trojúhelníku ABC
     """
     if (type(stranaA) not in [int, float] or
-        type(stranaB) not in [int, float] or
-        type(stranaC) not in [int, float]):
+            type(stranaB) not in [int, float] or
+            type(stranaC) not in [int, float]):
         raise TypeError()
     else:
         obvod = stranaA + stranaB + stranaC
@@ -59,8 +60,8 @@ def obsah(stranaA, stranaB, stranaC):
     :return: Vrací velikost obsahu trojúhelníku ABC
     """
     if (type(stranaA) not in [int, float] or
-        type(stranaB) not in [int, float] or
-        type(stranaC) not in [int, float]):
+            type(stranaB) not in [int, float] or
+            type(stranaC) not in [int, float]):
         raise TypeError()
     else:
         s = (stranaA + stranaB + stranaC) / 2
@@ -78,13 +79,13 @@ def sestrojitelnost(stranaA, stranaB, stranaC):
     :return: Vrací hodnotu ANO nebo NE
     """
     if (type(stranaA) not in [int, float] or
-        type(stranaB) not in [int, float] or
-        type(stranaC) not in [int, float]):
+            type(stranaB) not in [int, float] or
+            type(stranaC) not in [int, float]):
         raise TypeError()
     else:
         if ((stranaA + stranaB > stranaC) and
-            (stranaB + stranaC > stranaA) and
-            (stranaC + stranaA > stranaB)):
+                (stranaB + stranaC > stranaA) and
+                (stranaC + stranaA > stranaB)):
             return True
         else:
             return False
@@ -100,13 +101,16 @@ def pravouhlost(stranaA, stranaB, stranaC):
     :return: Vrací hodnotu ANO nebo NE
     """
     if (type(stranaA) not in [int, float] or
-        type(stranaB) not in [int, float] or
-        type(stranaC) not in [int, float]):
+            type(stranaB) not in [int, float] or
+            type(stranaC) not in [int, float]):
         raise TypeError()
     else:
-        if ((math.pow(stranaA, 2) + math.pow(stranaB, 2) == math.pow(stranaC, 2)) or
-            (math.pow(stranaB, 2) + math.pow(stranaC, 2) == math.pow(stranaA, 2)) or
-            (math.pow(stranaC, 2) + math.pow(stranaA, 2) == math.pow(stranaB, 2))):
+        if ((math.pow(stranaA, 2) + math.pow(stranaB, 2) == 
+             math.pow(stranaC, 2)) or
+                (math.pow(stranaB, 2) + math.pow(stranaC, 2) == 
+                 math.pow(stranaA, 2)) or
+                (math.pow(stranaC, 2) + math.pow(stranaA, 2) == 
+                 math.pow(stranaB, 2))):
             return True
         else:
             return False
@@ -125,26 +129,27 @@ def trojuhelnik(aX, aY, bX, bY, cX, cY):
         print("Bod B = [%.1f, %.1f]" %(bX, bY))
         print("Bod C = [%.1f, %.1f]" %(cX, cY))
         time.sleep(2)
-        print( )
+        print()
         print("Délka strany a = %.1f cm." %stranaA)
         print("Délka strany b = %.1f cm." %stranaB)
         print("Délka strany c = %.1f cm." %stranaC)
         time.sleep(2)
-        print( )
+        print()
         print("Trojúhelník ABC má obvod = %.1f cm." %vysledekObvod)
         time.sleep(2)
-        print( )
+        print()
         print("Trojúhelník ABC má obsah = %.1f cm2." %vysledekObsah)
         time.sleep(2)
-        print( )
+        print()
         if pravouhlost(stranaA, stranaB, stranaC):
             print("Trojúhelník ABC je pravoúhlý.")
         else:
             print("Trojúhelník ABC není pravoúhlý.")
         time.sleep(2)
-        print( )
+        print()
         print("Trojúhelník ABC lze sestrojit.")
     else:
         print("Trojúhelník ABC nelze sestrojit.")
 
-trojuhelnik(0, 0, 6, 0, 3, 3)
+
+trojuhelnik(2, 5, 2, 2, 9, 2)
