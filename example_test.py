@@ -1,16 +1,16 @@
-"""Coding."""
+"""Unit test"""
 from example import coding
 from example import decoding
 import pytest
 
 
 def test_decoding():
-    """Coding."""
+    """Test decoding"""
     assert decoding('.... . .-.. .-.. ---') == ('HELLO')
 
 
 def test_coding():
-    """Coding."""
+    """Test coding"""
     assert type(coding('HELLO')) == str
 
 
