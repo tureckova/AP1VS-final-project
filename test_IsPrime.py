@@ -9,4 +9,6 @@ def test_TestPrvociselnosti():
     # r<0
     assert TestPrvociselnosti(0) == "Nejedná se o prvočíslo."
     assert TestPrvociselnosti(-7) == "Nejedná se o prvočíslo."
-    assert TestPrvociselnosti(-1) == 0
+    assert TestPrvociselnosti(-1) == "Nejedná se o prvočíslo."
+
+    
