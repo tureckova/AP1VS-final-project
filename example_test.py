@@ -3,14 +3,13 @@ from example import decoding
 import pytest
 
 
-def test_coding():
-    assert coding("HELLO") == ".... . .-.. .-.. ---"
-    assert coding("WORLD") == ".-- --- .-. .-.. -.."
+def test_decoding():
+    assert decoding('.... . .-.. .-.. ---') == ('HELLO')
     
 
-def test_decoding():
-    assert decoding(".... . .-.. .-.. ---") == "HELLO"
-    assert decoding(".-- --- .-. .-.. -..") == "WORLD"
+def test_coding():
+    assert type(coding('HELLO')) == str
+
 
     
 if __name__ == "__main__":
