@@ -22,6 +22,8 @@ def TestPrvociselnosti(x):
     TypeError: X must be a number.
     """
     """Funkce počítá jestli je číslo prvočíslo nebo ne pomocí Miller-Rabinova testu."""
+    if type(x) not in [int]:
+        raise TypeError("X must be a number.")
     if x == 2:
         return "Jedná se o prvočíslo."
     if x % 2 == 0 or x <= 1:
