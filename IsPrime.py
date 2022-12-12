@@ -16,11 +16,14 @@ def TestPrvociselnosti(x):
     'Jedná se o prvočíslo.'
     >>> TestPrvociselnosti(8)
     'Nejedná se o prvočíslo.'
+    >>> TestPrvociselnosti(0)
+    'Nejedná se o prvočíslo.'
     >>> TestPrvociselnosti(True)
     Traceback (most recent call last):
     ...
     TypeError: X must be a number.
     """
+
     """Funkce počítá jestli je číslo prvočíslo nebo ne pomocí Miller-Rabinova testu."""
     if type(x) not in [int]:
         raise TypeError("X must be a number.")
@@ -60,9 +63,7 @@ if __name__ == '__main__':
             else:
                 num = int(input("Zadejte celé číslo k otestování:"))
         except ValueError:
-            print("Byla zadána neplatná hodnota. Zadejte prosím celé číslo.")
             continue
         else:
             break
-    print(TestPrvociselnosti(num))
-    print("Byla použita metoda Miller-Rabinova testu.")
+    print(TestPrvociselnosti(num) + "\nByla použita metoda Miller-Rabinova testu.")
