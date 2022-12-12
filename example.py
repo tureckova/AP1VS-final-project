@@ -68,3 +68,5 @@ while (c != "0"):
         decoding(a)
 
 c = input(("PROGRAM SE UKONČI=0 || POKRAČOVÁNÍ=LIBOVOLNÝ ZNAK : "))
+
+
