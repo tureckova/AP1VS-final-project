@@ -6,6 +6,8 @@ Následuje kód programu pro určení prvočíselnosti zadaných čísel.
 """
 import random
 import sys
+
+
 def TestPrvociselnosti(x):
     """Funkce počítá zdali je zadané číslo prvočíslo.
 
@@ -23,8 +25,7 @@ def TestPrvociselnosti(x):
     ...
     TypeError: X must be a number.
     """
-
-    """Funkce počítá jestli je číslo prvočíslo nebo ne pomocí Miller-Rabinova testu."""
+    """Funkce počítá jestli je číslo prvočíslo pomocí Miller-Rabinova testu."""
     if type(x) not in [int]:
         raise TypeError("X must be a number.")
     if x == 2:
@@ -55,6 +56,7 @@ def TestPrvociselnosti(x):
             return "Nejedná se o prvočíslo."
     return "Jedná se o prvočíslo."
 
+
 if __name__ == '__main__':
     while True:
         try:
@@ -66,4 +68,4 @@ if __name__ == '__main__':
             continue
         else:
             break
-    print(TestPrvociselnosti(num) + "\nByla použita metoda Miller-Rabinova testu.")
+    print(TestPrvociselnosti(num) + "\nByla použita metoda Miller-Rabinova")
