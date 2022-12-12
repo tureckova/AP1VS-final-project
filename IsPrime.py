@@ -12,7 +12,13 @@ def TestPrvociselnosti(x):
     :return: Vrací textový řetězec s textem zdali je číslo prvočíslo.
 
     >>> TestPrvociselnosti(3)
-    3
+    Jedná se o prvočíslo.
+    >>> TestPrvociselnosti(8)
+    Nejedná se o prvočíslo.
+    >>> TestPrvociselnosti(True)
+    Traceback (most recent call last):
+    ...
+    TypeError: X must be a number.
     """
     """Funkce počítá jestli je číslo prvočíslo nebo ne pomocí Miller-Rabinova testu."""
     if x == 2:
