@@ -13,4 +13,5 @@ def test_decoding():
     assert decoding(".-- --- .-. .-.. -..") == "WORLD"
 
     
-def test_main():
+if __name__ == "__main__":
+    pytest.main()
