@@ -6,7 +6,7 @@ import pytest
 
 def test_decoding():
     """Test decoding."""
-    assert decoding('.... . .-.. .-.. ---') == ('HELLO')
+    assert decoding('...././.-../.-../---/') == ('HELLO')
 
 
 def test_coding():
