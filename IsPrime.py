@@ -6,6 +6,15 @@ Následuje kód programu pro určení prvočíselnosti zadaných čísel.
 """
 import random
 def TestPrvociselnosti(x):
+    """Funkce počítá zdali je zadané číslo prvočíslo.
+
+    :param x: Vstupní parametr x.
+    :return: Vrací textový řetězec s textem zdali je číslo prvočíslo.
+
+    >>> TestPrvociselnosti(3)
+    3
+    """
+    """Funkce počítá jestli je číslo prvočíslo nebo ne pomocí Miller-Rabinova testu."""
     if x == 2:
         return "Jedná se o prvočíslo."
     if x % 2 == 0 or x <= 1:
