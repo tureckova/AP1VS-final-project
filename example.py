@@ -45,7 +45,7 @@ def decoding(s):
 
 
 def main():
-    """Main function."""
+    """Console UI of the main function."""
     c = 1
     while (c != "0"):
         d = int(input("1.ČEŠTINY > MORSEOVKY|2.MORESOVKY > ČEŠTINY "))  # menu
