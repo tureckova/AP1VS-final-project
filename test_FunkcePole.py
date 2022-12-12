@@ -2,6 +2,12 @@ from FunkcePole import FunkcePole
 
 
 class TestFunkcePole():
+    def test_minimum(self):
+        assert FunkcePole.minimum([8, -8, 2]) == (-8, 2)
+
+
+
+
     class TestSort():
 
         def test_bubble_sort(self):

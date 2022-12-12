@@ -38,11 +38,11 @@ class FunkcePole:
             pole = self.nacteni_parametr()
         return pole
 
-    def maximum(pole):
+    def maximum(self, pole):
         hodnota_max = max(pole)
         return hodnota_max, pole.index(hodnota_max)
 
-    def minimum(pole):
+    def minimum(self, pole):
         hodnota_min = min(pole)
         return hodnota_min, pole.index(hodnota_min)
 
@@ -68,7 +68,7 @@ class FunkcePole:
             else:
                 print("spatna volba")
 
-        def bubble_sort(test_pole):
+        def bubble_sort(self,test_pole):
             pole = test_pole
             n = len(pole)
             for i in range(n - 1):
@@ -77,7 +77,7 @@ class FunkcePole:
                         pole[j], pole[j + 1] = pole[j + 1], pole[j]
             return pole
 
-        def insertion_sort(test_pole):
+        def insertion_sort(self,test_pole):
             pole = test_pole
             for i in range(1, len(pole)):
                 cislo = pole[i]
@@ -88,7 +88,7 @@ class FunkcePole:
                 pole[j + 1] = cislo
             return pole
 
-        def selection_sort(test_pole):
+        def selection_sort(self,test_pole):
             pole = test_pole
             for i in range(0, len(pole) - 1):
                 p = 0
