@@ -3,10 +3,10 @@ Využili jsme knihovnu pyjokes pro tvorbu programu, který vypíše v konzoli vt
 
 ## Vstup
 
-1 - all
-2 - chuck
-3 - neutral
+1 - all </br>
+2 - chuck </br>
+3 - neutral </br>
 
 ## Výstup
-Vypsání vtipu do konzole,
+Vypsání vtipu do konzole </br>
 Přečtení vtipu
