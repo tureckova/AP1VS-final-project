@@ -5,7 +5,6 @@ import pytest
 
 def test_coding_edge_cases():
     assert coding('HELLO') == '.... . .-.. .-.. --- '
-    assert coding('123') == '1 2 3 ''
     assert coding(' ') == KeyError
     assert coding(',') == KeyError  
 test_coding_edge_cases()
@@ -17,7 +16,6 @@ test_coding_edge_cases()
 def test_decoding_edge_cases():
     assert decoding('.... . .-.. .-.. ---') == 'HELLO'
     assert decoding('.-- .-. .. -. ..-. ') == 'WORLD'
-    assert decoding('1 2 3 ') == '123'
     assert decoding(' ') == KeyError
 
 test_decoding_edge_cases()
