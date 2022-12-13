@@ -154,6 +154,8 @@ if __name__ == '__main__':
         message = str(input('Type your message: '))
         if message == '':
             print('Nothing was written...')
+        elif [item for item in message.upper() if item not in morse_alphabet]:#
+            print('Inserted symbols I can\'t recognize...')  #
         else:
             message, is_input_morse = preparation(message)
 
