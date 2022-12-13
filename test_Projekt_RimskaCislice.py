@@ -1,3 +1,4 @@
+
 """Import from Projekt_RimskaCislice."""
 from Projekt_RimskaCislice import kontrola
 from Projekt_RimskaCislice import tisice
