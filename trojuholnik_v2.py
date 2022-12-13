@@ -37,8 +37,7 @@ def data():
     tk.Button(frame, text='Nakresli', command=checkWrongData, width=15).grid(row=8,column=1,columnspan=2, rowspan=2,sticky=N)
 
 def strana(b1, b2, c1, c2):
-    """
-    Výpočet strany."""
+    """Výpočet strany A"""
     if  type(b1)  not in [int, float]:
         raise TypeError("Musí byť číslo")
     if  type(b2)  not in [int, float]:
@@ -50,8 +49,7 @@ def strana(b1, b2, c1, c2):
     return (((b1-c1)**2+(b2-c2)**2)**(1/2)) 
 
 def strana(c1, c2, a1, a2):
-    """
-    Výpočet strany."""
+    """Výpočet strany B"""
     if  type(c1)  not in [int, float]:
         raise TypeError("Musí byť číslo")
     if  type(c2)  not in [int, float]:
@@ -63,8 +61,7 @@ def strana(c1, c2, a1, a2):
     return (((c1-a1)**2+(c2-a2)**2)**(1/2)) 
     
 def strana(a1, a2, b1, b2):
-    """
-    Výpočet strany."""
+    """Výpočet strany C"""
     if  type(a1)  not in [int, float]:
         raise TypeError("Musí byť číslo")
     if  type(a2)  not in [int, float]:
@@ -77,7 +74,8 @@ def strana(a1, a2, b1, b2):
 
 def checkWrongData():
 
-    global labela
+    """kontrola vložených dat"""
+    
     labelA1=Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
     labelA1.grid(row=3,column=1)
 
@@ -97,7 +95,7 @@ def checkWrongData():
     labelC2.grid(row=7,column=2)
     
 
-    #vynulovanie strán
+    """vynulovanie strán"""
     aa = 0
     ab = 0
     ba = 0
@@ -179,17 +177,17 @@ def checkWrongData():
 
 def vypis_vypocet():
 
-    # Výpočet strany A
+    """Výpočet strany A"""
     global strana_A
     strana_A = strana(b1, b2, c1, c2)
     strana_A = round(strana_A,2)
 
-    # Výpočet strany B
+    """Výpočet strany B"""
     global strana_B
     strana_B= strana(c1, c2, a1, a2)
     strana_B = round(strana_B,2)
  
-    # Výpočet strany C
+    """Výpočet strany C"""
     global strana_C
     strana_C = strana(a1, a2, b1, b2)
     strana_C = round(strana_C,2)
@@ -197,29 +195,29 @@ def vypis_vypocet():
     if strana_A+strana_B>strana_C and strana_B+strana_C>strana_A and strana_A+strana_C>strana_B:
         Label(frame, text=("  Trojuholník sa dá narýsovať  "), font="Helvetica 15 bold", fg="white").grid(row=10,column=1, columnspan=2, sticky=N)
 
-        # Výpis súradnic
+        """Výpis súradnic"""
         Label(frame2, text="Súradnice:", font="Helvetica 12 bold").grid(row=0,column=0, sticky=N)
         Label(frame2, text=("Bod A má súradnice X: "+str(a1)+" Y: "+str(a2)), font="Helvetica 10").grid(row=1,column=0, sticky=W)
         Label(frame2, text=("Bod B má súradnice X: "+str(b1)+" Y: "+str(b2)), font="Helvetica 10").grid(row=2,column=0, sticky=W)
         Label(frame2, text=("Bod C má súradnice X: "+str(c1)+" Y: "+str(c2)), font="Helvetica 10").grid(row=3,column=0, sticky=W)
         
-        # Výpis strán
+        """Výpis strán"""
         Label(frame2, text="Strany:", font="Helvetica 12 bold").grid(row=0,column=1, sticky=N)
         Label(frame2, text=("Strana A je dlhá: "+str(strana_A)+" cm"), font="Helvetica 10").grid(row=1,column=1, sticky=W)
         Label(frame2, text=("Strana B je dlhá: "+str(strana_B)+" cm"), font="Helvetica 10").grid(row=2,column=1, sticky=W)
         Label(frame2, text=("Strana C je dlhá: "+str(strana_C)+" cm"), font="Helvetica 10").grid(row=3,column=1, sticky=W)
 
-        # Výpočet obvodu
+        """Výpočet obvodu"""
         global obvod
         obvod = obvod_Stran(strana_A,strana_B,strana_C)
         obvod = round(obvod,2)
 
-        # Výpočet obsahu
+        """Výpočet obsahu"""
         global obsah
         obsah = Obsah_Trojuholnika(strana_A,strana_B,strana_C)
         obsah = round(obsah,2)
 
-        # Výpis obvodu a obsahu
+        """Výpis obvodu a obsahu"""
         Label(frame2, text="Výpočty:", font="Helvetica 12 bold").grid(row=0,column=2, sticky=N)
         Label(frame2, text=("Obsah trojuholníka sa rovná: "+str(obsah)+" cm²"), font="Helvetica 10").grid(row=1,column=2, sticky=W)
         Label(frame2, text=("Obvod trojuholníka sa rovná: "+str(obvod)+" cm"), font="Helvetica 10").grid(row=2,column=2, sticky=W)
@@ -265,21 +263,21 @@ def uhol(a1, a2,b1, b2,c1, c2):
 
 
 def kresba():
-    #Nadefinuje rozměry a další informace kanvasu.
+    """Nadefinuje rozměry a další informace kanvasu."""
     udaje = tk.Canvas(root, width=500, height=500, background='#c4c4c4')
     udaje.grid(row=0, column=1, columnspan=5)
 
-    # Narýsuje trojúhelník
+    """Narýsuje trojúhelník"""
     udaje.create_line(a1,a2,b1,b2,fill="blue",width=5)
     udaje.create_line(b1,b2,c1,c2,fill="blue",width=5)
     udaje.create_line(c1,c2,a1,a2,fill="blue",width=5)
 
-    # Nadepsání bodů
+    """Nadepsání bodů"""
     udaje.create_text(a1-20,a2-20,fill="black",font="Times 20",text="A",anchor="w")
     udaje.create_text(b1+20,b2-20,fill="black",font="Times 20",text="B",anchor="w")
     udaje.create_text(c1-20,c2+20,fill="black",font="Times 20",text="C",anchor="w")
 
-    # Nadepsání stran
+    """Nadepsání stran"""
     udaje.create_text((a1+b1)/2,(a2+b2)/2,fill="red",font="Times 20 bold",text="c",anchor="w")
     udaje.create_text((b1+c1)/2,(b2+c2)/2,fill="red",font="Times 20 bold",text="a",anchor="w")
     udaje.create_text((a1+c1)/2,(a2+c2)/2,fill="red",font="Times 20 bold",text="b",anchor="w")
