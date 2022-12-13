@@ -194,7 +194,7 @@ class FunkcePole:
                     test_pole: pole s cisly z funkce pole()
                 Args:
                     pole: pole s cisly z test_pole
-                    p:
+                    p: docasna pozice cisla v poli
                     mini: aktualni nejmensi cislo v poli?
                     i: pozice cisla v poli
                     j: pozice cisla v poli
