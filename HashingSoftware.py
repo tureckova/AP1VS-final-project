@@ -29,7 +29,7 @@ def CheckInput(choice):
     """
     Datatype and value check.
 
-    :param choice: Hash algorithm choice (string)
+    :param choice: Determines the hash algorithm (int)
     """
     if choice.isdigit():
         choice = int(choice)
@@ -43,7 +43,7 @@ def CheckLength(passw, hsh):
     """
     User inputs length check.
 
-    :param passw: Password to be hashed (string)
+    :param passw: The password to be hashed (string)
     :param hsh: Custom-made hash (string)
     """
     if len(passw) < 8:
