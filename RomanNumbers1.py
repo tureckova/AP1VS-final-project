@@ -1,5 +1,4 @@
 """Funkce bude převádět číslo do Římské soustavy."""
-import unittest
 
 
 def intToRoman(cislo):
@@ -29,7 +28,6 @@ def intToRoman(cislo):
 
 def main():
     """Tato funkce main je testovacím kódem."""
-    unittest.main(exit=False)
     print("Zadej cislo, ktere chces prevest do Rimske soustavy: ")
     """ Vstupní kód uživatele. """
     cislo = int(input())
@@ -43,7 +41,6 @@ def main():
 
     """Výstupní číslo v Římské číselné soustavě."""
     print(intToRoman(cislo))
-
 
 if __name__ == "__main__":
     main()
