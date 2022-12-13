@@ -5,12 +5,12 @@ import os
 
 class FunkcePole:
     def generovat(self):
-        pole_nahodne = random.randint(1000, size=(20))
-        pole_nove = \
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        pole_nove = []
         for x in range(20):
-            pole_nove[x] = pole_nahodne[x]
-        return pole_nahodne
+            pole_nove.append((random.randint(1000)))
+        if all(isinstance(x, (int)) for x in pole_nove):
+            print("test")
+        return pole_nove
 
     def nacteni_parametr(self):
         try:

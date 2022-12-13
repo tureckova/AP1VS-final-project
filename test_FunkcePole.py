@@ -1,3 +1,4 @@
+import random
 import sys
 
 from FunkcePole import FunkcePole
@@ -23,6 +24,24 @@ class TestFunkcePole():
     def test_nacteni_parametr(self):
         sys.argv = ["", "5", "4"]
         assert self.p.nacteni_parametr() == [5, 4]
+        with pytest.raises(ValueError):
+            sys.argv = ["", "nbdvcb", "gfh"]
+            self.p.nacteni_parametr()
+
+    def test_generovat(self):
+        pole = self.p.generovat()
+        assert len(pole) == 20 and all(isinstance(x, (int)) for x in pole)
+
+    def test_pole(self):
+        sys.argv = ["", "cisla.txt"]
+        assert self.p.pole() == [5, 5]
+        sys.argv = ["", "5", "4"]
+        assert self.p.pole() == [5, 4]
+        sys.argv = ["",]
+        pole = self.p.pole()
+        assert len(pole) == 20 and all(isinstance(x, (int)) for x in pole)
+
+
     class TestSort():
         s = FunkcePole.Sort()
 
