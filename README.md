@@ -1,5 +1,4 @@
 # Závěrečný projekt z předmětu AP1VS
-Vytvořte program, který umí kódovat i dekódovat Morseovu abecedu.
 
 ## Morseovka
 
