@@ -192,7 +192,7 @@ if __name__ == "__main__":
             znova = str(input("\nSpustit znovu? (y/n): "))
             if znova in ('y', 'n'):
                 break
-                print("Neplatny vstup.")
+            print("Neplatny vstup.")
         if znova == 'y':
             continue
         else:
