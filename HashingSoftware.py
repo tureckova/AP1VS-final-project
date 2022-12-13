@@ -30,6 +30,10 @@ def CheckInput(choice):
     Datatype and value check.
 
     :param choice: Determines the hash algorithm (int)
+    >>> CheckInput("a")
+    Traceback (most recent call last):
+    ...
+    TypeError: The algorithm choice must be an integer!!
     """
     if choice.isdigit():
         choice = int(choice)
