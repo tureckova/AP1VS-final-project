@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Main module for translator."""
 import re  # removes extra spaces
 import unicodedata  # removes diacritics
@@ -19,22 +20,26 @@ morse_alphabet = {'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
 confirmation_variants = {'YES', 'YE', 'Y', 'JO', 'ANO', 'J', 'JJ', 'ZES', 'Z',
                          'ZE', 'A'}
 morse_contrary = dict((v, k) for (k, v) in morse_alphabet.items())
+ex = False  # Continue or Exit boolean
 
 
 def preparation(txt):
     """Prepare the message for encrypting/decrypting.
 
-    Removes spaces at the beginning and at the end of the message. Checks if
-    the message only has ['.', '-', ' ', '|', '"'] characters. If yes then
+    Remove spaces at the beginning and at the end of the message. Check if
+    the message only has certain characters. If yes then
     check remains True and later is redirected to the encryption method. If not
     then check becomes False and later is redirected to the decryption method.
-    If message is in morse code it checks if there are ['"'] at the beginning
-    and at the end of the message, if yes then it replaces it with morse code.
-    Then it replaces extra 2-7 spaces into the morse code.
-    If message is in alphanumeric state, code replaces every space to a single
-    space, and then it removes any diacritics in the message.
-    Returns prepared message and check boolean, which is later used to redirect
-    code to the encryption or decryption method.
+
+    If the message is in morse code, check for ['"'] at index [0] and [-1], if
+    present, replace with morse code. If there is 2-7 spaces in the message,
+    replace them with [' | '].
+
+    If the message is in alphanumeric state, replace multiple spaces into a
+    single space, remove diacritics in the message.
+
+    Return prepared message and 'check' boolean, which is later used to
+    redirect to encryption or decryption function.
 
     Parameters
     ----------
@@ -50,11 +55,9 @@ def preparation(txt):
 
     Examples
     --------
-    >>> print(preparation('ěščřžýáíé'))
-    ('escrzyaie', False)
-    >>> print(preparation('Hello      World'))
+    >>> preparation('Hello      World')
     ('Hello World', False)
-    >>> print(preparation('...       ---   ...'))
+    >>> preparation('...       ---   ...')
     ('... | --- | ...', True)
 
     """
@@ -84,7 +87,7 @@ def encrypt(txt):
     Changes characters to capital letters, then finds characters key in the
     dictionary morse_alphabet, stores his value in a string encrypt_output
     and puts a space for another character. At the end it removes the space
-    at the end.
+    at the beginning and at the end.
 
     Parameters
     ----------
@@ -98,8 +101,14 @@ def encrypt(txt):
 
     Examples
     --------
-    >>> print(encrypt('SOS'))
-    ... --- ...
+    >>> encrypt('SOS')
+    '... --- ...'
+    >>> encrypt(' Hello ')
+    '| .... . .-.. .-.. --- |'
+    >>> encrypt('$')
+    Traceback (most recent call last):
+    ...
+    TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
 
     """
     encrypt_output = ''
@@ -112,7 +121,8 @@ def decrypt(txt):
     """Decrypts message to alphanumeric characters.
 
     Splits the message, then for every word finds his key in dictionary
-    morse_contrary and stores his value to a string decrypt_output.
+    morse_contrary and stores his value to a string decrypt_output. Which is
+    than returned.
 
     Parameters
     ----------
@@ -126,8 +136,14 @@ def decrypt(txt):
 
     Examples
     --------
-    >>> print(encrypt('... --- ...'))
-    SOS
+    >>> decrypt('... --- ...')
+    'SOS'
+    >>> decrypt('...')
+    'S'
+    >>> decrypt('...     ---')
+    Traceback (most recent call last):
+    ...
+    TypeError: can only concatenate str (not "NoneType") to str
 
     """
     decrypt_output = ''
@@ -137,7 +153,7 @@ def decrypt(txt):
     return decrypt_output
 
 
-def copy_to_clip_board(txt):
+def copy_to_clipboard(txt):
     """Copy result to clipboard.
 
     Parameters
@@ -149,33 +165,95 @@ def copy_to_clip_board(txt):
     subprocess.run(['clip'], text=True, input=txt)
 
 
-if __name__ == '__main__':
-    while True:
-        message = str(input('Type your message: '))
-        if message == '':
+def continue_or_exit(txt):
+    """Decide whether to type another string or exit.
+
+    Parameters
+    ----------
+    txt : string
+        Inserted message
+
+    Returns
+    -------
+    ex : bool
+        Returns bool value for while loop
+
+    Examples
+    --------
+    >>> continue_or_exit('J')
+    <BLANKLINE>
+    False
+
+    """
+    print('')
+    ex = False
+    if txt not in confirmation_variants:
+        print('Goodbye...\n')
+        ex = True
+    return ex
+
+
+def copy_or_not(txt):
+    """Decide whether to copy to clipboard.
+
+    Parameters
+    ----------
+    txt : string
+        Inserted message
+
+    """
+    if txt in confirmation_variants:
+        if not is_input_morse:
+            copy_to_clipboard(encrypt(message))
+        elif is_input_morse:
+            copy_to_clipboard(decrypt(message))
+
+
+def get_message(txt):
+    """Get message and test it.
+
+    If message is empty or any symbols are not in both dictionaries, print
+    warning message and input line. repeat until the requirements are met.
+
+    Parameters
+    ----------
+    txt : string
+        Inserted message
+
+    Returns
+    -------
+    txt : string
+        Returns tested message
+
+    Examples
+    --------
+    >>> get_message('hello')
+    'hello'
+
+    """
+    while txt == '' or txt == ' ' \
+            or [item for item in txt.upper() if item not
+                in morse_alphabet and item not in morse_contrary]:
+        if txt == '' or txt == ' ':
             print('Nothing was written...')
-        elif [item for item in message.upper() if item not in morse_alphabet]:#
-            print('Inserted symbols I can\'t recognize...')  #
-        else:
-            message, is_input_morse = preparation(message)
+        elif [item for item in txt.upper() if item not in morse_alphabet
+                and item not in morse_contrary]:
+            print('Inserted symbols I can\'t recognize...')
+        txt = str(input('Type your message: '))
+    return txt
 
-            if is_input_morse is False:
-                print('Encrypted message: ' + str(encrypt(message)) + '\n')
-                copy_or_not = input('Do you want to copy the result? Type yes '
-                                    'if you want it copied: ').upper()
-                if copy_or_not in confirmation_variants:
-                    copy_to_clip_board(encrypt(message))
-            elif is_input_morse is True:
-                print('Decrypted message: ' + str(decrypt(message)) + '\n')
-                copy_or_not = input('Do you want to copy the result? Type yes '
-                                    'if you want it copied: ').upper()
-                if copy_or_not in confirmation_variants:
-                    copy_to_clip_board(decrypt(message))
 
-            continue_or_exit = input('Do you want to translate another '
-                                     'message?'
-                                     ' Type yes if you do: ').upper()
-            print('')
-            if continue_or_exit not in confirmation_variants:
-                print('Goodbye...\n')
-                break
+if __name__ == '__main__':
+    while not ex:
+        message = get_message(str(input('Type your message: ')))
+        message, is_input_morse = preparation(message)
+        if is_input_morse is False:
+            print('Encrypted message: ' + str(encrypt(message)) + '\n')
+        elif is_input_morse is True:
+            print('Decrypted message: ' + str(decrypt(message)) + '\n')
+
+        copy_or_not(input('Do you want to copy the result? Type yes '
+                          'to copy: ').upper())
+
+        ex = continue_or_exit(input('Do you want to translate another message?'
+                                    ' Type yes if you do: ').upper())
