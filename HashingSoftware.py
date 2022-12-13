@@ -13,7 +13,7 @@ def HashPassw(choice, passw, hsh):
     :return: Hashed version of the password (string)
 
     >>> HashPassw(1, "TezkeHeslo123", "SuperKratkyHash")
-    7e803bead7cfded9b43e1e5a9cfbf0fc
+    '7e803bead7cfded9b43e1e5a9cfbf0fc'
     """
     hashIt = passw + hsh
     if choice == 1:
