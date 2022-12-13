@@ -24,7 +24,7 @@ dictionary2 = {'.-': 'A', '-...': 'B', '-.-.': 'C',
 
 def coding(s):
     """Code normal alphabet to morse code.
-    
+
     :param coding s: code to text(string)
     """
     void = " "
@@ -54,7 +54,7 @@ def decoding(s):
 def main():
     """
     Console of the main function.
-    
+
     :param a: menu input(int)
     """
     c = 1
