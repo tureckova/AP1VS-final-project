@@ -4,7 +4,7 @@ from FunkcePole import FunkcePole
 import pytest
 
 
-class TestFunkcePole():
+class TestFunkcePole:
     """třída por otestování funkcí pole"""
     p = FunkcePole()
 
@@ -14,7 +14,7 @@ class TestFunkcePole():
 
     def test_maximum(self):
         """test funkce maximum"""
-         assert self.p.maximum([8, -8, 2]) == (8, 1)
+        assert self.p.maximum([8, -8, 2]) == (8, 1)
 
     def test_nacteni_soubor(self):
         """test funkce nacteni_souboru"""
@@ -48,7 +48,7 @@ class TestFunkcePole():
         assert len(pole) == 20 and all(isinstance(x, (int)) for x in pole)
 
 
-    class TestSort():
+    class TestSort:
         """třída pro testování sortů"""
         s = FunkcePole.Sort()
 
