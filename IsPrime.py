@@ -61,12 +61,15 @@ def GetWholeNumber():
     Pokude je zadáno čislo jako argument, vrátí se.
     Pokud ne, uživatel musí zadat číslo.
     """
+    try:
+        num = int(sys.argv[1])
+    except ValueError:
+        pass
+    else:
+        return num
     while True:
         try:
-            if len(sys.argv) == 2:
-                num = int(sys.argv[1])
-            else:
-                num = int(input("Zadejte celé číslo k otestování:"))
+            num = int(input("Zadejte celé číslo k otestování:"))
         except ValueError:
             continue
         else:
