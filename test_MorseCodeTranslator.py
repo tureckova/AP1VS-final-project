@@ -1,6 +1,6 @@
 ﻿"""Testing module."""
-from MorseCodeTranslator import continue_or_exit, copy_to_clipboard, encrypt, \
-    decrypt, get_message, preparation, copy_or_not
+from MorseCodeTranslator import continue_or_exit, copy_or_not, encrypt, \
+    decrypt, get_message, preparation
 import pytest
 
 
