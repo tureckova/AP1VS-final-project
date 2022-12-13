@@ -4,10 +4,11 @@ Závěrečný projekt z předmětu AP1VS.
 Skupina: ST1416
 Projekt: Trojúhelník
 Autoři: Martin Žůrek, David Fiala, David Tomeček, Josef Kužel, David Žídek
-.. include:: README.md
+
+Hlavní kód projektu trojúhelník
 """
-import math
-import time
+import math #slouží k pozdějšímu použití v počítání 
+import time #slouží k uspání kódu 
 
 
 def delkaStrany(prvniBodX, prvniBodY, druhyBodX, druhyBodY):
@@ -118,38 +119,38 @@ def pravouhlost(stranaA, stranaB, stranaC):
 
 def trojuhelnik(aX, aY, bX, bY, cX, cY):
     """Výpis vlastností trojúhelníku ABC."""
-    stranaA = delkaStrany(bX, bY, cX, cY)
-    stranaB = delkaStrany(aX, aY, cX, cY)
-    stranaC = delkaStrany(aX, aY, bX, bY)
-    vysledekObvod = obvod(stranaA, stranaB, stranaC)
-    vysledekObsah = obsah(stranaA, stranaB, stranaC)
+    stranaA = delkaStrany(bX, bY, cX, cY) #vypočítá délku strany A
+    stranaB = delkaStrany(aX, aY, cX, cY) #vypočítá délku strany B
+    stranaC = delkaStrany(aX, aY, bX, bY) #vypočítá délku strany C
+    vysledekObvod = obvod(stranaA, stranaB, stranaC) #vypočítá velikost obvodu
+    vysledekObsah = obsah(stranaA, stranaB, stranaC) #vypočítá velikost obsahu
 
-    if sestrojitelnost(stranaA, stranaB, stranaC):
-        print("Bod A = [%.1f, %.1f]" % (aX, aY))
-        print("Bod B = [%.1f, %.1f]" % (bX, bY))
-        print("Bod C = [%.1f, %.1f]" % (cX, cY))
-        time.sleep(2)
-        print()
-        print("Délka strany a = %.1f cm." % stranaA)
-        print("Délka strany b = %.1f cm." % stranaB)
-        print("Délka strany c = %.1f cm." % stranaC)
-        time.sleep(2)
-        print()
+    if sestrojitelnost(stranaA, stranaB, stranaC): #ověří sestrojitelnost
+        print("Bod A = [%.1f, %.1f]" % (aX, aY)) #vypíše souřadnice bodu A
+        print("Bod B = [%.1f, %.1f]" % (bX, bY)) #vypíše souřadnice bodu B
+        print("Bod C = [%.1f, %.1f]" % (cX, cY)) #vypíše souřadnice bodu C
+        time.sleep(2) #uspí kód na 2s
+        print() #vypíše prázdný řádek
+        print("Délka strany a = %.1f cm." % stranaA) #vypíše délku strany a
+        print("Délka strany b = %.1f cm." % stranaB) #vypíše délku strany b
+        print("Délka strany c = %.1f cm." % stranaC) #vypíše délku strany c
+        time.sleep(2) #uspí kód na 2s
+        print() #vypíše prázdný řádek
         print("Trojúhelník ABC má obvod = %.1f cm." % vysledekObvod)
-        time.sleep(2)
-        print()
+        time.sleep(2) #uspí kód na 2s
+        print() #vypíše prázdný řádek
         print("Trojúhelník ABC má obsah = %.1f cm2." % vysledekObsah)
-        time.sleep(2)
-        print()
-        if pravouhlost(stranaA, stranaB, stranaC):
+        time.sleep(2) #uspí kód na 2s
+        print() #vypíše prázdný řádek
+        if pravouhlost(stranaA, stranaB, stranaC): #ověří pravoúhlost
             print("Trojúhelník ABC je pravoúhlý.")
         else:
             print("Trojúhelník ABC není pravoúhlý.")
-        time.sleep(2)
-        print()
+        time.sleep(2) #uspí kód na 2s
+        print() #vypíše prázdný řádek
         print("Trojúhelník ABC lze sestrojit.")
     else:
         print("Trojúhelník ABC nelze sestrojit.")
 
 
-trojuhelnik(2, 5, 2, 2, 9, 2)
+trojuhelnik(2, 5, 2, 2, 9, 2) #předává hodnoty souřadnic pro trojuhelnik
