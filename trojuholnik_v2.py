@@ -37,7 +37,7 @@ def data():
     tk.Button(frame, text='Nakresli', command=checkWrongData, width=15).grid(row=8,column=1,columnspan=2, rowspan=2,sticky=N)
 
 def strana(b1, b2, c1, c2):
-    """Výpočet strany A"""
+    """Kontrola a výpočet strany A"""
     if  type(b1)  not in [int, float]:
         raise TypeError("Musí byť číslo")
     if  type(b2)  not in [int, float]:
@@ -49,7 +49,7 @@ def strana(b1, b2, c1, c2):
     return (((b1-c1)**2+(b2-c2)**2)**(1/2)) 
 
 def strana(c1, c2, a1, a2):
-    """Výpočet strany B"""
+    """Kontrola a výpočet strany B"""
     if  type(c1)  not in [int, float]:
         raise TypeError("Musí byť číslo")
     if  type(c2)  not in [int, float]:
@@ -61,7 +61,7 @@ def strana(c1, c2, a1, a2):
     return (((c1-a1)**2+(c2-a2)**2)**(1/2)) 
     
 def strana(a1, a2, b1, b2):
-    """Výpočet strany C"""
+    """Kontrola a výpočet strany C"""
     if  type(a1)  not in [int, float]:
         raise TypeError("Musí byť číslo")
     if  type(a2)  not in [int, float]:
@@ -74,8 +74,7 @@ def strana(a1, a2, b1, b2):
 
 def checkWrongData():
 
-    """kontrola vložených dat"""
-    
+    """vyprázdnenie pola"""    
     labelA1=Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
     labelA1.grid(row=3,column=1)
 
@@ -95,7 +94,7 @@ def checkWrongData():
     labelC2.grid(row=7,column=2)
     
 
-    """vynulovanie strán"""
+    """zadanie premennej"""
     aa = 0
     ab = 0
     ba = 0
@@ -177,17 +176,17 @@ def checkWrongData():
 
 def vypis_vypocet():
 
-    """Výpočet strany A"""
+    """globalizovanie strany A"""
     global strana_A
     strana_A = strana(b1, b2, c1, c2)
     strana_A = round(strana_A,2)
 
-    """Výpočet strany B"""
+    """globalizovanie strany B"""
     global strana_B
     strana_B= strana(c1, c2, a1, a2)
     strana_B = round(strana_B,2)
  
-    """Výpočet strany C"""
+    """globalizovanie strany C"""
     global strana_C
     strana_C = strana(a1, a2, b1, b2)
     strana_C = round(strana_C,2)
@@ -207,12 +206,12 @@ def vypis_vypocet():
         Label(frame2, text=("Strana B je dlhá: "+str(strana_B)+" cm"), font="Helvetica 10").grid(row=2,column=1, sticky=W)
         Label(frame2, text=("Strana C je dlhá: "+str(strana_C)+" cm"), font="Helvetica 10").grid(row=3,column=1, sticky=W)
 
-        """Výpočet obvodu"""
+        """globalizovanie obvodu"""
         global obvod
         obvod = obvod_Stran(strana_A,strana_B,strana_C)
         obvod = round(obvod,2)
 
-        """Výpočet obsahu"""
+        """globalizovanie obsahu"""
         global obsah
         obsah = Obsah_Trojuholnika(strana_A,strana_B,strana_C)
         obsah = round(obsah,2)
@@ -246,9 +245,9 @@ def Obsah_Trojuholnika(strana_A,strana_B,strana_C):
 
 def pravouhlost():
     if(uhol(a1, a2,b1, b2,c1, c2)==90.00000000000001) or (uhol(a1, a2,b1, b2,c1, c2)==90.0) or (uhol(a1, a2,b1, b2,c1, c2)==89.99999999999999) or (uhol(c1, c2,a1, a2,b1, b2)==90.00000000000001) or (uhol(c1, c2,a1, a2,b1, b2)==90.0) or (uhol(c1, c2,a1, a2,b1, b2)==89.99999999999999) or(uhol(b1, b2,c1, c2,a1, a2)==90.00000000000001) or (uhol(b1, b2,c1, c2,a1, a2)==90.0) or (uhol(b1, b2,c1, c2,a1, a2)==89.99999999999999):
-        return "Trojuholnik je pravouhly"
+        return ("Trojuholnik je pravouhly")
     else :
-        return "Trojuholnik nie je pravouhly"
+        return ("Trojuholnik nie je pravouhly")
 
 """Vypocet uhlov v stupnoch"""
 def uhol(a1, a2,b1, b2,c1, c2):
@@ -263,7 +262,7 @@ def uhol(a1, a2,b1, b2,c1, c2):
 
 
 def kresba():
-    """Nadefinuje rozměry a další informace kanvasu."""
+    """Nadefinuje rozměry a rozmiestnenie canvasu."""
     udaje = tk.Canvas(root, width=500, height=500, background='#c4c4c4')
     udaje.grid(row=0, column=1, columnspan=5)
 
@@ -272,17 +271,17 @@ def kresba():
     udaje.create_line(b1,b2,c1,c2,fill="blue",width=5)
     udaje.create_line(c1,c2,a1,a2,fill="blue",width=5)
 
-    """Nadepsání bodů"""
+    """pomenovanie bodov"""
     udaje.create_text(a1-20,a2-20,fill="black",font="Times 20",text="A",anchor="w")
     udaje.create_text(b1+20,b2-20,fill="black",font="Times 20",text="B",anchor="w")
     udaje.create_text(c1-20,c2+20,fill="black",font="Times 20",text="C",anchor="w")
 
-    """Nadepsání stran"""
+    """pomenovanie stran"""
     udaje.create_text((a1+b1)/2,(a2+b2)/2,fill="red",font="Times 20 bold",text="c",anchor="w")
     udaje.create_text((b1+c1)/2,(b2+c2)/2,fill="red",font="Times 20 bold",text="a",anchor="w")
     udaje.create_text((a1+c1)/2,(a2+c2)/2,fill="red",font="Times 20 bold",text="b",anchor="w")
     
 data()
 
-"""toto nieco robi a bez toho kod nepojde"""
+"""odkazuje n main loop canvasu"""
 root.mainloop()
