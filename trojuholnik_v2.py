@@ -231,12 +231,19 @@ def vypis_vypocet():
     else:
         Label(frame, text=("Trojuholník sa nedá narýsovať"), font="Helvetica 12 bold", fg="red").grid(row=10,column=0, columnspan=10, sticky=N)
 
+
+"""Vypocet obvodu trojuholnika"""
 def obvod_Stran(strana_A,strana_B,strana_C):
+    """"Vrati sucet strany A, strany B a strany C"""
     return strana_A+strana_B+strana_C
 
+"""Vypocet obsahu trojuholnika"""
 def Obsah_Trojuholnika(strana_A,strana_B,strana_C):
+    """Definovanie s ako polovica suctu stran"""
     s = (strana_A+strana_B+strana_C)/2
+    """Vypocita obsah"""
     obsah = ((s*(s-strana_A)*(s-strana_B)*(s-strana_C))**(1/2))
+    """Vrati obsah"""
     return obsah
 
 def pravouhlost():
@@ -245,11 +252,17 @@ def pravouhlost():
     else :
         return "Trojuholnik nie je pravouhly"
 
+"""Vypocet uhlov v stupnoch"""
 def uhol(a1, a2,b1, b2,c1, c2):
+    """Definuje stranu A"""
     A = strana(b1, b2, c1, c2)
+    """Definuje stranu B"""
     B= strana(c1, c2, a1, a2)
+    """Definuje stranu c"""
     C = strana(a1, a2, b1, b2)
+    """Vrati uhol v stupnoch"""
     return degrees(acos((A * A + B * B - C * C)/(2.0 * A * B)))
+
 
 def kresba():
     #Nadefinuje rozměry a další informace kanvasu.
@@ -273,4 +286,5 @@ def kresba():
     
 data()
 
+"""toto nieco robi a bez toho kod nepojde"""
 root.mainloop()
