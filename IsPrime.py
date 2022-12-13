@@ -55,9 +55,12 @@ def TestPrvociselnosti(x):
         if a:
             return "Nejedná se o prvočíslo."
     return "Jedná se o prvočíslo."
-
-
-if __name__ == '__main__':
+def GetWholeNumber():
+    """
+    Funkce přijímá číslo od uživatele.
+    Pokude je zadáno čislo jako argument, vrátí se.
+    Pokud ne, uživatel musí zadat číslo.
+    """
     while True:
         try:
             if len(sys.argv) == 2:
@@ -67,5 +70,8 @@ if __name__ == '__main__':
         except ValueError:
             continue
         else:
-            break
+            return num
+
+if __name__ == '__main__':
+    num = GetWholeNumber()
     print(TestPrvociselnosti(num) + "\nByla použita metoda Miller-Rabinova")
