@@ -1,4 +1,4 @@
-"unit testy"
+"""unit testy"""
 import sys
 from FunkcePole import FunkcePole
 import pytest
