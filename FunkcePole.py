@@ -1,10 +1,12 @@
-"""Projekt MinMax"""
+"""Projekt MinMax."""
 from numpy import random
 import sys
 import os
 
 
 class FunkcePole:
+    """Obsahuje funkce potrebne pro prace s poli v projektu."""
+
     def generovat(self):
         """
         Generuje nahodne pole.
@@ -51,9 +53,9 @@ class FunkcePole:
         if not os.path.isfile(path):
             raise FileNotFoundError("soubor neexistuje")
         with open(path) as f:
-                pole_soubor = [int(i) for i in f.read().split(" ") if i.isdigit()]
+            pole_soubor = [int(i) for i in f.read().split(" ") if i.isdigit()]
         if not pole_soubor:
-                raise ValueError("nelze převést na int")
+            raise ValueError("nelze převést na int")
         return pole_soubor
 
     def pole(self):
@@ -137,7 +139,6 @@ class FunkcePole:
             else:
                 print("spatna volba")
                 sys.exit("spatna volba")
-
 
         def bubble_sort(self, test_pole):
             """
