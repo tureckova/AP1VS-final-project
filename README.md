@@ -1,6 +1,6 @@
 # AP1VS-final-project
 ## Popis
-Jednoduchý projekt s jednou funkci, která ověří, zda je zadané číslo prvočíslo.Pokud je číslo prvočíslo vypíše že se jedná o prvočíslo, jinak vypíše false. Pokud je zadané číslo menší než 2, vrací funkce None. Funkce je napsána v jazyce Python.
+Jednoduchý projekt s jednou funkci, která ověří, zda je zadané číslo prvočíslo.Pokud je číslo prvočíslo vypíše že se jedná o prvočíslo, jinak vypíše false. Funkce je napsána v jazyce Python.
 
 ## Quick start
 Stáhněte si projekt z githubu pomocí příkazu:
