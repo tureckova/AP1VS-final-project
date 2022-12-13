@@ -42,5 +42,6 @@ def main():
     """Výstupní číslo v Římské číselné soustavě."""
     print(intToRoman(cislo))
 
+
 if __name__ == "__main__":
     main()
