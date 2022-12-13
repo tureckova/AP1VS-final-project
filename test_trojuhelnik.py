@@ -4,7 +4,8 @@ Závěrečný projekt z předmětu AP1VS.
 Skupina: ST1416
 Projekt: Trojúhelník
 Autoři: Martin Žůrek, David Fiala, David Tomeček, Josef Kužel, David Žídek
-.. include:: README.md
+
+Kod sloužící k provedení unit testů
 """
 from trojuhelnik import delkaStrany
 from trojuhelnik import obvod
