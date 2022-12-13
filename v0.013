@@ -1,6 +1,3 @@
-
-# -*- coding: utf-8 -*-
-
 """Main module for translator."""
 import re  # removes extra spaces
 import unicodedata  # removes diacritics
@@ -53,12 +50,13 @@ def preparation(txt):
 
     Examples
     --------
-    >>> print(preparation('��������'))
-    escrzyaie
+    >>> print(preparation('ěščřžýáíé'))
+    ('escrzyaie', False)
     >>> print(preparation('Hello      World'))
-    Hello World
+    ('Hello World', False)
     >>> print(preparation('...       ---   ...'))
-    ... | --- | ...
+    ('... | --- | ...', True)
+
     """
     preparation_output = txt.strip()
     check = True
@@ -102,6 +100,7 @@ def encrypt(txt):
     --------
     >>> print(encrypt('SOS'))
     ... --- ...
+
     """
     encrypt_output = ''
     for letter in txt.upper():
@@ -129,6 +128,7 @@ def decrypt(txt):
     --------
     >>> print(encrypt('... --- ...'))
     SOS
+
     """
     decrypt_output = ''
     txt_split = txt.split(' ')
@@ -144,6 +144,7 @@ def copy_to_clip_board(txt):
     ----------
     txt : string
         Inserted message
+
     """
     subprocess.run(['clip'], text=True, input=txt)
 
@@ -169,7 +170,8 @@ if __name__ == '__main__':
                 if copy_or_not in confirmation_variants:
                     copy_to_clip_board(decrypt(message))
 
-            continue_or_exit = input('Do you want to translate another string?'
+            continue_or_exit = input('Do you want to translate another '
+                                     'message?'
                                      ' Type yes if you do: ').upper()
             print('')
             if continue_or_exit not in confirmation_variants:
