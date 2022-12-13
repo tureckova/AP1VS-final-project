@@ -1,0 +1,40 @@
+[33mcommit 396248887823f739ed366c53b247ce5fd59fb382[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31mupstream/master[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Martin Bzducha <m_bzducha@ad.utb.cz>
+Date:   Fri Dec 9 10:53:52 2022 +0100
+
+    Oprava projektu
+
+[1mdiff --git a/oprava_projektu.py b/oprava_projektu.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..77e035c[m
+[1m--- /dev/null[m
+[1m+++ b/oprava_projektu.py[m
+[36m@@ -0,0 +1,28 @@[m
+[32m+[m[32m"""this program is counting characters in string."""[m
+[32m+[m[32mfrom collections import Counter[m
+[32m+[m
+[32m+[m[32mx=True[m
+[32m+[m[32mwhile x==True:[m
+[32m+[m[32m    retezec = input("Zadejte retezec: ")[m
+[32m+[m[32m    if (retezec == ""):[m
+[32m+[m[32m        retezec = "banana"[m
+[32m+[m[32m    print("Tvoje zvolene slovo je:", retezec)[m
+[32m+[m[32m    counter = Counter(retezec)[m
+[32m+[m[32m    print("Tvoje slovo je dlouhe: ", len(retezec), "znaku")[m
+[32m+[m
+[32m+[m[32m    countermax = max(counter, key=counter.get)[m
+[32m+[m[32m    print("Nejcastejsi znak je:", countermax)[m
+[32m+[m
+[32m+[m[32m    countermin = min(counter, key=counter.get)[m
+[32m+[m[32m    print("Nejmene casty znak je:", countermin)[m
+[32m+[m
+[32m+[m[32m    sum = 0[m
+[32m+[m[32m    for i in counter:[m
+[32m+[m[32m        sum += counter[i][m
+[32m+[m[32m    print("Prumerna cetnost znaku je: ", sum/len(counter))[m
+[32m+[m[32m    print("Cetnost jednotlivych znaku:", counter)[m
+[32m+[m[32m    continu = input("Pro pokracovani napiste dalsi: ")[m
+[32m+[m[32m    if continu == "dalsi":[m
+[32m+[m[32m        x=True[m
+[32m+[m[32m    else:[m
+[32m+[m[32m        x=False[m
