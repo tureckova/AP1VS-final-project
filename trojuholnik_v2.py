@@ -283,5 +283,5 @@ def kresba():
     
 data()
 
-"""odkazuje n main loop canvasu"""
+"""odkazuje na main loop canvasu"""
 root.mainloop()
