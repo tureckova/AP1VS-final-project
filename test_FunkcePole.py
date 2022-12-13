@@ -1,6 +1,4 @@
-import random
 import sys
-
 from FunkcePole import FunkcePole
 import pytest
 
@@ -37,13 +35,35 @@ class TestFunkcePole():
         assert self.p.pole() == [5, 5]
         sys.argv = ["", "5", "4"]
         assert self.p.pole() == [5, 4]
-        sys.argv = ["",]
+        sys.argv = [""]
         pole = self.p.pole()
         assert len(pole) == 20 and all(isinstance(x, (int)) for x in pole)
 
 
     class TestSort():
         s = FunkcePole.Sort()
+
+        def test_vyber_sort(self, monkeypatch):
+            with pytest.raises(SystemExit) as test:
+                monkeypatch.setattr('builtins.input', lambda: "b")
+                self.s.vyber_sortu([-8, 5, 2])
+            assert test.type == SystemExit
+            assert test.value.code == "bubble sort zavolan"
+            with pytest.raises(SystemExit) as test:
+                monkeypatch.setattr('builtins.input', lambda: "s")
+                self.s.vyber_sortu([-8, 5, 2])
+            assert test.type == SystemExit
+            assert test.value.code == "selection sort zavolan"
+            with pytest.raises(SystemExit) as test:
+                monkeypatch.setattr('builtins.input', lambda: "i")
+                self.s.vyber_sortu([-8, 5, 2])
+            assert test.type == SystemExit
+            assert test.value.code == "insertion sort zavolan"
+            with pytest.raises(SystemExit) as test:
+                monkeypatch.setattr('builtins.input', lambda: "")
+                self.s.vyber_sortu([-8, 5, 2])
+            assert test.type == SystemExit
+            assert test.value.code == "spatna volba"
 
         def test_bubble_sort(self):
             assert self.s.bubble_sort([8, -8, 2]) == [-8, 2, 8]

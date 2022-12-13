@@ -58,14 +58,19 @@ class FunkcePole:
             if x == "b":
                 self.bubble_sort(pole)
                 print(pole)
+                sys.exit("bubble sort zavolan")
             elif x == "i":
                 self.insertion_sort(pole)
                 print(pole)
+                sys.exit("insertion sort zavolan")
             elif x == "s":
                 self.selection_sort(pole)
                 print(pole)
+                sys.exit("selection sort zavolan")
             else:
                 print("spatna volba")
+                sys.exit("spatna volba")
+
 
         def bubble_sort(self, test_pole):
             pole = test_pole
