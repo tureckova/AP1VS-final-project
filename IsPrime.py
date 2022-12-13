@@ -55,8 +55,12 @@ def TestPrvociselnosti(x):
         if a:
             return "Nejedná se o prvočíslo."
     return "Jedná se o prvočíslo."
+
+
 def GetWholeNumber():
-    """
+    """Funkce přijímá číslo od uživatele. a vrací ho.
+
+    :return: Vrací celé číslo.
     Funkce přijímá číslo od uživatele.
     Pokude je zadáno čislo jako argument, vrátí se.
     Pokud ne, uživatel musí zadat číslo.
@@ -74,6 +78,7 @@ def GetWholeNumber():
             continue
         else:
             return num
+
 
 if __name__ == '__main__':
     num = GetWholeNumber()
