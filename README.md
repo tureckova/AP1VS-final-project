@@ -1,10 +1,11 @@
 # Závěrečný projekt z předmětu AP1VS
-Skupina: ST1416\
-Projekt: Trojúhelník
+* Skupina: ST1416
+* Projekt: Trojúhelník
+* Autoři: Martin Žůrek, David Fiala, David Tomeček, Josef Kužel, David Žídek
 
 ## Vstup
 * Souřadnice vrcholů (tří bodů) ve 2D prostoru
-* Zadávání souřadnic za běhu programu dotazováním uživatele
+* Předávání souřadnic pomocí parametrů při spuštění
 
 ## Výstup
 * Informace o délkách stran
