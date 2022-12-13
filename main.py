@@ -1,3 +1,4 @@
+"""Projekt MinMax."""
 from FunkcePole import *
 
 f = FunkcePole()

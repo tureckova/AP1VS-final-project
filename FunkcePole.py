@@ -1,4 +1,4 @@
-"""Projekt MinMax."""
+"""Soubor obsahuje funkce pouzivane v mainu."""
 from numpy import random
 import sys
 import os
