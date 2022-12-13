@@ -1,6 +1,4 @@
-# Závěrečný projekt z předmětu AP1VS
-
-## Morseovka
+# Morseovka
 
 ## Vstup
 • Textový řetězec v uvozovkách
