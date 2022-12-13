@@ -23,7 +23,10 @@ dictionary2 = {'.-': 'A', '-...': 'B', '-.-.': 'C',
 
 
 def coding(s):
-    """Code normal alphabet to morse code."""
+    """Code normal alphabet to morse code.
+    
+    :param coding s: code to text(string)
+    """
     void = " "
     for i in s:  # indexování
         if i != ' ':
@@ -34,10 +37,14 @@ def coding(s):
 
 
 def decoding(s):
-    """Decode morse code to normal alphabet."""
+    """
+    Decode morse code to normal alphabet.
+
+    :param decoding s: text to decode(string)
+    """
     void = ""
-    splitstring = s.split("/")
-    splitstring = s.split("/")  # rozdělení podle mezer
+    splitstring = s.split("/")  # mezera mezi znaky se rovná /
+    splitstring = s.split("/")  # mezera mezi slovy se rovná //
 
     for i in splitstring:  # indexování
         void += dictionary2[i]
@@ -45,7 +52,11 @@ def decoding(s):
 
 
 def main():
-    """Console UI of the main function."""
+    """
+    Console of the main function.
+    
+    :param a: menu input(int)
+    """
     c = 1
     while (c != "0"):
         d = int(input("1.ČEŠTINY > MORSEOVKY|2.MORESOVKY > ČEŠTINY "))  # menu
@@ -57,5 +68,5 @@ def main():
             print(decoding(a))
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pro import
     main()
