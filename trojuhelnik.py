@@ -7,8 +7,8 @@ Autoři: Martin Žůrek, David Fiala, David Tomeček, Josef Kužel, David Žíde
 
 Hlavní kód projektu trojúhelník
 """
-import math  # slouží k pozdějšímu použití v počítání 
-import time  # slouží k uspání kódu 
+import math  # slouží k pozdějšímu použití v počítání
+import time  # slouží k uspání kódu
 
 
 def delkaStrany(prvniBodX, prvniBodY, druhyBodX, druhyBodY):
