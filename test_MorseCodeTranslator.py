@@ -49,11 +49,6 @@ def test_preparation():
                                               True)
 
 
-def test_copy():
-    """Testing copying function."""
-    assert copy_to_clipboard('YES') is None
-
-
 def test_continue_or_exit():
     """Testing continuity function."""
     assert continue_or_exit('YES') is False
