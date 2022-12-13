@@ -1,3 +1,5 @@
+import sys
+
 from FunkcePole import FunkcePole
 import pytest
 
@@ -13,8 +15,14 @@ class TestFunkcePole():
 
     def test_nacteni_soubor(self):
         assert self.p.nacteni_soubor("cisla.txt") == [5,5]
+        with pytest.raises(FileNotFoundError):
+            assert self.p.nacteni_soubor("retra")
+        with pytest.raises(ValueError):
+            assert self.p.nacteni_soubor("text.txt")
 
-
+    def test_nacteni_parametr(self):
+        sys.argv = ["", "5", "4"]
+        assert self.p.nacteni_parametr() == [5, 4]
     class TestSort():
         s = FunkcePole.Sort()
 
