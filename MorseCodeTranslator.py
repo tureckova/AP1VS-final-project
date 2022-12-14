@@ -196,6 +196,7 @@ def continue_or_exit(txt):
     --------
     >>> continue_or_exit('J')
     <BLANKLINE>
+    --------------------------------------------------------------
     False
 
     """
@@ -204,6 +205,8 @@ def continue_or_exit(txt):
     if txt not in confirmation_variants:
         print('Goodbye...\n')
         ex = True
+    else:
+        print('--------------------------------------------------------------')
     return ex
 
 
