@@ -51,8 +51,6 @@ class FunkcePole:
             raise FileNotFoundError("soubor neexistuje")
         with open(path) as f:
             pole_soubor = [int(i) for i in f.read().split(" ") if i.isdigit()]
-        if pole_soubor == []:
-            raise ValueError("nelze převést na int")
         return pole_soubor
 
     def pole(self):
