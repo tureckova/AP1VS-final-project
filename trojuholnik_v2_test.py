@@ -1,3 +1,4 @@
+"""Testy k trojúhelníku."""
 from trojuholnik_v2 import obvod_Stran, Obsah_Trojuholnika, strana, uhol
 
 """Vytvorenie funkcie pre testovanie obvodu."""

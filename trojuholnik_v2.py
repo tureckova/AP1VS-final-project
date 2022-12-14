@@ -1,3 +1,4 @@
+"""Trojúhelník, výpočty a vykreslení."""
 import tkinter as tk
 from tkinter import Frame, N, E, NW, Label, W
 from math import degrees, acos
