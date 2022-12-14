@@ -31,9 +31,8 @@ class FunkcePole:
             Returns:
                 pole_parametr: pole obsahujici parametry
         """
-        stringp=list(sys.argv[1:])
         try:
-         pole_parametr = [int(i) for i in stringp]
+         pole_parametr = [int(i) for i in argv[1:]]
         except ValueError:
             raise ValueError("nelze převést na int")
         return pole_parametr
