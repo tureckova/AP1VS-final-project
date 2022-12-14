@@ -60,7 +60,7 @@ def main(game):
     Sample usage:
     main(game)
     jakou kategorii vtipů chceš ?
-    1 - all
+    1 - all 
     2 - chuck
     3 - neutral
     main(5)
