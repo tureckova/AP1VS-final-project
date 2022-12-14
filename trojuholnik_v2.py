@@ -40,6 +40,7 @@ def data():
     """Vygenerovanie tlačítka na spustenie výpočtov a vakreslovania"""
 
 def strana(b1, b2, c1, c2):
+    """Vstupní parametry jsou body souřadnice bodu B a C"""
     """Kontrola a výpočet strany A"""
     if  type(b1)  not in [int, float]:
         raise TypeError("Musí byť číslo")
@@ -50,8 +51,10 @@ def strana(b1, b2, c1, c2):
     if  type(c2)  not in [int, float]:
         raise TypeError("Musí byť číslo")
     return (((b1-c1)**2+(b2-c2)**2)**(1/2)) 
+    """Metoda vrátí délku strany A"""
 
 def strana(c1, c2, a1, a2):
+    """Vstupní parametry jsou body souřadnice bodu C a A"""
     """Kontrola a výpočet strany B"""
     if  type(c1)  not in [int, float]:
         raise TypeError("Musí byť číslo")
@@ -61,9 +64,11 @@ def strana(c1, c2, a1, a2):
         raise TypeError("Musí byť číslo")
     if  type(a2)  not in [int, float]:
         raise TypeError("Musí byť číslo")
-    return (((c1-a1)**2+(c2-a2)**2)**(1/2)) 
+    return (((c1-a1)**2+(c2-a2)**2)**(1/2))
+    """Metoda vrátí délku strany A"""
     
 def strana(a1, a2, b1, b2):
+    """Vstupní parametry jsou body souřadnice bodu A a B"""
     """Kontrola a výpočet strany C"""
     if  type(a1)  not in [int, float]:
         raise TypeError("Musí byť číslo")
@@ -74,6 +79,7 @@ def strana(a1, a2, b1, b2):
     if  type(b2)  not in [int, float]:
         raise TypeError("Musí byť číslo")
     return (((a1-b1)**2+(a2-b2)**2)**(1/2))
+    """Metoda vrátí délku strany A"""
 
 def checkWrongData():
 
@@ -185,17 +191,17 @@ def checkWrongData():
 
 def vypis_vypocet():
 
-    """globalizovanie strany A"""
+    """globalizovaní a zaokrouhlení strany A"""
     global strana_A
     strana_A = strana(b1, b2, c1, c2)
     strana_A = round(strana_A,2)
 
-    """globalizovanie strany B"""
+    """globalizovaní a zaokrouhlení strany B"""
     global strana_B
-    strana_B= strana(c1, c2, a1, a2)
+    strana_B = strana(c1, c2, a1, a2)
     strana_B = round(strana_B,2)
  
-    """globalizovanie strany C"""
+    """globalizovaní a zaokrouhlení strany C"""
     global strana_C
     strana_C = strana(a1, a2, b1, b2)
     strana_C = round(strana_C,2)
@@ -237,30 +243,37 @@ def vypis_vypocet():
 
 def obvod_Stran(strana_A,strana_B,strana_C):
     """Vypocet obvodu trojuholnika"""
+    """Vstupní parametry: strana_A, strana_B a strana_C."""
     return strana_A+strana_B+strana_C
     """"Vrati sucet strany A, strany B a strany C"""
 
+
 def Obsah_Trojuholnika(strana_A,strana_B,strana_C):
-    """Vypocet obsahu trojuholnika"""
+    """Vypocet obsahu trojuholnika."""
+    """Vstupní parametry: strana_A, strana_B a strana_C."""
     s = (strana_A+strana_B+strana_C)/2
     """Definovanie s ako polovica suctu stran"""
     obsah = ((s*(s-strana_A)*(s-strana_B)*(s-strana_C))**(1/2))
     """Vypocita obsah"""
     return obsah
-    """Vrati obsah"""
+    """Vrátí obsah"""
 
 def pravouhlost():
+    """Vstupní parametry jsou úhly"""
     """Vypis pravouhlosti"""
     if(uhol(a1, a2,b1, b2,c1, c2)==90.00000000000001) or (uhol(a1, a2,b1, b2,c1, c2)==90.0) or (uhol(a1, a2,b1, b2,c1, c2)==89.99999999999999) or (uhol(c1, c2,a1, a2,b1, b2)==90.00000000000001) or (uhol(c1, c2,a1, a2,b1, b2)==90.0) or (uhol(c1, c2,a1, a2,b1, b2)==89.99999999999999) or(uhol(b1, b2,c1, c2,a1, a2)==90.00000000000001) or (uhol(b1, b2,c1, c2,a1, a2)==90.0) or (uhol(b1, b2,c1, c2,a1, a2)==89.99999999999999):
         return ("Trojuholnik je pravouhly")
     else :
         return ("Trojuholnik nie je pravouhly")
+    """Vypíše jestli je nebo není pravoúhlý."""
+
 
 def uhol(a1, a2,b1, b2,c1, c2):
+    """Vstupní parametry jsou X a Y souřadnice bodů."""
     """Vypocet uhlov v stupnoch"""
     A = strana(b1, b2, c1, c2)
     """Definuje stranu A"""
-    B= strana(c1, c2, a1, a2)
+    B = strana(c1, c2, a1, a2)
     """Definuje stranu B"""
     C = strana(a1, a2, b1, b2)
     """Definuje stranu c"""
