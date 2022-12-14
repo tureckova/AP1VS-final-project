@@ -9,7 +9,7 @@ VARIABLE KEY
 'is_input_morse' -> 'stores the value of the check after preparation function'
 'encrypt_output' -> 'stores the morse form of the alphanumeric string'
 'txt_split' -> 'stores the morse code split up by a space in decrypt function'
-'decrypt_output' -> 'stores the aplhanumeric form of the morse string'
+'decrypt_output' -> 'stores the alphanumeric form of the morse string'
 'ex' -> 'stores the boolean value of the continue or exit loop'
 
 """
