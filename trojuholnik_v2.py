@@ -21,6 +21,7 @@ c_x = tk.Entry(frame,width=18)
 c_y = tk.Entry(frame,width=18)    
 
 def data():
+    """Vygenerovanie tabuliek pre zápis údajov"""
     Label(frame, text="Číslo nesmie presiahnúť 500 \n a musí byť 3 ciferné!").grid(row=0, column=0, columnspan=10, sticky=N)
     Label(frame, text="X").grid(row=1, column=1, sticky=N)
     Label(frame, text="Y").grid(row=1, column=2, sticky=N)
@@ -36,6 +37,7 @@ def data():
     c_y.grid(row=6,column=2,sticky=W)
 
     tk.Button(frame, text='Nakresli', command=checkWrongData, width=15).grid(row=8,column=1,columnspan=2, rowspan=2,sticky=N)
+    """Vygenerovanie tlačítka na spustenie výpočtov a vakreslovania"""
 
 def strana(b1, b2, c1, c2):
     """Kontrola a výpočet strany A"""
@@ -233,37 +235,37 @@ def vypis_vypocet():
         Label(frame, text=("Trojuholník sa nedá narýsovať"), font="Helvetica 12 bold", fg="red").grid(row=10,column=0, columnspan=10, sticky=N)
 
 
-"""Vypocet obvodu trojuholnika"""
 def obvod_Stran(strana_A,strana_B,strana_C):
-    """"Vrati sucet strany A, strany B a strany C"""
+    """Vypocet obvodu trojuholnika"""
     return strana_A+strana_B+strana_C
+    """"Vrati sucet strany A, strany B a strany C"""
 
-"""Vypocet obsahu trojuholnika"""
 def Obsah_Trojuholnika(strana_A,strana_B,strana_C):
-    """Definovanie s ako polovica suctu stran"""
+    """Vypocet obsahu trojuholnika"""
     s = (strana_A+strana_B+strana_C)/2
-    """Vypocita obsah"""
+    """Definovanie s ako polovica suctu stran"""
     obsah = ((s*(s-strana_A)*(s-strana_B)*(s-strana_C))**(1/2))
-    """Vrati obsah"""
+    """Vypocita obsah"""
     return obsah
+    """Vrati obsah"""
 
-"""Vypis pravouhlosti"""
 def pravouhlost():
+    """Vypis pravouhlosti"""
     if(uhol(a1, a2,b1, b2,c1, c2)==90.00000000000001) or (uhol(a1, a2,b1, b2,c1, c2)==90.0) or (uhol(a1, a2,b1, b2,c1, c2)==89.99999999999999) or (uhol(c1, c2,a1, a2,b1, b2)==90.00000000000001) or (uhol(c1, c2,a1, a2,b1, b2)==90.0) or (uhol(c1, c2,a1, a2,b1, b2)==89.99999999999999) or(uhol(b1, b2,c1, c2,a1, a2)==90.00000000000001) or (uhol(b1, b2,c1, c2,a1, a2)==90.0) or (uhol(b1, b2,c1, c2,a1, a2)==89.99999999999999):
         return ("Trojuholnik je pravouhly")
     else :
         return ("Trojuholnik nie je pravouhly")
 
-"""Vypocet uhlov v stupnoch"""
 def uhol(a1, a2,b1, b2,c1, c2):
-    """Definuje stranu A"""
+    """Vypocet uhlov v stupnoch"""
     A = strana(b1, b2, c1, c2)
-    """Definuje stranu B"""
+    """Definuje stranu A"""
     B= strana(c1, c2, a1, a2)
-    """Definuje stranu c"""
+    """Definuje stranu B"""
     C = strana(a1, a2, b1, b2)
-    """Vrati uhol v stupnoch"""
+    """Definuje stranu c"""
     return degrees(acos((A * A + B * B - C * C)/(2.0 * A * B)))
+    """Vrati uhol v stupnoch"""
 
 
 def kresba():
