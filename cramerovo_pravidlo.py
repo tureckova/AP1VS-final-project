@@ -56,9 +56,9 @@ def cramer_rule(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3):
     y = round(detX2 / detA)
     z = round(detX3 / detA)
 
-    print(x)
-    print(y)
-    print(z)
+    print("x je:", x)
+    print("y je:", y)
+    print("z je:", z)
 
     # Vraceni hodnot x,y,z
     return x, y, z
