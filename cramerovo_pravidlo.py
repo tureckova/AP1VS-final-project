@@ -12,17 +12,17 @@ def cramer_rule(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3):
     Vypocet sustavy linearnych rovnic pomocou Cramerovho pravidla.
 
     Zadanie hodnot neznamych.
-    :param a1: Vstupní parametr souřadnice a11
-    param b1: Vstupní parametr souřadnice a12
-    param c1: Vstupní parametr souřadnice a13
-    param d1: Vstupní parametr
-    param a2: Vstupní parametr souřadnice a21
-    param b2: Vstupní parametr souřadnice a22
-    param c2: Vstupní parametr souřadnice a23
-    param d2: Vstupní parametr
-    param a3: Vstupní parametr souřadnice a31
-    param b3: Vstupní parametr souřadnice a32
-    param c3: Vstupní parametr souřadnice a33
+    :param a1: Vstupní parametr souřadnice a11,
+    param b1: Vstupní parametr souřadnice a12,
+    param c1: Vstupní parametr souřadnice a13,
+    param d1: Vstupní parametr,
+    param a2: Vstupní parametr souřadnice a21,
+    param b2: Vstupní parametr souřadnice a22,
+    param c2: Vstupní parametr souřadnice a23,
+    param d2: Vstupní parametr,
+    param a3: Vstupní parametr souřadnice a31,
+    param b3: Vstupní parametr souřadnice a32,
+    param c3: Vstupní parametr souřadnice a33,
     param d3: Vstupní parametr
     """
     if (type(a1) not in [int, float] or
