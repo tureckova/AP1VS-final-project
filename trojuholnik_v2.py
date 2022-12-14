@@ -104,6 +104,7 @@ def checkWrongData():
     
     
     global a1
+    """Overenie zadaných údajov pre a1"""
     if len(a_x.get())<=3:
         if a_x.get().isdigit() and int(a_x.get()) <= 500:
             a1 = int(a_x.get())
@@ -115,6 +116,7 @@ def checkWrongData():
         labelA1.config(text="↑ Priveľa znakov! ↑")
 
     global a2
+    """Overenie zadaných údajov pre a2"""
     if len(a_y.get())<=3:
         if a_y.get().isdigit() and int(a_y.get()) <= 500:
             a2 = int(a_y.get())
@@ -126,6 +128,7 @@ def checkWrongData():
         labelA2.config(text="↑ Priveľa znakov! ↑")
 
     global b1
+    """Overenie zadaných údajov pre b1"""
     if len(b_x.get())<=3:
         if b_x.get().isdigit() and int(b_x.get()) <= 500:
             b1 = int(b_x.get())
@@ -137,6 +140,8 @@ def checkWrongData():
         labelB1.config(text="↑ Priveľa znakov! ↑")
 
     global b2
+    """Overenie zadaných údajov pre b2"""
+
     if len(b_y.get())<=3:
         if b_y.get().isdigit()and int(b_y.get()) <= 500:
             b2 = int(b_y.get())
@@ -148,6 +153,7 @@ def checkWrongData():
         labelB2.config(text="↑ Priveľa znakov! ↑")
 
     global c1
+    """Overenie zadaných údajov pre c1"""
     if len(c_x.get())<=3:
         if c_x.get().isdigit() and int(c_x.get()) <= 500:
             c1 = int(c_x.get())
@@ -159,6 +165,7 @@ def checkWrongData():
         labelC1.config(text="↑ Priveľa znakov! ↑")
 
     global c2
+    """Overenie zadaných údajov pre c2"""
     if len(c_y.get())<=3:
         if c_y.get().isdigit() and int(c_y.get()) <= 500:
             c2 = int(c_y.get())
@@ -222,9 +229,6 @@ def vypis_vypocet():
         Label(frame2, text=("Obvod trojuholníka sa rovná: "+str(obvod)+" cm"), font="Helvetica 10").grid(row=2,column=2, sticky=W)
         Label(frame2, text=(str(pravouhlost())), font="Helvetica 10").grid(row=3,column=2, sticky=W)
         kresba()
-        print(uhol(a1, a2,b1, b2,c1, c2))
-        print(uhol(c1, c2,a1, a2,b1, b2))
-        print(uhol(b1, b2,c1, c2,a1, a2))
     else:
         Label(frame, text=("Trojuholník sa nedá narýsovať"), font="Helvetica 12 bold", fg="red").grid(row=10,column=0, columnspan=10, sticky=N)
 
