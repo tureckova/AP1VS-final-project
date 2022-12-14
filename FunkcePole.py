@@ -31,9 +31,8 @@ class FunkcePole:
             Returns:
                 pole_parametr: pole obsahujici parametry
         """
-        try:
-            pole_parametr = [int(i) for i in sys.argv[1:]]
-        except ValueError:
+        pole_parametr = [int(i) for i in sys.argv[1:]]
+        if pole_parametr == []:
             raise ValueError("nelze převést na int")
         return pole_parametr
 
