@@ -22,7 +22,8 @@ class TestFunkcePole:
         assert self.p.nacteni_soubor("cisla.txt") == [5, 5]
         with pytest.raises(FileNotFoundError):
             assert self.p.nacteni_soubor("retra")
-
+        with pytest.raises(ValueError):
+            assert self.p.nacteni_soubor("text.txt")
     def test_nacteni_parametr(self):
         """Test funkce nacteni_parematru."""
         sys.argv = ["", "5", "4"]
