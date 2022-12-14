@@ -7,7 +7,7 @@ def intToRoman(cislo):
         raise TypeError("Zadana hodnota neni cislo")
     if type(cislo) <= 0:
         raise ValueError("Cislo mesmi byt nula nebo zaporne cislo")
-    if type cislo >= 4000:
+    if type(cislo) >= 4000:
         raise ValueError("Cislo nemuze byt vyssi nez 4000")
     
     """ 0   1000  2000  3000."""
