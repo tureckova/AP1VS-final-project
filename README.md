@@ -1,7 +1,7 @@
-#Závěrečný projekt z předmětu AP1VS - Cramerovo pravidlo
+# Závěrečný projekt z předmětu AP1VS - Cramerovo pravidlo
 cílem bylo naprogramování cramerova pravidla pro řešení linearních rovnic
 
-#Vstup
+## Vstup
 a1: Vstupní parametr souřadnice a11
 b1: Vstupní parametr souřadnice a12
 c1: Vstupní parametr souřadnice a13
@@ -15,5 +15,5 @@ b3: Vstupní parametr souřadnice a32
 c3: Vstupní parametr souřadnice a33
 d3: Vstupní parametr
 
-#Výstup
+## Výstup
 Vypsaní hodnot x,y,z
