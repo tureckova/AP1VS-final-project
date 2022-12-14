@@ -1,10 +1,9 @@
-"""
-Program na počítání jednotlivých symbolů ve stringu
-"""
+"""Program na počítání jednotlivých symbolů ve stringu."""
 from collections import Counter
 
+
 def retezec(retezec):
-    """Funkce
+    """příklady Funkce.
 
     Sample usage:
     >>>retezec("blablalbalba")
@@ -35,7 +34,7 @@ def retezec(retezec):
     TypeError: Imput must be string.
     """
     if type(retezec) not in [str]:
-            raise TypeError("Imput must be string.")
+        raise TypeError("Imput must be string.")
     if (retezec == ""):
         retezec = "banana"
     print("Tvoje zvolene slovo je:", retezec)
@@ -50,4 +49,4 @@ def retezec(retezec):
         sum += counter[i]
     print("Prumerna cetnost znaku je: ", sum/len(counter))
     print("Cetnost jednotlivych znaku:", counter)
-    return len(retezec),countermax,countermin,sum/len(counter),counter
+    return len(retezec), countermax, countermin, sum/len(counter), counter
