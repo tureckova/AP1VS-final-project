@@ -67,7 +67,7 @@ def GetWholeNumber():
     """
     try:
         num = int(sys.argv[1])
-    except ValueError:
+    except:
         pass
     else:
         return num
