@@ -13,3 +13,14 @@ Morse_dictionary = {
     '6': '-....', '7': '--...', '8': '---..',
     '9': '----.', ' ': '/', '': ''
 }
+def encrypt(translate):
+    text = ''
+    for letter in translate:
+        text += Morse_dictionary[letter] + ' '
+    return text
+
+def decrypt(translate):
+    global n
+    promena = ''
+    translate += ' '
+    word = ''
