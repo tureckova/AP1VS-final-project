@@ -2,11 +2,7 @@
 
 
 def intToRoman(cislo):
-    """Vytvoříme platnou Římskou soustavu podle pořadí 0-9.
-
-    :param cislo: Vstupní parametr cislo.
-    :return: Vrací výsledek převodu parametru cislo.
-    """
+    """Vytvoříme platnou Římskou soustavu podle pořadí 0-9."""
     """ 0   1000  2000  3000."""
     m = ["", "M", "MM", "MMM"]
     """    0   100  200   300    400   500  600   700     800    900."""
@@ -37,11 +33,11 @@ def main():
     cislo = int(input())
 
     if cislo <= 0:
-        print("Cislo mesmi byt nula nebo zaporne cislo")
+        raise TypeError("Cislo mesmi byt nula nebo zaporne cislo")
     elif cislo >= 4000:
-        print("Cislo nemuze byt vyssi nez 4000")
+        raise ValueError("Cislo nemuze byt vyssi nez 4000")
     else:
-        print("Zadana hodnota neni cislo")
+        raise TypeError("Zadana hodnota neni cislo")
 
     """Výstupní číslo v Římské číselné soustavě."""
     print(intToRoman(cislo))
