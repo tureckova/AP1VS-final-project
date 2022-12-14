@@ -3,7 +3,6 @@
 
 def intToRoman(cislo):
     """Vytvoříme platnou Římskou soustavu podle pořadí 0-9.
-
     :param cislo: Vstupní parametr cislo.
     :return: Vrací výsledek převodu parametru cislo.
     """
