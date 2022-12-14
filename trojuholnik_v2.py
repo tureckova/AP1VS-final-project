@@ -58,22 +58,28 @@ def strana(a1, a2, b1, b2):
 
 def checkWrongData():
     """Vyprázdneni pole."""
-    labelA1 = Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
+    labelA1 = Label(frame, text="                                  ",
+                    fg="#FF0000", font="Helvetica 8 bold")
     labelA1.grid(row=3, column=1)
 
-    labelA2 = Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
+    labelA2 = Label(frame, text="                                  ",
+                    fg="#FF0000", font="Helvetica 8 bold")
     labelA2.grid(row=3, column=2)
 
-    labelB1 = Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
+    labelB1 = Label(frame, text="                                  ",
+                    fg="#FF0000", font="Helvetica 8 bold")
     labelB1.grid(row=5, column=1)
 
-    labelB2 = Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
+    labelB2 = Label(frame, text="                                  ",
+                    fg="#FF0000", font="Helvetica 8 bold")
     labelB2.grid(row=5, column=2)
 
-    labelC1 = Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
+    labelC1 = Label(frame, text="                                  ",
+                    fg="#FF0000", font="Helvetica 8 bold")
     labelC1.grid(row=7, column=1)
 
-    labelC2 = Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
+    labelC2 = Label(frame, text="                                  ",
+                    fg="#FF0000", font="Helvetica 8 bold")
     labelC2.grid(row=7, column=2)
 
     """Zadani promenne."""
@@ -172,20 +178,31 @@ def vypis_vypocet():
     strana_C = strana(a1, a2, b1, b2)
     strana_C = round(strana_C, 2)
 
-    if strana_A + strana_B > strana_C and strana_B + strana_C > strana_A and strana_A + strana_C > strana_B:
-        Label(frame, text=("  Trojuholník sa dá narýsovať  "), font="Helvetica 15 bold", fg="white").grid(row=10, column=1, columnspan=2, sticky=N)
+    if (strana_A + strana_B > strana_C and strana_B + strana_C > strana_A and
+            strana_A + strana_C > strana_B):
+        Label(frame, text=("  Trojuholník sa dá narýsovať  "),
+              font="Helvetica 15 bold", fg="white")\
+                  .grid(row=10, column=1, columnspan=2, sticky=N)
 
         """Výpis súradnic na kanvas"""
-        Label(frame2, text="Súradnice:", font="Helvetica 12 bold").grid(row=0, column=0, sticky=N)
-        Label(frame2, text=("Bod A má súradnice X: "+str(a1)+" Y: "+str(a2)), font="Helvetica 10").grid(row=1, column=0, sticky=W)
-        Label(frame2, text=("Bod B má súradnice X: "+str(b1)+" Y: "+str(b2)), font="Helvetica 10").grid(row=2, column=0, sticky=W)
-        Label(frame2, text=("Bod C má súradnice X: "+str(c1)+" Y: "+str(c2)), font="Helvetica 10").grid(row=3, column=0, sticky=W)
+        Label(frame2, text="Súradnice:",
+              font="Helvetica 12 bold").grid(row=0, column=0, sticky=N)
+        Label(frame2, text=("Bod A má súradnice X: " + str(a1)+" Y: "+str(a2)),
+              font="Helvetica 10").grid(row=1, column=0, sticky=W)
+        Label(frame2, text=("Bod B má súradnice X: " + str(b1)+" Y: "+str(b2)),
+              font="Helvetica 10").grid(row=2, column=0, sticky=W)
+        Label(frame2, text=("Bod C má súradnice X: " + str(c1)+" Y: "+str(c2)),
+              font="Helvetica 10").grid(row=3, column=0, sticky=W)
 
         """Výpis strán na kanvas"""
-        Label(frame2, text="Strany:", font="Helvetica 12 bold").grid(row=0, column=1, sticky=N)
-        Label(frame2, text=("Strana A je dlhá: "+str(strana_A)+" cm"), font="Helvetica 10").grid(row=1, column=1, sticky=W)
-        Label(frame2, text=("Strana B je dlhá: "+str(strana_B)+" cm"), font="Helvetica 10").grid(row=2, column=1, sticky=W)
-        Label(frame2, text=("Strana C je dlhá: "+str(strana_C)+" cm"), font="Helvetica 10").grid(row=3, column=1, sticky=W)
+        Label(frame2, text="Strany:", font="Helvetica 12 bold")\
+            .grid(row=0, column=1, sticky=N)
+        Label(frame2, text=("Strana A je dlhá: "+str(strana_A)+" cm"),
+              font="Helvetica 10").grid(row=1, column=1, sticky=W)
+        Label(frame2, text=("Strana B je dlhá: "+str(strana_B)+" cm"),
+              font="Helvetica 10").grid(row=2, column=1, sticky=W)
+        Label(frame2, text=("Strana C je dlhá: "+str(strana_C)+" cm"),
+              font="Helvetica 10").grid(row=3, column=1, sticky=W)
 
         """globalizovanie obvodu na kanvas"""
         global obvod
@@ -198,13 +215,19 @@ def vypis_vypocet():
         obsah = round(obsah, 2)
 
         """Výpis obvodu a obsahu na kanvas"""
-        Label(frame2, text="Výpočty:", font="Helvetica 12 bold").grid(row=0, column=2, sticky=N)
-        Label(frame2, text=("Obsah trojuholníka sa rovná: "+str(obsah)+" cm²"), font="Helvetica 10").grid(row=1, column=2, sticky=W)
-        Label(frame2, text=("Obvod trojuholníka sa rovná: "+str(obvod)+" cm"), font="Helvetica 10").grid(row=2, column=2, sticky=W)
-        Label(frame2, text=(str(pravouhlost())), font="Helvetica 10").grid(row=3, column=2, sticky=W)
+        Label(frame2, text="Výpočty:", font="Helvetica 12 bold")\
+            .grid(row=0, column=2, sticky=N)
+        Label(frame2, text=("Obsah trojuholníka sa rovná: "+str(obsah)+" cm²"),
+              font="Helvetica 10").grid(row=1, column=2, sticky=W)
+        Label(frame2, text=("Obvod trojuholníka sa rovná: "+str(obvod)+" cm"),
+              font="Helvetica 10").grid(row=2, column=2, sticky=W)
+        Label(frame2, text=(str(pravouhlost())),
+              font="Helvetica 10").grid(row=3, column=2, sticky=W)
         kresba()
     else:
-        Label(frame, text=("Trojuholník sa nedá narýsovať"), font="Helvetica 12 bold", fg="red").grid(row=10, column=0, columnspan=10, sticky=N)
+        Label(frame, text=("Trojuholník sa nedá narýsovať"),
+              font="Helvetica 12 bold", fg="red")\
+                  .grid(row=10, column=0, columnspan=10, sticky=N)
 
 
 def obvod_Stran(strana_A, strana_B, strana_C):
@@ -241,7 +264,15 @@ def Obsah_Trojuholnika(strana_A, strana_B, strana_C):
 def pravouhlost():
     """Vstupní parametry jsou úhly."""
     """Vypis pravouhlosti"""
-    if (uhol(a1, a2, b1, b2, c1, c2) == 90.00000000000001) or (uhol(a1, a2, b1, b2, c1, c2) == 90.0) or (uhol(a1, a2, b1, b2, c1, c2) == 89.99999999999999) or (uhol(c1, c2, a1, a2, b1, b2) == 90.00000000000001) or (uhol(c1, c2, a1, a2, b1, b2) == 90.0) or (uhol(c1, c2, a1, a2, b1, b2) == 89.99999999999999) or (uhol(b1, b2, c1, c2, a1, a2) == 90.00000000000001) or (uhol(b1, b2, c1, c2, a1, a2) == 90.0) or (uhol(b1, b2, c1, c2, a1, a2) == 89.99999999999999):
+    if ((uhol(a1, a2, b1, b2, c1, c2) == 90.00000000000001) or
+        (uhol(a1, a2, b1, b2, c1, c2) == 90.0) or
+        (uhol(a1, a2, b1, b2, c1, c2) == 89.99999999999999) or
+        (uhol(c1, c2, a1, a2, b1, b2) == 90.00000000000001) or
+        (uhol(c1, c2, a1, a2, b1, b2) == 90.0) or
+        (uhol(c1, c2, a1, a2, b1, b2) == 89.99999999999999) or
+        (uhol(b1, b2, c1, c2, a1, a2) == 90.00000000000001) or
+        (uhol(b1, b2, c1, c2, a1, a2) == 90.0) or
+            (uhol(b1, b2, c1, c2, a1, a2) == 89.99999999999999)):
         return ("Trojuholnik je pravouhly")
     else:
         return ("Trojuholnik nie je pravouhly")
@@ -272,14 +303,20 @@ def kresba():
     udaje.create_line(c1, c2, a1, a2, fill="blue", width=5)
 
     """pomenovanie bodov"""
-    udaje.create_text(a1-20, a2-20, fill="black", font="Times 20", text="A", anchor="w")
-    udaje.create_text(b1+20, b2-20, fill="black", font="Times 20", text="B", anchor="w")
-    udaje.create_text(c1-20, c2+20, fill="black", font="Times 20", text="C", anchor="w")
+    udaje.create_text(a1-20, a2-20, fill="black",
+                      font="Times 20", text="A", anchor="w")
+    udaje.create_text(b1+20, b2-20, fill="black",
+                      font="Times 20", text="B", anchor="w")
+    udaje.create_text(c1-20, c2+20, fill="black",
+                      font="Times 20", text="C", anchor="w")
 
     """pomenovanie stran"""
-    udaje.create_text((a1+b1)/2, (a2+b2)/2, fill="red", font="Times 20 bold", text="c", anchor="w")
-    udaje.create_text((b1+c1)/2, (b2+c2)/2, fill="red", font="Times 20 bold", text="a", anchor="w")
-    udaje.create_text((a1+c1)/2, (a2+c2)/2, fill="red", font="Times 20 bold", text="b", anchor="w")
+    udaje.create_text((a1+b1)/2, (a2+b2)/2, fill="red",
+                      font="Times 20 bold", text="c", anchor="w")
+    udaje.create_text((b1+c1)/2, (b2+c2)/2, fill="red",
+                      font="Times 20 bold", text="a", anchor="w")
+    udaje.create_text((a1+c1)/2, (a2+c2)/2, fill="red",
+                      font="Times 20 bold", text="b", anchor="w")
 
 
 data()
