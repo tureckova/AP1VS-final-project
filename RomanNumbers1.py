@@ -3,6 +3,13 @@
 
 def intToRoman(cislo):
     """Vytvoříme platnou Římskou soustavu podle pořadí 0-9."""
+    if type(cislo) not in [int]:
+        raise TypeError("Zadana hodnota neni cislo")
+    if type(cislo) <= 0:
+        raise ValueError("Cislo mesmi byt nula nebo zaporne cislo")
+    if type cislo >= 4000:
+        raise ValueError("Cislo nemuze byt vyssi nez 4000")
+    
     """ 0   1000  2000  3000."""
     m = ["", "M", "MM", "MMM"]
     """    0   100  200   300    400   500  600   700     800    900."""
@@ -19,9 +26,10 @@ def intToRoman(cislo):
     """ 22 % 100 = 22 // 10 -> "XX" """
     jednicky = i[cislo % 10]
     """ 2 % 10 = 2 -> "II" """
-
+    
     """ Výsledek udá v pořadí tisíců/stovek/desítek/jedniček."""
     vysledek = (tisice + sta + desitky + jednicky)
+
     """ Vracíme funkci kvůli testovacímu kódu."""
     return vysledek
 
@@ -31,13 +39,6 @@ def main():
     print("Zadej cislo, ktere chces prevest do Rimske soustavy: ")
     """ Vstupní kód uživatele. """
     cislo = int(input())
-
-    if cislo <= 0:
-        raise ValueError("Cislo mesmi byt nula nebo zaporne cislo")
-    elif cislo >= 4000:
-        raise ValueError("Cislo nemuze byt vyssi nez 4000")
-    else:
-        raise TypeError("Zadana hodnota neni cislo")
 
     """Výstupní číslo v Římské číselné soustavě."""
     print(intToRoman(cislo))
