@@ -5,12 +5,11 @@ def intToRoman(cislo):
     """Vytvoříme platnou Římskou soustavu podle pořadí 0-9."""
     if type(cislo) not in [int]:
         raise TypeError("Zadana hodnota neni cislo")
-    if int(type(cislo)) <= 0:
+    if int(cislo) <= 0:
         raise ValueError("Cislo mesmi byt nula nebo zaporne cislo")
-    if int(type(cislo)) >= 4000:
+    if int(cislo) >= 4000:
         raise ValueError("Cislo nemuze byt vyssi nez 4000")
     
-
     """ 0   1000  2000  3000."""
     m = ["", "M", "MM", "MMM"]
     """    0   100  200   300    400   500  600   700     800    900."""
