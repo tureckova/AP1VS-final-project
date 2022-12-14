@@ -40,3 +40,21 @@ def decrypt(translate):
                     Morse_dictionary.values()).index(promena)]
                 promena = ''
     return word
+
+def main():
+    choice = input("Type '1' to encrypt "
+                   "\nType '2' to decrypt: ")
+    if choice == "1":
+        translate = input("Add some text: ")
+        result = encrypt(translate.lower())
+        print(result)
+
+    if choice == "2":
+        print("Tip: Copy code from the last word or sentence")
+        translate = input("Add morse code: ")
+        result = decrypt(translate)
+        print(result)
+
+
+if __name__ == '__main__':
+    main()
