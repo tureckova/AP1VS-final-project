@@ -8,5 +8,5 @@ Využili jsme knihovnu pyjokes pro tvorbu programu, který vypíše v konzoli vt
 3 - neutral </br>
 
 ## Výstup
-Vypsání vtipu do konzole </br>
+Vypsání vtipu vybrané kategorie do konzole </br>
 Přečtení vtipu
