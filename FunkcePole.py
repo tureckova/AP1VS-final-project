@@ -20,8 +20,6 @@ class FunkcePole:
         pole_nove = []
         for x in range(20):
             pole_nove.append((random.randint(1000)))
-        if all(isinstance(x, (int)) for x in pole_nove):
-            print("test")
         return pole_nove
 
     def nacteni_parametr(self):
@@ -54,7 +52,7 @@ class FunkcePole:
             raise FileNotFoundError("soubor neexistuje")
         with open(path) as f:
             pole_soubor = [int(i) for i in f.read().split(" ") if i.isdigit()]
-        if not pole_soubor:
+        if pole_soubor == []:
             raise ValueError("nelze převést na int")
         return pole_soubor
 
