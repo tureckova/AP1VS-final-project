@@ -32,11 +32,10 @@ class FunkcePole:
                 pole_parametr: pole obsahujici parametry
         """
         string_pole = sys.argv[1:]
-        pole_paramentr = []
+        pole_parametr = []
         for x in len(string_pole):
             if isinstance(string_pole[x], (int)):
-                pole_paramentr.append(pole_paramentr[x])
-        pole_parametr = [int(i) for i in sys.argv[1:].isdigit()]
+                pole_parametr.append(string_pole[x])
         if pole_parametr == []:
             raise ValueError("nelze převést na int")
         return pole_parametr
