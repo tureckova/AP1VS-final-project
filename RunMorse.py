@@ -24,3 +24,19 @@ def decrypt(translate):
     promena = ''
     translate += ' '
     word = ''
+
+    for letter in translate:
+
+        if letter != ' ':
+            n = 0
+            promena += letter
+
+        else:
+            n += 1
+            if n == 2:
+                word += ' '
+            else:
+                word += list(Morse_dictionary.keys())[list(
+                    Morse_dictionary.values()).index(promena)]
+                promena = ''
+    return word
