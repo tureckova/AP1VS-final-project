@@ -1,5 +1,19 @@
 # -*- coding: utf-8 -*-
-"""Main module for translator."""
+"""Main module for translator.
+
+VARIABLE KEY
+
+'message' -> 'stores the string to be encoded or decoded'
+'preparation_output' -> 'stores the prepared form of the message string'
+'check' -> 'stores bool value, True if message is morse code, False otherwise'
+'is_input_morse' -> 'stores the value of the check after preparation function'
+'encrypt_output' -> 'stores the morse form of the alphanumeric string'
+'txt_split' -> 'stores the morse code split up by a space in decrypt function'
+'decrypt_output' -> 'stores the aplhanumeric form of the morse string'
+'ex' -> 'stores the boolean value of the continue or exit loop'
+
+"""
+
 import re  # removes extra spaces
 import unicodedata  # removes diacritics
 import subprocess  # copy to clipboard
