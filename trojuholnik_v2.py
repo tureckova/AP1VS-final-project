@@ -10,6 +10,7 @@ frame.grid(row=0, column=0, sticky=N)
 frame2 = Frame(root)
 frame2.grid(row=0, column=0, sticky=E)
 
+"""Vytvorí pole pre zadanie údajov"""
 a_x = tk.Entry(frame,width=18)
 a_y = tk.Entry(frame,width=18)
 
@@ -141,7 +142,6 @@ def checkWrongData():
 
     global b2
     """Overenie zadaných údajov pre b2"""
-
     if len(b_y.get())<=3:
         if b_y.get().isdigit()and int(b_y.get()) <= 500:
             b2 = int(b_y.get())
@@ -247,6 +247,7 @@ def Obsah_Trojuholnika(strana_A,strana_B,strana_C):
     """Vrati obsah"""
     return obsah
 
+"""Vypis pravouhlosti"""
 def pravouhlost():
     if(uhol(a1, a2,b1, b2,c1, c2)==90.00000000000001) or (uhol(a1, a2,b1, b2,c1, c2)==90.0) or (uhol(a1, a2,b1, b2,c1, c2)==89.99999999999999) or (uhol(c1, c2,a1, a2,b1, b2)==90.00000000000001) or (uhol(c1, c2,a1, a2,b1, b2)==90.0) or (uhol(c1, c2,a1, a2,b1, b2)==89.99999999999999) or(uhol(b1, b2,c1, c2,a1, a2)==90.00000000000001) or (uhol(b1, b2,c1, c2,a1, a2)==90.0) or (uhol(b1, b2,c1, c2,a1, a2)==89.99999999999999):
         return ("Trojuholnik je pravouhly")
