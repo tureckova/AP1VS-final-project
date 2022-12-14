@@ -1,7 +1,6 @@
 from tkinter import *
 import tkinter as tk
-import math
-from math import degrees,acos
+from math import degrees, acos
 
 root = tk.Tk()
 
@@ -11,99 +10,103 @@ frame2 = Frame(root)
 frame2.grid(row=0, column=0, sticky=E)
 
 """Vytvorí pole pre zadanie údajov"""
-a_x = tk.Entry(frame,width=18)
-a_y = tk.Entry(frame,width=18)
+a_x = tk.Entry(frame, width=18)
+a_y = tk.Entry(frame, width=18)
 
-b_x = tk.Entry(frame,width=18)
-b_y = tk.Entry(frame,width=18)
+b_x = tk.Entry(frame, width=18)
+b_y = tk.Entry(frame, width=18)
 
-c_x = tk.Entry(frame,width=18)
-c_y = tk.Entry(frame,width=18)    
+c_x = tk.Entry(frame, width=18)
+c_y = tk.Entry(frame, width=18)
+
 
 def data():
-    """Vygenerovanie tabuliek pre zápis údajov"""
+    """Vygenerovanie tabuliek pre zápis údajov."""
     Label(frame, text="Číslo nesmie presiahnúť 500 \n a musí byť 3 ciferné!").grid(row=0, column=0, columnspan=10, sticky=N)
     Label(frame, text="X").grid(row=1, column=1, sticky=N)
     Label(frame, text="Y").grid(row=1, column=2, sticky=N)
 
-    Label(frame, text="Bod A:").grid(row=2,column=0, sticky=NW)
-    a_x.grid(row=2,column=1,sticky=W)
-    a_y.grid(row=2,column=2,sticky=W)
-    Label(frame, text="Bod B:").grid(row=4,column=0, sticky=NW)
-    b_x.grid(row=4,column=1,sticky=W)
-    b_y.grid(row=4,column=2,sticky=W)
-    Label(frame, text="Bod C:").grid(row=6,column=0, sticky=NW)
-    c_x.grid(row=6,column=1,sticky=W)
-    c_y.grid(row=6,column=2,sticky=W)
+    Label(frame, text="Bod A:").grid(row=2, column=0, sticky=NW)
+    a_x.grid(row=2, column=1, sticky=W)
+    a_y.grid(row=2, column=2, sticky=W)
+    Label(frame, text="Bod B:").grid(row=4, column=0, sticky=NW)
+    b_x.grid(row=4, column=1, sticky=W)
+    b_y.grid(row=4, column=2, sticky=W)
+    Label(frame, text="Bod C:").grid(row=6, column=0, sticky=NW)
+    c_x.grid(row=6, column=1, sticky=W)
+    c_y.grid(row=6, column=2, sticky=W)
 
-    tk.Button(frame, text='Nakresli', command=checkWrongData, width=15).grid(row=8,column=1,columnspan=2, rowspan=2,sticky=N)
+    tk.Button(frame, text='Nakresli', command=checkWrongData, width=15).grid(row=8, column=1, columnspan=2, rowspan=2, sticky=N)
     """Vygenerovanie tlačítka na spustenie výpočtov a vakreslovania"""
 
+
 def strana(b1, b2, c1, c2):
-    """Vstupní parametry jsou body souřadnice bodu B a C"""
+    """Vstupní parametry jsou body souřadnice bodu B a C."""
     """Kontrola a výpočet strany A"""
-    if  type(b1)  not in [int, float]:
+    if type(b1) not in [int, float]:
         raise TypeError("Musí byť číslo")
-    if  type(b2)  not in [int, float]:
+    if type(b2) not in [int, float]:
         raise TypeError("Musí byť číslo")
-    if  type(c1)  not in [int, float]:
+    if type(c1) not in [int, float]:
         raise TypeError("Musí byť číslo")
-    if  type(c2)  not in [int, float]:
+    if type(c2) not in [int, float]:
         raise TypeError("Musí byť číslo")
-    return (((b1-c1)**2+(b2-c2)**2)**(1/2)) 
+    return (((b1 - c1) ** 2 + (b2 - c2) ** 2) ** (1 / 2)) 
     """Metoda vrátí délku strany A"""
 
+
 def strana(c1, c2, a1, a2):
-    """Vstupní parametry jsou body souřadnice bodu C a A"""
+    """Vstupní parametry jsou body souřadnice bodu C a A."""
     """Kontrola a výpočet strany B"""
-    if  type(c1)  not in [int, float]:
+    if type(c1) not in [int, float]:
         raise TypeError("Musí byť číslo")
-    if  type(c2)  not in [int, float]:
+    if type(c2) not in [int, float]:
         raise TypeError("Musí byť číslo")
-    if  type(a1)  not in [int, float]:
+    if type(a1) not in [int, float]:
         raise TypeError("Musí byť číslo")
-    if  type(a2)  not in [int, float]:
+    if type(a2) not in [int, float]:
         raise TypeError("Musí byť číslo")
-    return (((c1-a1)**2+(c2-a2)**2)**(1/2))
+    return (((c1 - a1) ** 2 + (c2 - a2) ** 2) ** (1 / 2))
     """Metoda vrátí délku strany A"""
-    
+
+
 def strana(a1, a2, b1, b2):
-    """Vstupní parametry jsou body souřadnice bodu A a B"""
+    """Vstupní parametry jsou body souřadnice bodu A a B."""
     """Kontrola a výpočet strany C"""
-    if  type(a1)  not in [int, float]:
+    if type(a1) not in [int, float]:
         raise TypeError("Musí byť číslo")
-    if  type(a2)  not in [int, float]:
+    if type(a2) not in [int, float]:
         raise TypeError("Musí byť číslo")
-    if  type(b1)  not in [int, float]:
+    if type(b1) not in [int, float]:
         raise TypeError("Musí byť číslo")
-    if  type(b2)  not in [int, float]:
+    if type(b2) not in [int, float]:
         raise TypeError("Musí byť číslo")
-    return (((a1-b1)**2+(a2-b2)**2)**(1/2))
+    return (((a1 - b1) ** 2 + (a2 - b2) ** 2) ** (1 / 2))
     """Metoda vrátí délku strany A"""
 
 def checkWrongData():
+    """Vyprázdneni pole."""    
+    labelA1 = Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
+    labelA1.grid(row=3, column=1)
 
-    """vyprázdnenie pola"""    
-    labelA1=Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
-    labelA1.grid(row=3,column=1)
+    labelA2 = Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
+    labelA2.grid(row=3, column=2)
 
-    labelA2=Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
-    labelA2.grid(row=3,column=2)
+    labelB1 = Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
+    labelB1.grid(row=5, column=1)
 
-    labelB1=Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
-    labelB1.grid(row=5,column=1)
+    labelB2 = Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
+    labelB2.grid(row=5, column=2)
 
-    labelB2=Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
-    labelB2.grid(row=5,column=2)
+    labelC1 = Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
+    labelC1.grid(row=7, column=1)
 
-    labelC1=Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
-    labelC1.grid(row=7,column=1)
-
-    labelC2=Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
-    labelC2.grid(row=7,column=2)
+    labelC2 = Label(frame, text="                                  ", fg="#FF0000", font="Helvetica 8 bold")
+    labelC2.grid(row=7, column=2)
     
 
-    """zadanie premennej"""
+"""Zadani promenne."""
+
     aa = 0
     ab = 0
     ba = 0
@@ -194,17 +197,17 @@ def vypis_vypocet():
     """globalizovaní a zaokrouhlení strany A"""
     global strana_A
     strana_A = strana(b1, b2, c1, c2)
-    strana_A = round(strana_A,2)
+    strana_A = round(strana_A, 2)
 
     """globalizovaní a zaokrouhlení strany B"""
     global strana_B
     strana_B = strana(c1, c2, a1, a2)
-    strana_B = round(strana_B,2)
+    strana_B = round(strana_B, 2)
  
     """globalizovaní a zaokrouhlení strany C"""
     global strana_C
     strana_C = strana(a1, a2, b1, b2)
-    strana_C = round(strana_C,2)
+    strana_C = round(strana_C, 2)
     
     if strana_A+strana_B>strana_C and strana_B+strana_C>strana_A and strana_A+strana_C>strana_B:
         Label(frame, text=("  Trojuholník sa dá narýsovať  "), font="Helvetica 15 bold", fg="white").grid(row=10,column=1, columnspan=2, sticky=N)
@@ -254,10 +257,10 @@ def obvod_Stran(strana_A,strana_B,strana_C):
     6
 
     """
-    return strana_A+strana_B+strana_C
+    return strana_A + strana_B + strana_C
 
 
-def Obsah_Trojuholnika(strana_A,strana_B,strana_C):
+def Obsah_Trojuholnika(strana_A, strana_B, strana_C):
     """Výpočet obsahu trojuholnika.
     
     :param strana_A: vstupní parameter strana A.
@@ -265,7 +268,7 @@ def Obsah_Trojuholnika(strana_A,strana_B,strana_C):
     :param strana_C: vstupní parameter strana C.
     :return: Vrátí obsah.
     """
-    s = (strana_A+strana_B+strana_C)/2
+    s = (strana_A + strana_B + strana_C)/2
     """Definovanie s ako polovica suctu stran"""
     obsah = ((s*(s-strana_A)*(s-strana_B)*(s-strana_C))**(1/2))
     """Vypocita obsah"""
@@ -274,7 +277,7 @@ def Obsah_Trojuholnika(strana_A,strana_B,strana_C):
 def pravouhlost():
     """Vstupní parametry jsou úhly"""
     """Vypis pravouhlosti"""
-    if(uhol(a1, a2,b1, b2,c1, c2)==90.00000000000001) or (uhol(a1, a2,b1, b2,c1, c2)==90.0) or (uhol(a1, a2,b1, b2,c1, c2)==89.99999999999999) or (uhol(c1, c2,a1, a2,b1, b2)==90.00000000000001) or (uhol(c1, c2,a1, a2,b1, b2)==90.0) or (uhol(c1, c2,a1, a2,b1, b2)==89.99999999999999) or(uhol(b1, b2,c1, c2,a1, a2)==90.00000000000001) or (uhol(b1, b2,c1, c2,a1, a2)==90.0) or (uhol(b1, b2,c1, c2,a1, a2)==89.99999999999999):
+    if(uhol(a1, a2, b1, b2, c1, c2)==90.00000000000001) or (uhol(a1, a2, b1, b2, c1, c2)==90.0) or (uhol(a1, a2,b1, b2,c1, c2)==89.99999999999999) or (uhol(c1, c2,a1, a2,b1, b2)==90.00000000000001) or (uhol(c1, c2,a1, a2,b1, b2)==90.0) or (uhol(c1, c2,a1, a2,b1, b2)==89.99999999999999) or(uhol(b1, b2,c1, c2,a1, a2)==90.00000000000001) or (uhol(b1, b2,c1, c2,a1, a2)==90.0) or (uhol(b1, b2,c1, c2,a1, a2)==89.99999999999999):
         return ("Trojuholnik je pravouhly")
     else :
         return ("Trojuholnik nie je pravouhly")
@@ -304,14 +307,14 @@ def kresba():
     udaje.grid(row=0, column=1, columnspan=5)
 
     """Narýsuje trojúhelník"""
-    udaje.create_line(a1,a2,b1,b2,fill="blue",width=5)
-    udaje.create_line(b1,b2,c1,c2,fill="blue",width=5)
-    udaje.create_line(c1,c2,a1,a2,fill="blue",width=5)
+    udaje.create_line(a1, a2, b1, b2, fill="blue", width=5)
+    udaje.create_line(b1, b2, c1, c2, fill="blue", width=5)
+    udaje.create_line(c1, c2, a1, a2, fill="blue", width=5)
 
     """pomenovanie bodov"""
-    udaje.create_text(a1-20,a2-20,fill="black",font="Times 20",text="A",anchor="w")
-    udaje.create_text(b1+20,b2-20,fill="black",font="Times 20",text="B",anchor="w")
-    udaje.create_text(c1-20,c2+20,fill="black",font="Times 20",text="C",anchor="w")
+    udaje.create_text(a1-20, a2-20, fill="black", font="Times 20", text="A",anchor="w")
+    udaje.create_text(b1+20, b2-20, fill="black", font="Times 20", text="B",anchor="w")
+    udaje.create_text(c1-20, c2+20, fill="black", font="Times 20", text="C",anchor="w")
 
     """pomenovanie stran"""
     udaje.create_text((a1+b1)/2,(a2+b2)/2,fill="red",font="Times 20 bold",text="c",anchor="w")
