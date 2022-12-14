@@ -54,8 +54,7 @@ def retezec(retezec):
         print("Nejcastejsi znak je:", countermax)
         """this line prints most frequent character"""
         print("Nejmene casty znak je:", countermin)
-        """this line prints least frequent character"""
-    else:
+        """this line prints least frequent character"""    else:
         """if variables countermax and countermin are equal, then it do this ↓"""
         print("CeTnost jednotlivych znaku je rovna")
     sum = 0
@@ -67,3 +66,4 @@ def retezec(retezec):
     print("Cetnost jednotlivych znaku:", counter)
     """this line prints frequency of each character"""
     return len(retezec), countermax, countermin, sum/len(counter), counter
+
