@@ -33,9 +33,9 @@ class FunkcePole:
         """
         string_pole = sys.argv[1:]
         pole_parametr = []
-        for x in len(string_pole):
-            if isinstance(string_pole[x], (int)):
-                pole_parametr.append(string_pole[x])
+        for x in string_pole:
+            if isinstance(x, (int)):
+                pole_parametr.append(x)
         if pole_parametr == []:
             raise ValueError("nelze převést na int")
         return pole_parametr
