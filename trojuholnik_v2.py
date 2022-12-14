@@ -203,29 +203,29 @@ def vypis_vypocet():
     if strana_A+strana_B>strana_C and strana_B+strana_C>strana_A and strana_A+strana_C>strana_B:
         Label(frame, text=("  Trojuholník sa dá narýsovať  "), font="Helvetica 15 bold", fg="white").grid(row=10,column=1, columnspan=2, sticky=N)
 
-        """Výpis súradnic"""
+        """Výpis súradnic na kanvas"""
         Label(frame2, text="Súradnice:", font="Helvetica 12 bold").grid(row=0,column=0, sticky=N)
         Label(frame2, text=("Bod A má súradnice X: "+str(a1)+" Y: "+str(a2)), font="Helvetica 10").grid(row=1,column=0, sticky=W)
         Label(frame2, text=("Bod B má súradnice X: "+str(b1)+" Y: "+str(b2)), font="Helvetica 10").grid(row=2,column=0, sticky=W)
         Label(frame2, text=("Bod C má súradnice X: "+str(c1)+" Y: "+str(c2)), font="Helvetica 10").grid(row=3,column=0, sticky=W)
         
-        """Výpis strán"""
+        """Výpis strán na kanvas"""
         Label(frame2, text="Strany:", font="Helvetica 12 bold").grid(row=0,column=1, sticky=N)
         Label(frame2, text=("Strana A je dlhá: "+str(strana_A)+" cm"), font="Helvetica 10").grid(row=1,column=1, sticky=W)
         Label(frame2, text=("Strana B je dlhá: "+str(strana_B)+" cm"), font="Helvetica 10").grid(row=2,column=1, sticky=W)
         Label(frame2, text=("Strana C je dlhá: "+str(strana_C)+" cm"), font="Helvetica 10").grid(row=3,column=1, sticky=W)
 
-        """globalizovanie obvodu"""
+        """globalizovanie obvodu na kanvas"""
         global obvod
         obvod = obvod_Stran(strana_A,strana_B,strana_C)
         obvod = round(obvod,2)
 
-        """globalizovanie obsahu"""
+        """globalizovanie obsahu na kanvas"""
         global obsah
         obsah = Obsah_Trojuholnika(strana_A,strana_B,strana_C)
         obsah = round(obsah,2)
 
-        """Výpis obvodu a obsahu"""
+        """Výpis obvodu a obsahu na kanvas"""
         Label(frame2, text="Výpočty:", font="Helvetica 12 bold").grid(row=0,column=2, sticky=N)
         Label(frame2, text=("Obsah trojuholníka sa rovná: "+str(obsah)+" cm²"), font="Helvetica 10").grid(row=1,column=2, sticky=W)
         Label(frame2, text=("Obvod trojuholníka sa rovná: "+str(obvod)+" cm"), font="Helvetica 10").grid(row=2,column=2, sticky=W)
