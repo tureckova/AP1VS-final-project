@@ -67,17 +67,13 @@ class TestMethods(unittest.TestCase):
         assert intToRoman(1000) == 'M'
 
     def test16(self):
-        """Kontrola správné hodnoty."""
-        assert intToRoman('string') == TypeError('Zadana hodnota musi byt cislo')
+        with self.assertRaises(TypeError):
+            intToRoman('hello')
 
     def test17(self):
-        """Kontrola správné hodnoty."""
-        assert intToRoman('!?:') == TypeError('Zadana hodnota musi byt cislo')
+        with self.assertRaises(ValueError):
+            intToRoman(4000)
 
     def test18(self):
-        """Kontrola správné hodnoty."""
-        assert intToRoman(0) == ValueError('Zadana hodnota nesmi byt nula')
-        
-    def test19(self):
-        """Kontrola správné hodnoty."""
-        assert intToRoman(4000) == ValueError('Zadana hodnota nesmi presahnout 4000')
+        with self.assertRaises(ValueError):
+            intToRoman(0)
