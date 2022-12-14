@@ -73,8 +73,6 @@ class TestMethods(unittest.TestCase):
         except TypeError:
            raise TypeError("Zadana hodnota neni cislo")
 
-       return intToRoman
-
     def test17(self):
         """Kontrola správné hodnoty."""
         try:
@@ -82,13 +80,9 @@ class TestMethods(unittest.TestCase):
         except TypeError:
            raise TypeError("Zadana hodnota neni cislo")
 
-       return intToRoman
-
     def test18(self):
         """Kontrola správné hodnoty."""
         try:
            intToRoman(4000)
         except TypeError:
            raise TypeError("Zadana hodnota neni cislo")
-
-       return intToRoman
