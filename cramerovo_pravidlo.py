@@ -25,7 +25,7 @@ def cramer_rule(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3):
     param c3: Vstupní parametr souřadnice a33
     param d3: Vstupní parametr
     """
-    # Vypocet koeficientu
+
     if (type(a1) not in [int, float] or
             type(b1) not in [int, float] or
             type(c1) not in [int, float] or
@@ -39,7 +39,8 @@ def cramer_rule(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3):
             type(c3) not in [int, float] or
             type(d3) not in [int, float]):
         raise TypeError("Parametr musi byt integer")
-
+ 
+    # Vypocet koeficient determinantu
     detA = round(a1*(b2*c3 - b3*c2) - b1*(a2*c3 - a3*c2) + c1*(a2*b3 - a3*b2))
 
     if detA == 0:
