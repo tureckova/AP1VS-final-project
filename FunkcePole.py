@@ -64,7 +64,7 @@ class FunkcePole:
             Returns:
                 pole: pole s cisly
         """
-        if len(sys.argv) <= 1:
+        if len(sys.argv) == 1:
             pole = self.generovat()
         elif len(sys.argv) == 2:
             pole = self.nacteni_soubor(sys.argv[1])
