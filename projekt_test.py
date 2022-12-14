@@ -18,6 +18,8 @@ def test_generateJoke():
         generateJoke(True)
     # test for userInput
     assert type(generateJoke(1)) == str
+    assert type(generateJoke(2)) == str
+    assert type(generateJoke(3)) == str
     # test if word "Chuck" is in GenerateJoke(2)
     word = "Chuck"
     assert word in generateJoke(2)
