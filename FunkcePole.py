@@ -31,12 +31,9 @@ class FunkcePole:
             Returns:
                 pole_parametr: pole obsahujici parametry
         """
-        string_pole = sys.argv[1:]
-        pole_parametr = []
-        for x in string_pole:
-            if isinstance(x, (int)):
-                pole_parametr.append(x)
-        if pole_parametr == []:
+        try:
+         pole_parametr = [int(i) for i in sys.argv[1:]]
+        except ValueError:
             raise ValueError("nelze převést na int")
         return pole_parametr
 
@@ -56,7 +53,7 @@ class FunkcePole:
         with open(path) as f:
             pole_soubor = [int(i) for i in f.read().split(" ") if i.isdigit()]
         if pole_soubor == []:
-            raise ValueError("není int")
+            raise ValueError("nelze převést na int")
         return pole_soubor
 
     def pole(self):
