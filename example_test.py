@@ -8,7 +8,7 @@ def test_decoding():
     """Test decoding."""
     assert decoding('...././.-../.-../---') == ('HELLO')
     assert decoding('-.../') == ('B ')
- 
+
 
 def test_coding():
     """Test coding."""
@@ -20,4 +20,3 @@ def test_coding():
 
 if __name__ == "__main__":
     pytest.main()
-
