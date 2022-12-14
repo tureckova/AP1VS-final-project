@@ -71,9 +71,9 @@ class TestMethods(unittest.TestCase):
             intToRoman('hello')
 
     def test17(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(TypeError):
             intToRoman(4000)
 
     def test18(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(TypeError):
             intToRoman(0)
