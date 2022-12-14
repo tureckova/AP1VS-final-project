@@ -2,7 +2,12 @@
 
 
 def intToRoman(cislo):
-    """Vytvoříme platnou Římskou soustavu podle pořadí 0-9."""
+    """Vytvoříme platnou Římskou soustavu podle pořadí 0-9.
+
+    :param cislo: Vstupní parametr cislo.
+    :return: Vrací výsledek převodu parametru cislo.
+    """
+
     """ 0   1000  2000  3000."""
     m = ["", "M", "MM", "MMM"]
     """    0   100  200   300    400   500  600   700     800    900."""
