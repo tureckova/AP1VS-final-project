@@ -242,21 +242,34 @@ def vypis_vypocet():
 
 
 def obvod_Stran(strana_A,strana_B,strana_C):
-    """Vypocet obvodu trojuholnika"""
-    """Vstupní parametry: strana_A, strana_B a strana_C."""
+    """Vypocet obvodu trojuholnika    
+    
+    :param strana_A: vstupní parameter strana A.
+    :param strana_B: vstupní parameter strana B.
+    :param strana_C: vstupní parameter strana C.
+    :return: Vrátí jejich součet- obvod.
+
+    ukázka použití:
+    >>> obvod_Stran(1,2,3)
+    6
+
+    """
     return strana_A+strana_B+strana_C
-    """"Vrati sucet strany A, strany B a strany C"""
 
 
 def Obsah_Trojuholnika(strana_A,strana_B,strana_C):
-    """Vypocet obsahu trojuholnika."""
-    """Vstupní parametry: strana_A, strana_B a strana_C."""
+    """Výpočet obsahu trojuholnika.
+    
+    :param strana_A: vstupní parameter strana A.
+    :param strana_B: vstupní parameter strana B.
+    :param strana_C: vstupní parameter strana C.
+    :return: Vrátí obsah.
+    """
     s = (strana_A+strana_B+strana_C)/2
     """Definovanie s ako polovica suctu stran"""
     obsah = ((s*(s-strana_A)*(s-strana_B)*(s-strana_C))**(1/2))
     """Vypocita obsah"""
     return obsah
-    """Vrátí obsah"""
 
 def pravouhlost():
     """Vstupní parametry jsou úhly"""
@@ -269,7 +282,11 @@ def pravouhlost():
 
 
 def uhol(a1, a2,b1, b2,c1, c2):
-    """Vstupní parametry jsou X a Y souřadnice bodů."""
+    """Vstupní parametry jsou X a Y souřadnice bodů.
+
+    :param a1: vstupní parametr X souřadnice bodu A.
+    :param a2: vstupní parametr Y souřadnice bodu A.
+    :param b1: vstupní parametr X souřadnice bodu B."""
     """Vypocet uhlov v stupnoch"""
     A = strana(b1, b2, c1, c2)
     """Definuje stranu A"""
