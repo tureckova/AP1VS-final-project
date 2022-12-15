@@ -57,7 +57,7 @@ def decrypt(translate):
                 # Ke vracene promene se pripocita key
                 # pomoci prikazu 'values'
                 # kde prikaz 'index' hleda
-                # tecky a carky ve slovkinu
+                # tecky a carky ve slovniku
                 word += list(Morse_dictionary.keys())[list(
                     Morse_dictionary.values()).index(promena)]
                 promena = ''
