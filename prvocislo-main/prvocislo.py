@@ -123,7 +123,7 @@ def power(a, p):
 def is_prime(n, k):
     """
     Try primality heuristically k times.
-    
+
     Tries a new random number each time
     >>> is_prime(2,3)
     True
@@ -147,7 +147,8 @@ def is_prime(n, k):
             if power(a, n) != 1:
                 return False
     return True
-    
+
+
 if __name__ == "__main__":
     repeat = "y"
     while (repeat == "y"):
