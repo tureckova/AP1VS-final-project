@@ -25,9 +25,14 @@ def retezec(retezec):
     ...
     TypeError: Imput must be string.
     >>> retezec("2")
-    Traceback (most recent call last):
-    ...
-    KeyError: '2'
+    Tvoje zvolene slovo je: 2
+    Tvoje slovo je dlouhe:  1 znaku
+    Nejcastejsi znaky jsou
+    ('2', 1)
+    Nejmene casty znak je: 2
+    Prumerna cetnost znaku je:  1.0
+    Cetnost jednotlivych znaku: Counter({'2': 1})
+    (1, '2', '2', 1.0, Counter({'2': 1}))
     >>> retezec()
     Traceback (most recent call last):
     ...
