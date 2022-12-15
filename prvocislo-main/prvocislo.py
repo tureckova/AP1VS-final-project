@@ -9,6 +9,7 @@ import random
 def type_prime(input):
     """
     Say if input is prime.
+
     Check input and pass on to counting_prime, returns only bool
     >>> type_prime(2)
     True
@@ -42,6 +43,7 @@ def type_prime(input):
 def counting_prime(input):
     """
     Give primality of number.
+
     Checks size, bruteforces, or passes to is_prime
     >>> counting_prime(-3)
     False
@@ -88,6 +90,7 @@ def counting_prime(input):
 def power(a, p):
     """
     Don't return 1 if number isn't prime.
+
     Can, and does, return 1 if number isn't prime
     >>> power(2,12)
     8
@@ -120,6 +123,7 @@ def power(a, p):
 def is_prime(n, k):
     """
     Try primality heuristically k times.
+    
     Tries a new random number each time
     >>> is_prime(2,3)
     True
