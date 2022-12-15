@@ -197,6 +197,7 @@ def continue_or_exit(txt):
     >>> continue_or_exit('J')
     <BLANKLINE>
     --------------------------------------------------------------
+    <BLANKLINE>
     False
 
     """
@@ -207,6 +208,7 @@ def continue_or_exit(txt):
         ex = True
     else:
         print('--------------------------------------------------------------')
+        print('')
     return ex
 
 
