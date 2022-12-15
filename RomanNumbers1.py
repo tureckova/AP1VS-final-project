@@ -2,17 +2,18 @@
 
 
 def intToRoman(cislo):
-    """Vytvoříme platnou Římskou soustavu podle pořadí 0-9.
+"""Vytvoříme platnou Římskou soustavu podle pořadí 0-9.
+
 :param cislo: vstupni promena funkce cislo !=<0 cislo!>4000
 :return: vraci vysledek po prevodu promenne cislo na rimskou soustavu
 """
     if type(cislo) not in [int]:
-        raise TypeError("Zadana hodnota neni cislo".format(cislo))
+        raise TypeError("Zadana hodnota neni cislo")
     if int(cislo) <= 0:
         raise ValueError("Cislo mesmi byt nula nebo zaporne cislo")
     if int(cislo) >= 4000:
         raise ValueError("Cislo nemuze byt vyssi nez 4000")
-    
+
     """ 0   1000  2000  3000."""
     m = ["", "M", "MM", "MMM"]
     """    0   100  200   300    400   500  600   700     800    900."""
@@ -29,7 +30,7 @@ def intToRoman(cislo):
     """ 22 % 100 = 22 // 10 -> "XX" """
     jednicky = i[cislo % 10]
     """ 2 % 10 = 2 -> "II" """
-    
+
     """ Výsledek udá v pořadí tisíců/stovek/desítek/jedniček."""
     vysledek = (tisice + sta + desitky + jednicky)
 
