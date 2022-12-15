@@ -129,7 +129,6 @@ def is_prime(n, k):
     >>> is_prime(7.0,3)
     True
     """
-    print("used heuristic function")
     # Try k times
     if (n == 2 or n == 3):
         return True
