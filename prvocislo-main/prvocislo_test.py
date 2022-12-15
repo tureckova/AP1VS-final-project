@@ -3,7 +3,6 @@ from prvocislo import type_prime, counting_prime, power, is_prime
 import pytest
 
 
-
 def test_type_prime():
     """Test function type_prime."""
     assert type_prime(1) is False
