@@ -68,12 +68,12 @@ class TestMethods(unittest.TestCase):
 
     def test16(self):
         """Kontrola správné hodnoty."""
-        self.assertRaises(TypeError, intToRoman('Hello'))
+        self.assertRaises(TypeError, intToRoman, 'Hello')
 
     def test17(self):
         """Kontrola správné hodnoty."""
-        self.assertRaises(ValueError, intToRoman(0))
+        self.assertRaises(ValueError, intToRoman, 0)
 
     def test18(self):
         """Kontrola správné hodnoty."""
-        self.assertRaises(ValueError, intToRoman(4000))
+        self.assertRaises(ValueError, intToRoman, 4000)

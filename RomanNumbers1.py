@@ -7,7 +7,7 @@ def intToRoman(cislo):
 :return: vraci vysledek po prevodu promenne cislo na rimskou soustavu
 """
     if type(cislo) not in [int]:
-        raise TypeError("Zadana hodnota neni cislo")
+        raise TypeError("Zadana hodnota neni cislo".format(cislo))
     if int(cislo) <= 0:
         raise ValueError("Cislo mesmi byt nula nebo zaporne cislo")
     if int(cislo) >= 4000:
