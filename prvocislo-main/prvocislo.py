@@ -47,6 +47,10 @@ def counting_prime(input):
     False
     >>> counting_prime(1)
     False
+    >>> counting_prime(-3)
+    False
+    >>> counting_prime(1)
+    False
     >>> counting_prime(2)
     True
     >>> counting_prime(4)
@@ -60,6 +64,10 @@ def counting_prime(input):
     if (input == int(input)):
         if (input > 100_000_000):
             return is_prime(input, 3)
+        if (input == 2):
+            return True
+        if (input < 2):
+            return False
         if (input == 2):
             return True
         if (input < 2):
