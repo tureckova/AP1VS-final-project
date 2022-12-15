@@ -10,9 +10,6 @@ def get_file_choice():
 
     Výstupní hodnota:
     :return input_text: String ve kterém je uložen input.
-
-    >>> get_file_choice()
-    test_text
     """
     print("\nZadejte název souboru i s připonou\nPříklad: readme.txt"
           "\nSoubor musí být ve stejné složce jako program")
@@ -28,9 +25,6 @@ def get_user_input():
 
     Výstupní hodnota:
     :return input_text: String ve kterém je uložen input.
-
-    >>> get_user_input()
-    test_text
     """
     print("\nZde můžete začít psát svůj parametr"
           "\nNemusíte se bát zmáčknout enter - program vám dovolí psát,"
@@ -52,12 +46,6 @@ def choices(choice):
 
     Výstupní hodnota:
     :return input_text: String ve kterém je uložen input.
-
-    >>> choices("1")
-    test_text
-
-    >>> choices("2")
-    test_text
     """
     if choice == "1":
         return get_file_choice()
