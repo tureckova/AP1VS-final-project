@@ -1,7 +1,5 @@
 """Kodovani a dekodovani z/do moseovky z/do textu."""
 
-import sys
-
 # Pridani slovniku
 Morse_dictionary = {
     'a': '.-', 'b': '-...', 'c': '-.-.',
@@ -68,8 +66,6 @@ def decrypt(translate):
 
 
 # Podminka pro spusteni programu
-
-
 
 def main():
     choice = input("Type '1' to encrypt or '2' to decrypt: ")
