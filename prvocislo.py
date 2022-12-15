@@ -64,18 +64,15 @@ def counting_prime(input):
     """
     # if whole number
     if (input == int(input)):
-        if (input > 100_000_000):
-            return is_prime(input, 3)
-        if (input == 2):
-            return True
-        if (input < 2):
-            return False
+        
         if (input == 2):
             return True
         if (input < 2):
             return False
         if (input % 2 == 0):
             return False
+        if (input > 100_000_000):
+            return is_prime(input, 3)
         for i in range(3, int(sqrt(input) + 1), 2):
             # no need to count to input
             # biggest not yet tested prime divider is square root of input
@@ -132,11 +129,7 @@ def is_prime(n, k):
     >>> is_prime(7.0,3)
     True
     """
-    # Corner cases
-    if n == 1 or n == 4:
-        return False
-    elif n == 2 or n == 3:
-        return True
+    print("used heuristic function")
     # Try k times
     else:
         for i in range(k):
