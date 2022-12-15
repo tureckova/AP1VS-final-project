@@ -137,4 +137,11 @@ def is_prime(n, k):
     return True
     
 if __name__ == "__main__":
-    print(counting_prime(-3))
+    repeat = "y"
+    while (repeat == "y"):
+        n = input("Enter a whole number: ")
+        if (type_prime(n)):
+            print(n + " is a whole number")
+        else:
+            print(n + " is not a whole number")
+        repeat = input("Wish to test another number? Type y: ")
