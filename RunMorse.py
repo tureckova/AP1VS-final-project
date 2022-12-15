@@ -1,5 +1,7 @@
 """Kodovani a dekodovani z/do moseovky z/do textu."""
 
+import sys
+
 # Pridani slovniku
 Morse_dictionary = {
     'a': '.-', 'b': '-...', 'c': '-.-.',
@@ -81,17 +83,20 @@ def main():
                 print("Please type '1' or '2': ")
         except:
             continue
-# Sifrovani
+    # Sifrovani a ulozeni posledniho sifrovaneho vysledku
     if choice == "1":
         translate = input("Add some text: ")
         result = encrypt(translate.lower())
+        sys.stdout = open("encrypted.txt", "w")
         print(result)
-# Desifrovani
+        sys.stdout.close()
+    # Desifrovani
     if choice == "2":
         print("Tip: Copy code from the last word or sentence")
         translate = input("Add morse code: ")
         result = decrypt(translate)
         print(result)
+
 
 if __name__ == '__main__':
     main()
