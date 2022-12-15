@@ -15,7 +15,6 @@ VARIABLE KEY
 'res' -> 'stores the ANSI code for reset style'
 
 """
-
 import re  # removes extra spaces
 import unicodedata  # removes diacritics
 import subprocess  # copy to clipboard
