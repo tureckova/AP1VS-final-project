@@ -64,7 +64,6 @@ def counting_prime(input):
     """
     # if whole number
     if (input == int(input)):
-        
         if (input == 2):
             return True
         if (input < 2):
