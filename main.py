@@ -9,7 +9,11 @@ import hashlib
 
 
 def get_input(text):
-    """get_input prints the user's input."""
+    """get_input prints the user's input.
+
+    :param text: Input parameter text.
+    :return: Returns input text if not null.
+    """
     if text is None:
         return input()
     else:
@@ -17,7 +21,13 @@ def get_input(text):
 
 
 def encrypt_password(password, hash_type, only_return=False):
-    """encrypt_password encrypts the given password and returns the hash."""
+    """encrypt_password encrypts the given password and returns the hash.
+
+    :param password: Default password in string.
+    :param hash_type: Selected type of encoding.
+    :param only_return: Returns only hashed password.
+    :return: Returns hashed password.
+    """
     match hash_type:
         case "md5":
             result = hashlib.md5(password.encode())
@@ -40,7 +50,11 @@ def encrypt_password(password, hash_type, only_return=False):
 
 
 def type_password(password_example):
-    """type_password gets the user's input."""
+    """type_password gets the user's input.
+
+    :param password_example: Input parameter password_example.
+    :return: Returns user input password.
+    """
     print("Please, enter your password(I won't look):")
     if password_example is None:
         passwd_input = get_input(None)
@@ -51,6 +65,10 @@ def type_password(password_example):
 
 def choose_algorithm(count_input):
     """choose_algorithm chooses the hashing Algorithm.
+
+    :param count_input: Static input.
+    :return: Returns input text.
+    Either derived from count_input or from user input.
 
     User input can be 1,2,3,4.
     """
@@ -80,7 +98,10 @@ def choose_algorithm(count_input):
 
 
 def intro():
-    """Intro prints the initial string."""
+    """Intro prints the initial string.
+
+    :return: Return the amazing welcome line.
+    """
     print("Welcome to the best password hasher 2022")
 
 
