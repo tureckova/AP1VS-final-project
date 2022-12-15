@@ -11,12 +11,16 @@ VARIABLE KEY
 'txt_split' -> 'stores the morse code split up by a space in decrypt function'
 'decrypt_output' -> 'stores the alphanumeric form of the morse string'
 'ex' -> 'stores the boolean value of the continue or exit loop'
+'grn' -> 'stores the ANSI code for green'
+'res' -> 'stores the ANSI code for reset style'
 
 """
 
 import re  # removes extra spaces
 import unicodedata  # removes diacritics
 import subprocess  # copy to clipboard
+import os  # colored text
+os.system("")
 
 morse_alphabet = {'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
                   'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
@@ -264,7 +268,9 @@ def get_message(txt):
 
 if __name__ == '__main__':
     while not ex:
-        message = get_message(str(input('Type your message: ')))
+        grn = '\033[32m'
+        res = '\033[0m'
+        message = get_message(str(input(grn + 'Type your message: ' + res)))
         message, is_input_morse = preparation(message)
         if is_input_morse is False:
             print('Encrypted message: ' + str(encrypt(message)) + '\n')
