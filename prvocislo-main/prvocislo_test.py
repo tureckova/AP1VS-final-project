@@ -4,11 +4,14 @@ import pytest
 
 def test_type_prime():
   """Test function type_prime"""
-  assert counting_prime(1) == False
-  assert counting_prime(5) == True
-  assert counting_prime("3") == True
-  assert counting_prime("6") == False
-  assert counting_prime("11.0") == False
+  assert type_prime(1) == False
+  assert type_prime(5) == True
+  assert type_prime(11.0) == True
+  assert type_prime(11.1) == False
+  assert type_prime("3") == True
+  assert type_prime("6") == False
+  assert type_prime("11.0") == True
+  assert type_prime("11.1") == False
 
 
 def test_counting_prime():
@@ -30,7 +33,7 @@ def test_power():
   """Test function power"""
   assert power(2,12) != 1
   assert power(2,13) == 1
-  assert power(5,31) != 1
+  assert power(5,35) != 1
 
 
 def test_is_prime():
