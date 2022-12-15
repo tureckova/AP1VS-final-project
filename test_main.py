@@ -11,11 +11,7 @@ from main import __name__
 
 
 class TestCountLetters(unittest.TestCase):
-    """
-    Třída na unit testy.
-
-    :param unittest.TestCase:
-    """
+    """Třída na unit testy."""
     def test_cleared_text(self):
         """
         Unit test pro funkci cleared_text().
