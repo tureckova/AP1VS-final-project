@@ -1,29 +1,33 @@
-"""Program na počítání jednotlivých symbolů ve stringu."""
+"""This is out project."""
+import string
 from collections import Counter
 
 
 def retezec(retezec):
-    """Collect information about characters in string."""
-    """příklady Funkce.
+    """Count frequency of characters.
 
-    Sample usage:
-    >>>retezec("blablalbalba")
-    Tvoje zvolene slovo je: blablalbalba
-    Tvoje slovo je dlouhe:  12 znaku
-    CeTnost jednotlivych znaku je rovna
-    Prumerna cetnost znaku je:  4.0
-    Cetnost jednotlivych znaku: Counter({'b': 4, 'l': 4, 'a': 4})
+    ----------
+    :param str retezec: Retezec must be string.
+    Can include every character in ASCII.
+    Příklady funkce:
+    ----------
+    >>> retezec("banana")
+    Tvoje zvolene slovo je: banana
+    Tvoje slovo je dlouhe:  6 znaku
+    Nejcastejsi znaky jsou
+    ('a', 3)
+    Nejmene casty znak je: b
+    Prumerna cetnost znaku je:  2.0
+    Cetnost jednotlivych znaku: Counter({'a': 3, 'n': 2, 'b': 1})
+    (6, 'a', 'b', 2.0, Counter({'a': 3, 'n': 2, 'b': 1}))
     >>>retezec(2)
     Traceback (most recent call last):
     ...
     TypeError: Imput must be string.
     >>> retezec("2")
-    Tvoje zvolene slovo je: 2
-    Tvoje slovo je dlouhe:  1 znaku
-    Nejcastejsi znak je: 2
-    Nejmene casty znak je: 2
-    Prumerna cetnost znaku je:  1.0
-    Cetnost jednotlivych znaku: Counter({'2': 1})
+    Traceback (most recent call last):
+    ...
+    KeyError: '2'
     >>> retezec()
     Traceback (most recent call last):
     ...
@@ -44,19 +48,30 @@ def retezec(retezec):
     """variable that stores an amount of each character in string"""
     print("Tvoje slovo je dlouhe: ", len(retezec), "znaku")
     """this line prints the lenght of string"""
-    countermax = max(counter, key=counter.get)
+    alphabet = string.printable
+    dictionary = {}
+
+    for letters in alphabet:
+        dictionary[letters] = 0
+
+    for letters in retezec:
+        dictionary[letters] += 1
+    dictionary = sorted(dictionary.items(),
+                        reverse=True,
+                        key=lambda x: x[1])
+    a = 1
+    print("Nejcastejsi znaky jsou")
+    for position in range(0, 26):
+        print(dictionary[position])
+        a += 1
+        if position != len(dictionary) - 1:
+            if dictionary[position + 1][1] < dictionary[position][1]:
+                break
     """variable that stores the most frequent character"""
     countermin = min(counter, key=counter.get)
+    print("Nejmene casty znak je:", countermin)
     """variable that stores the least frequent character"""
-    if (countermax != countermin):
-        """if variables countermax/min are different, then it do this ↓"""
-        print("Nejcastejsi znak je:", countermax)
-        """this line prints most frequent character"""
-        print("Nejmene casty znak je:", countermin)
-        """this line prints least frequent character"""
-    else:
-        """if variables countermax/min are equal, then it do this ↓"""
-        print("CeTnost jednotlivych znaku je rovna")
+    countermax = max(counter, key=counter.get)
     sum = 0
     for i in counter:
         """this line sums all integers in counter"""
@@ -65,4 +80,7 @@ def retezec(retezec):
     """this line prints the average frequency of characters"""
     print("Cetnost jednotlivych znaku:", counter)
     """this line prints frequency of each character"""
+    maxc = {}
+    for i in range(1, a):
+        maxc[i] = counter.most_common(i)[0]
     return len(retezec), countermax, countermin, sum/len(counter), counter
