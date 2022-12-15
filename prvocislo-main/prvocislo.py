@@ -9,13 +9,10 @@ import random
 def type_prime(input):
     """
     Say if input is prime.
-
     Check input and pass on to counting_prime, returns only bool
     >>> type_prime(2)
     True
     >>> type_prime(4)
-    False
-    >>> type_prime(-3)
     False
     >>> type_prime(7.0)
     True
@@ -26,8 +23,6 @@ def type_prime(input):
     >>> type_prime("6")
     False
     >>> type_prime("abc")
-    False
-    >>> type_prime(True)
     False
     """
     match input:
@@ -47,13 +42,14 @@ def type_prime(input):
 def counting_prime(input):
     """
     Give primality of number.
-
     Checks size, bruteforces, or passes to is_prime
+    >>> counting_prime(-3)
+    False
+    >>> counting_prime(1)
+    False
     >>> counting_prime(2)
     True
     >>> counting_prime(4)
-    False
-    >>> counting_prime(-3)
     False
     >>> counting_prime(7.0)
     True
@@ -64,6 +60,10 @@ def counting_prime(input):
     if (input == int(input)):
         if (input > 100_000_000):
             return is_prime(input, 3)
+        if (input == 2):
+            return True
+        if (input < 2):
+            return False
         if (input % 2 == 0):
             return False
         for i in range(3, int(sqrt(input) + 1), 2):
@@ -80,7 +80,6 @@ def counting_prime(input):
 def power(a, p):
     """
     Don't return 1 if number isn't prime.
-
     Can, and does, return 1 if number isn't prime
     >>> power(2,12)
     8
@@ -113,18 +112,13 @@ def power(a, p):
 def is_prime(n, k):
     """
     Try primality heuristically k times.
-
     Tries a new random number each time
     >>> is_prime(2,3)
     True
     >>> is_prime(4,5)
     False
-    >>> is_prime(-3,2)
-    False
     >>> is_prime(7.0,3)
     True
-    >>> is_prime(7.1,3)
-    False
     """
     # Corner cases
     if n == 1 or n == 4:
@@ -143,12 +137,4 @@ def is_prime(n, k):
     return True
     
 if __name__ == "__main__":
-    repeat = "y"
-    while (repeat == "y"):
-        n = input("Enter a whole number: ")
-        if (type_prime(n)):
-            print(n + " is a whole number")
-        else:
-            print(n + " is not a whole number")
-        repeat = input("Wish to test another number? Type y: ")
-
+    print(counting_prime(-3))
