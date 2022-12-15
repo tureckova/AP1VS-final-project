@@ -132,9 +132,9 @@ def is_prime(n, k):
     print("used heuristic function")
     # Try k times
     if (n == 2 or n == 3):
-        return true
+        return True
     if (n == 1 or n == 4):
-        return false
+        return False
     else:
         for i in range(k):
             # Pick a random number in [2..n-2]
