@@ -28,6 +28,10 @@ def test_counting_prime():
     assert counting_prime(-2) is False
     assert counting_prime(-5) is False
     assert counting_prime(-9) is False
+    with pytest.raises(TypeError):
+        counting_prime("5")
+    with pytest.raises(TypeError):
+        counting_prime([])
 
 
 def test_power():
