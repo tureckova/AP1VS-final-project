@@ -70,7 +70,8 @@ def decrypt(translate):
 
 def main():
     """Vyber jedne z funkce programu a jeho spusteni."""
-    choice = input("Type '1' to encrypt or '2' to decrypt,12 type something else to exit: ")
+    choice = input("Type '1' to encrypt or '2' to decrypt,"
+                   "\nor type something else to exit: ")
 
     if choice == "1":
         translate = input("Add some text: ")
