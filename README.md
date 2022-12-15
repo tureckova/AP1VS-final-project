@@ -1,5 +1,5 @@
-# Závěrečný projekt z předmětu AP1VS
-Tento repozitář slouží jako podklad a vzor pro závěrečný projekt z předmětu AP1VS.
+# Závěrečný projekt Zaduban Polková Přikryl Římská čísla
+Tento program bere jako vstup číselnou hodnotu ve formátu integer a mění ji na string složeny z římských číslic. Limit 3999.
 
 ## Požadavky na projekt
 * Projekt bude řešen formou forku a odevzdán pomocí pull requestu na githubu
