@@ -20,7 +20,7 @@ def retezec(retezec):
     Prumerna cetnost znaku je:  2.0
     Cetnost jednotlivych znaku: Counter({'a': 3, 'n': 2, 'b': 1})
     (6, 'a', 'b', 2.0, Counter({'a': 3, 'n': 2, 'b': 1}))
-    >>>retezec(2)
+    >>> retezec(2)
     Traceback (most recent call last):
     ...
     TypeError: Imput must be string.
