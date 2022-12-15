@@ -2,11 +2,12 @@
 
 
 def intToRoman(cislo):
-    """Vytvoříme platnou Římskou soustavu podle pořadí 0-9.
-
-:param cislo: vstupni promena funkce cislo !=<0 cislo!>4000
-:return: vraci vysledek po prevodu promenne cislo na rimskou soustavu
-"""
+    """
+    Vytvoříme platnou Římskou soustavu podle pořadí 0-9.
+    
+    :param cislo: vstupni promena funkce cislo !=<0 cislo!>4000
+    :return: vraci vysledek po prevodu promenne cislo na rimskou soustavu
+    """
     if type(cislo) not in [int]:
         raise TypeError("Zadana hodnota neni cislo")
     if int(cislo) <= 0:
