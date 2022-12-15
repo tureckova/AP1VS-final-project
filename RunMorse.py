@@ -70,27 +70,14 @@ def decrypt(translate):
 # Podminka pro spusteni programu
 
 
+
 def main():
-    """Vyber jedne z funkce programu a jeho spusteni."""
-    while True:
-        try:
-            choice = input("Type '1' to encrypt or '2' to decrypt: ")
-            # Kontrola spravneho vstupu
-            if choice == "1" or choice == "2":
-                print("Valid...")
-                break;
-            else:
-                print("Please type '1' or '2': ")
-        except:
-            continue
-    # Sifrovani a ulozeni posledniho sifrovaneho vysledku
+    choice = input("Type '1' to encrypt or '2' to decrypt: ")
     if choice == "1":
         translate = input("Add some text: ")
-        result = encrypt(translate.lower())
-        sys.stdout = open("encrypted.txt", "w")
+        result = encrypt(translate)
         print(result)
-        sys.stdout.close()
-    # Desifrovani
+
     if choice == "2":
         print("Tip: Copy code from the last word or sentence")
         translate = input("Add morse code: ")
