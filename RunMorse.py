@@ -57,7 +57,7 @@ def decrypt(translate):
                 # Ke vracene promene se pripocita key
                 # pomoci prikazu 'values'
                 # kde prikaz 'index' hleda
-                # tecky a carky ve slovkinu
+                # tecky a carky ve slovniku
                 word += list(Morse_dictionary.keys())[list(
                     Morse_dictionary.values()).index(promena)]
                 promena = ''
@@ -70,7 +70,7 @@ def decrypt(translate):
 
 def main():
     """Vyber jedne z funkce programu a jeho spusteni."""
-    choice = input("Type '1' to encrypt "
+    choice = input("Type '1' to encrypt: "
                    "\nType '2' to decrypt: ")
     if choice == "1":
         translate = input("Add some text: ")
